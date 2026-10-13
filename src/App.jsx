@@ -2,6 +2,11 @@
 
 const obras = ['Casa AJ', 'Casa BR', 'Casa FR', 'Casa JC', 'Casa JV', 'Casa LT', 'Colegio Mine', 'Remodelación YM']
 const academicos = ['S5 — Facultad de Arquitectura', 'S8 — Portugal']
+const contacto = {
+  email: 'jsandrade10@gmail.com',
+  telefono: '099 275 4846',
+  telefonoIntl: '+593992754846',
+}
 
 function Placeholder({ label, className = '' }) {
   return <div className={`ph ${className}`}>{label}</div>
@@ -64,7 +69,22 @@ export default function App() {
 
         <section id="contacto" className="section">
           <h2>Contacto</h2>
-          <p className="muted">Email · WhatsApp · LinkedIn · CV</p>
+          <ul className="contact">
+            <li>
+              <span className="muted">Email</span>
+              <a href={`mailto:${contacto.email}`}>{contacto.email}</a>
+            </li>
+            <li>
+              <span className="muted">Teléfono</span>
+              <a href={`tel:${contacto.telefonoIntl}`}>{contacto.telefono}</a>
+            </li>
+            <li>
+              <span className="muted">WhatsApp</span>
+              <a href={`https://wa.me/${contacto.telefonoIntl.replace('+', '')}`} target="_blank" rel="noreferrer">
+                Escríbeme por WhatsApp
+              </a>
+            </li>
+          </ul>
         </section>
       </main>
 
