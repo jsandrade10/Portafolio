@@ -94,7 +94,13 @@ Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombre
 
 ## Dirección del sitio web
 
-**Stack**: **React + Vite** (sitio estático, sin servidor). Fácil de alojar gratis (GitHub Pages, Netlify, Vercel).
+**Stack**: **React + Vite** (sitio estático, sin servidor), desplegado en **Vercel** desde `main` (cada push despliega). Vercel detecta Vite solo: build `npm run build`, salida `dist/`.
+
+**Comandos** (en `~/Desktop/Portafolio`):
+- `npm run dev` — servidor local en http://localhost:5173
+- `npm run build` — build de producción; correrlo antes de cada push para no romper el deploy.
+
+**Estado actual**: wireframe vacío de una sola página (`src/App.jsx`, `src/index.css`) con cajas grises por sección. Aún sin router ni contenido real.
 
 **Estructura propuesta**:
 1. **Inicio** — imagen a pantalla completa (CASA JC o CASA FR), nombre, "Arquitecto", una frase de presentación, acceso directo a Proyectos y Contacto.
