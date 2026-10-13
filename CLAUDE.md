@@ -54,7 +54,7 @@ Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombre
 
 | Proyecto | Fotos | Calidad de fotos | Lo que se observa |
 |---|---|---|---|
-| **CASA AJ** | 45 | 4 fotos profesionales `_A749…-HDR` + fotos de obra (2024-12 → 2025-02) | Vivienda de una planta, volúmenes de hormigón visto, muro de ladrillo gris con aparejo, cochera bajo losa en voladizo. Buen material de **proceso de obra**. |
+| **CASA AJ** | 47 | 4 fotos profesionales `_A749…-HDR` + fotos de obra (2024-12 → 2025-02) + `ajviejo.HEIF`/`ajnuevo.JPEG` (par antes/después, usado en el hero) | Vivienda de una planta, volúmenes de hormigón visto, muro de ladrillo gris con aparejo, cochera bajo losa en voladizo. Buen material de **proceso de obra**. |
 | **CASA BR** | 6 | Solo celular (HEIF) | Interior luminoso, doble altura, cocina abierta, ventanales de piso a techo. Pocas fotos. |
 | **CASA FR** | 16 | **Fotografía profesional** (`DSC…-HDR`, `_A74…-HDR`) | Gran vivienda con hormigón visto y muros de tapial/tierra apisonada; varias fotos en etapa de obra gris. Candidata a **proyecto destacado**. |
 | **CASA JC** | 11 | 6 profesionales `_A749…-HDR` + fotos de obra (2024-10 → 2025-02) | Dos plantas: volumen superior de hormigón visto sobre base de piedra/laja, carpintería roja, chimenea. Candidata a **imagen de portada**. |
@@ -90,7 +90,7 @@ Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombre
     - convertir: `sips -s format jpeg -Z 1600 entrada.HEIC --out salida.jpg`
     - miniatura de la 1.ª página de un PDF: `qlmanage -t -s 2000 -o <dir> archivo.pdf`
     - Para extraer **todas** las páginas de los PDF de UNI hará falta otra herramienta (p. ej. un paquete npm sin compilación nativa) — preguntar a Joaquín antes de instalar.
-- **Espacio**: el disco interno de la Mac anda casi lleno (~5 GB libres). Mantener el proyecto liviano y avisar antes de descargar cosas grandes.
+- **Espacio**: el disco interno de la Mac tiene poco espacio (~5 GB libres al 2026-10-12). Mantener el proyecto liviano y avisar antes de descargar cosas grandes.
 
 ## Dirección del sitio web
 
@@ -100,10 +100,24 @@ Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombre
 - `npm run dev` — servidor local en http://localhost:5173
 - `npm run build` — build de producción; correrlo antes de cada push para no romper el deploy.
 
-**Estado actual**: wireframe vacío de una sola página (`src/App.jsx`, `src/index.css`) con cajas grises por sección. Aún sin router ni contenido real.
+**Estado actual** (una sola página, sin router; sitio en vivo en Vercel):
+
+| Archivo | Qué hay |
+|---|---|
+| `index.html` | `lang="es"`, título "Joaquín Andrade — Arquitectura". |
+| `src/App.jsx` | Página única con anclas: header fijo (Proyectos, Académico, Sobre mí, Contacto) → hero → Obra construida → Académico → Sobre mí → Contacto → footer. Listas `obras`, `academicos` y objeto `contacto` al inicio del archivo. |
+| `src/BeforeAfter.jsx` | Comparador antes/después: la barra sigue al mouse sin clic; en táctil se arrastra; flechas del teclado ±5 %. Izquierda de la barra = `after` (terminado), derecha = `before` (en obra). Usa `clip-path` sobre la imagen `after`. |
+| `src/index.css` | Estilos globales con variables en `:root` (`--bg`, `--fg`, `--muted`, `--ph`, `--gutter`) + clases `.ba-*` del comparador y `.contact`. |
+| `public/img/hero/` | `casa-aj-obra.jpg` y `casa-aj-final.jpg`, 2100×1400, calidad ~75. |
+
+- **Hero (hecho)**: comparador de **Casa AJ** — `WORK/CASA AJ/ajviejo.HEIF` (en obra) vs `ajnuevo.JPEG` (terminada). La foto de obra se recortó a 3:2 para alinearla con la final; la altura coincide, pero queda ~10 % de desfase horizontal porque no se tomaron desde el mismo punto. Si Joaquín consigue una foto de obra con el mismo encuadre, reemplazarla. Etiquetas: "Terminado" (izq.) / "En obra" (der.). El texto de nombre + frase va debajo de la imagen.
+- **Contacto (hecho)**: email `jsandrade10@gmail.com` (`mailto:`), teléfono `099 275 4846` (`tel:+593992754846`) y enlace a WhatsApp (`https://wa.me/593992754846`). Faltan LinkedIn/Instagram y CV.
+- **Pendiente (siguen como cajas grises)**: tarjetas de Obra construida y Académico (sin fotos ni datos), Sobre mí (foto de perfil, línea de tiempo), frase de presentación del hero.
+
+**Cómo preparar imágenes** (lo que funcionó): convertir con `sips` a JPG, redimensionar (`-z alto ancho` o `-Z lado_mayor`), calidad con `-s formatOptions 75`; recortar con `-c alto ancho --cropOffset y x`. Para comparadores antes/después, las dos fotos deben quedar con **la misma proporción y tamaño**. Revisar visualmente el resultado antes de subir. Nombres en minúsculas con guiones.
 
 **Estructura propuesta**:
-1. **Inicio** — imagen a pantalla completa (CASA JC o CASA FR), nombre, "Arquitecto", una frase de presentación, acceso directo a Proyectos y Contacto.
+1. **Inicio** — comparador antes/después a pantalla completa (hecho, Casa AJ), nombre, "Arquitecto", una frase de presentación, acceso directo a Proyectos y Contacto.
 2. **Proyectos** — grilla visual filtrable: *Obra construida* / *Académicos*, y por tipo (vivienda nueva, remodelación, educativo).
 3. **Página de proyecto** — plantilla común:
    - Foto hero + ficha rápida (ubicación, año, tipo, superficie, **rol de Joaquín**, estado).
@@ -125,4 +139,14 @@ Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombre
 
 ## Información pendiente de Joaquín
 
-Antes de redactar los textos finales, pedir para cada obra de WORK: **ubicación, año, rol, empleador/estudio, tipo de proyecto, m² aproximados, materiales/sistema constructivo** y si hay permiso del cliente/estudio para publicar. Además: material de S4, S6, S7 y TESIS; foto de perfil; CV; datos de contacto; y el nombre del estudio o la marca personal que quiere usar.
+Antes de redactar los textos finales, pedir para cada obra de WORK: **ubicación, año, rol, empleador/estudio, tipo de proyecto, m² aproximados, materiales/sistema constructivo** y si hay permiso del cliente/estudio para publicar. Además: material de S4, S6, S7 y TESIS; foto de perfil; CV en PDF; enlaces de LinkedIn/Instagram; frase de presentación; y el nombre del estudio o la marca personal que quiere usar. (Email y teléfono ya están.)
+
+## Bitácora
+
+**2026-10-12 — primera sesión**
+- Se revisó el material original (UNI y WORK) y se creó este `CLAUDE.md`.
+- Entorno: el disco interno estaba lleno (23 MB libres) y Joaquín liberó espacio. Se decidió **no instalar** las Command Line Tools de Xcode (muy pesadas). Se instaló Node.js 22 (`.pkg`) y GitHub Desktop en `~/Applications` (macOS no dejó instalar en `/Applications` desde la terminal). Se usa el git de GitHub Desktop vía `~/.local/bin/git`, con Git Credential Manager ya autorizado.
+- El disco externo es FAT32 → el código se movió a `~/Desktop/Portafolio` (la carpeta `WEB/` del disco externo se borró). El zip de GitHub Desktop quedó en `/Volumes/JAR BK 1T/HERRAMIENTAS/`.
+- Repo clonado, proyecto React + Vite creado, **Vercel conectado y desplegando** desde `main`.
+- Se agregaron los datos de contacto y el hero con comparador antes/después de Casa AJ.
+- **Próximo paso sugerido**: llenar las tarjetas de proyectos con fotos reales (empezar por Casa JC, Casa FR y Casa AJ, que tienen fotografía profesional) y pedir a Joaquín los datos pendientes de cada obra.
