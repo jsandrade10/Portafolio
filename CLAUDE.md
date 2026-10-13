@@ -76,7 +76,8 @@ Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombre
   - **Material original** (solo lectura): `/Volumes/JAR BK 1T/PORTFOLIO.` (disco externo). El disco está en **FAT32** (`msdos`): no admite symlinks ni apps de macOS. **No poner código, `node_modules` ni apps aquí.**
   - **Código del sitio**: `~/Desktop/Portafolio`, clon de https://github.com/jsandrade10/Portafolio (repo **público**). Las imágenes procesadas (fotos convertidas, recortes, miniaturas) van dentro de ese proyecto (p. ej. `public/img/`). Nunca subir al repo los originales de `UNI/`/`WORK/` (y menos los `.dwg`); solo las imágenes optimizadas y curadas que use el sitio.
 - **Mac**: Intel (x86_64), macOS 12.6 Monterey. **Sin Command Line Tools de Xcode** (decisión de Joaquín: no instalar nada pesado), así que `/usr/bin/git` y `python3` no funcionan.
-  - **git**: usar `~/.local/bin/git` (envoltorio del git que trae GitHub Desktop, instalado en `~/Applications/GitHub Desktop.app`). No está en el PATH: llamarlo con la ruta completa.
+  - **git**: usar `~/.local/bin/git` (envoltorio del git que trae GitHub Desktop, instalado en `~/Applications/GitHub Desktop.app`). No está en el PATH: llamarlo con la ruta completa. Credenciales: Git Credential Manager (`~/.local/bin/git-credential-manager`, llavero de macOS), ya autorizado para jsandrade10.
+  - **Commits y push**: Joaquín autorizó que Claude haga siempre el commit y el push a `origin` sin pedir permiso cada vez. Esta copia del `CLAUDE.md` (en el repo) es la principal.
   - **Node.js v22 + npm v10** en `/usr/local/bin`. No usar paquetes que requieran compilación nativa (node-gyp), porque no hay compilador.
   - `sips` y `qlmanage` (nativos de macOS) para imágenes: no hay ImageMagick, `pdftoppm` ni Python.
     - convertir: `sips -s format jpeg -Z 1600 entrada.HEIC --out salida.jpg`
