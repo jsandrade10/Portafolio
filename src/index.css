@@ -52,3 +52,9 @@ h1, h2, h3 { font-weight: 500; margin: 0 0 .5rem; }
 @media (max-width: 700px) { .split { grid-template-columns: 1fr; } }
 
 .footer { padding: 32px var(--gutter); border-top: 1px solid var(--ph); font-size: .85rem; }
+
+.contact { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 16px; }
+.contact li { display: flex; flex-direction: column; gap: 2px; }
+.contact span { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; }
+.contact a { font-size: 1.15rem; border-bottom: 1px solid transparent; width: fit-content; }
+.contact a:hover { border-bottom-color: currentColor; }
