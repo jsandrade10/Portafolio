@@ -1,4 +1,5 @@
 // Wireframe: cajas grises con la estructura del sitio. Sin contenido real todavía.
+import BeforeAfter from './BeforeAfter.jsx'
 
 const obras = ['Casa AJ', 'Casa BR', 'Casa FR', 'Casa JC', 'Casa JV', 'Casa LT', 'Colegio Mine', 'Remodelación YM']
 const academicos = ['S5 — Facultad de Arquitectura', 'S8 — Portugal']
@@ -41,7 +42,12 @@ export default function App() {
 
       <main>
         <section id="inicio" className="hero">
-          <Placeholder label="Imagen principal" className="ph-hero" />
+          <BeforeAfter
+            before={{ src: '/img/hero/casa-aj-obra.jpg', alt: 'Casa AJ durante la construcción, en obra gris' }}
+            after={{ src: '/img/hero/casa-aj-final.jpg', alt: 'Casa AJ terminada: volúmenes de hormigón visto y muro de ladrillo' }}
+            beforeLabel="En obra"
+            afterLabel="Terminado"
+          />
           <div className="hero-text">
             <h1>Joaquín Andrade</h1>
             <p>Arquitecto — frase de presentación</p>
