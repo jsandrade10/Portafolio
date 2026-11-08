@@ -13,20 +13,16 @@ Idioma del sitio: español (dejar preparada la estructura para una versión en i
 ## Estructura de la carpeta
 
 ```
-/Volumes/JAR BK 1T/PORTFOLIO./   ← material original; ojo: la carpeta termina en punto
-├── REMODELACIÓN YM/   ← obra profesional (movida aquí desde WORK/ por Joaquín, 2026-11)
-│   └── selección/     ← 6 fotos curadas para el portafolio (creada a pedido de Joaquín)
-├── UNI/               ← proyectos universitarios (autoría propia); renombrados T4–T8 al 2026-11-08:
-│   ├── T4/  T5/FACULTAD DE ARQUITECTURA/  T6/BIBLIOTECA/  T7/{PLAN MASA, EDIFICIO NEXO}/
-│   ├── TESIS/{PLAN MASA, MUNDANEUM BEIRUT}/   ← contenido aún sin revisar
-│   └── T8 PORTUGAL/   (PROCESO/, ENTREGA FINAL/)
-│   (estructura anterior, ya no vigente:)
-│   ├── S4/  S6/  S7/  TESIS/   ← VACÍAS por ahora (pendiente de material)
-│   ├── S5/            ← Taller 5, USFQ, 2020 — "Facultad de Arquitectura"
-│   └── S8 PORTUGAL/   ← Proyecto Avanzado II, 2022 — "Aldea Jardín" / Galería-Talleres de Arte
-│       ├── PROCESO/        (entregas intermedias)
-│       └── ENTREGA FINAL/  (CUADERNO.pdf, laminas finales.pdf)
-└── WORK/              ← obra profesional: una carpeta por proyecto
+/Volumes/JAR BK 1T/PORTFOLIO./   ← material original (curado por Joaquín al 2026-11-08); la carpeta termina en punto
+├── REMODELACIÓN YM/   ← PROYECTO PROPIO: 01–06.jpg (selección hecha con Claude) + 07.JPG
+├── UNI/               ← recorrido universitario USFQ (PDF de láminas), un taller por semestre
+│   ├── T4/CENTRO COMUNITARIO.pdf (214 MB)
+│   ├── T5/FACULTAD DE ARQUITECTURA/   (análisis de programa, entregas 1–3, final)
+│   ├── T6/BIBLIOTECA/                 (entregas 1–4, final)
+│   ├── T7/EDIFICIO NEXO/              (entregas 1–7, final) + T7/PLAN MASA/
+│   ├── T8 PORTUGAL/GALERÍA-TALLERES DE ARTE/ (CUADERNO, laminas finales) + PROCESO/
+│   └── TESIS/MUNDANEUM BEIRUT/        (entregas 1–3, final, INFORME, MAQUETA, PORTAFOLIO) + TESIS/PLAN MASA/
+└── WORK/              ← obras donde Joaquín es JEFE DE OBRA (diseño Diez + Muller, construcción Arq. Buró)
     ├── CASA AJ/  CASA BR/  CASA FR/  CASA JC/  CASA JV/  CASA LT/
     └── COLEGIO MINE/
 ```
@@ -44,18 +40,22 @@ Los archivos `._*` y `.DS_Store` son basura de macOS: ignorarlos.
 ## Reglas importantes
 
 - **Los `.dwg` de WORK NO son de autoría de Joaquín.** Solo sirven para *entender* el proyecto (programa, distribución, superficies, niveles). **Nunca** publicarlos, exportarlos ni redibujarlos tal cual en el sitio. Si se necesita un gráfico explicativo, hacer diagramas propios simplificados (esquemas de zonificación, recorridos, etc.) y confirmarlo antes con Joaquín.
-- **No modificar, mover ni borrar los originales** en `UNI/` y `WORK/` (excepción autorizada: carpetas de selección con copias, como `REMODELACIÓN YM/selección/`). Todo material procesado (fotos convertidas, recortes, miniaturas) va dentro del proyecto del sitio en `~/Desktop/Portafolio`.
+- **No modificar, mover ni borrar los originales** en `UNI/`, `WORK/` y `REMODELACIÓN YM/` (solo crear carpetas con copias si Joaquín lo pide). Todo material procesado (fotos convertidas, recortes, miniaturas) va dentro del proyecto del sitio en `~/Desktop/Portafolio`.
 - `CASA JV/` contiene `CASA JV.bak`, `.dwl` y `.dwl2` (archivos de bloqueo/respaldo de AutoCAD): ignorarlos.
 - **Créditos**: en S8 Portugal la fase de análisis urbano ("Aldea Jardín", entrega 1) es en coautoría con **Katherine Pazmiño**; la Galería-Talleres de Arte final aparece firmada solo por Joaquín. Mantener los créditos correctos.
-- **Rol en cada obra profesional: DESCONOCIDO.** No inventar el rol (diseño, dirección de obra, residencia, interiorismo…), el estudio/empleador, la ubicación, el año ni los m². Preguntar a Joaquín y marcar como `PENDIENTE` hasta tenerlo.
+- **Roles y créditos (confirmados por Joaquín, 2026-11-08)** — respetarlos siempre en el sitio:
+  - **Remodelación YM**: su **primer proyecto como arquitecto, diseñado y dirigido enteramente por él** (proyecto propio). Es la pieza de autoría profesional del portafolio.
+  - **WORK (todas las casas + Colegio Mine)**: **diseño de Diez + Muller** (firma de arquitectura muy reconocida en Ecuador), **construcción de Arq. Buró**, empresa donde Joaquín trabaja como **jefe de obra / residente de obra**. **No son diseños de Joaquín ni es el constructor**: nunca presentarlas como diseño propio. Siempre acreditar a Diez + Muller como autores del diseño.
+  - **UNI**: proyectos académicos propios en la USFQ. T4 (Centro Comunitario) es en coautoría con **Sofía Murillo** (aparece en la lámina).
+  - Siguen PENDIENTES (no inventar): año, ubicación y m² de cada obra; título exacto a usar ("Jefe de obra" o "Residente de obra"); permiso de Diez + Muller / Arq. Buró y de los clientes para publicar las fotos (las profesionales `_A74…`/`DSC…` probablemente son del fotógrafo de Diez + Muller: preguntar crédito del fotógrafo).
 - Los nombres de las obras son iniciales de clientes (AJ, BR, FR…). No intentar deducir ni publicar nombres de clientes.
 - Hay fotos con personas, vehículos y placas: evitar o recortar las que muestren datos identificables.
 
 ## Inventario de proyectos
 
-### Obra profesional (WORK)
+### Obra como jefe de obra (WORK) — diseño Diez + Muller, construcción Arq. Buró
 
-Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombres de archivo: aprox. **2024–2025**.
+Observaciones a partir de las fotos. Joaquín depuró las carpetas el 2026-11-08: ahora hay menos fotos por obra (AJ 8, BR 4, FR 6, JC 8, JV 5, LT 5, Mine 5); la columna "Fotos" es del inventario anterior. Fechas en nombres de archivo: aprox. **2024–2025**.
 
 | Proyecto | Fotos | Calidad de fotos | Lo que se observa |
 |---|---|---|---|
@@ -66,15 +66,23 @@ Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombre
 | **CASA JV** | 15 | Celular | Terraza cubierta con mueble de hormigón/chimenea, cielo raso de madera, vista a la montaña. |
 | **CASA LT** | 15 | Celular + fotos WhatsApp (2024-01) | Volumen con revoque color terracota, celosía vertical, zócalo de piedra; etapa de obra. |
 | **COLEGIO MINE** | 7 | Celular | **Sala multiusos** (el dwg se llama `SALA MULTIUSOS MINE.dwg`): pabellón poligonal con cubierta metálica, ventanales con marcos de madera, entre eucaliptos. Único proyecto no residencial. |
-| **REMODELACIÓN YM** | 89 (75 HEIC + 14 JPG de WhatsApp, 960–1600px) | Celular | Remodelación: interiores con cielo de madera y vigas, arcos, piso de madera. Mucho material → ideal para **antes / durante / después**. Requiere curaduría fuerte. |
+
+### Proyecto propio — REMODELACIÓN YM
+
+Remodelación de vivienda: interiores con cielo de madera y vigas, arcos nuevos, piso de madera, jardín interior; fachada de ladrillo con puerta de arco. Fotos (celular / WhatsApp):
+- `01.jpg` sala doble altura (960×1280, baja resolución → pedir original) · `02.jpg` fachada de ladrillo al anochecer · `03.jpg` arco y puerta · `04.jpg` jardín interior · `05.jpg` proceso: apertura de muros · `06.jpg` proceso: nueva viga y vano · `07.JPG` arco con puerta tallada (1200×1600).
+- Portada web: `public/img/obras/remodelacion-ym.jpg` (recorte 4:3 de 01).
 
 ### Proyectos universitarios (UNI) — Universidad San Francisco de Quito (USFQ)
 
-- **S5 — Taller 5: "Facultad de Arquitectura"** (oct–dic 2020). Facultad en el centro histórico (calles Chile, Guayaquil, Juan José Flores, Mejía). Concepto: aprendizaje por investigación activa/pasiva; un espacio de **exposición** central articula talleres, biblioteca, auditorio y aulas. Archivos: análisis de programa, anteproyectos 2–4 y entrega final (corte longitudinal 1:200, malla estructural, axonometría estructural, implantación 1:500).
-- **S8 — Proyecto Avanzado II, Portugal** (mar–jun 2022). Intervención en la aldea de **Casa Branca**.
+- **T4 — Centro Cultural Comunitario "Equinoccio"** (Taller de Arquitectura II, lámina del 04/05/2020, con **Sofía Murillo**): dos volúmenes interconectados, luz cenital, separación de programa servidor/servido.
+- **T6 — Biblioteca** (Taller VI): concepto "Dualidad" (público/privado), en la esquina Juan de Azcaray y Av. 10 de Agosto (Quito); muros portantes + columnas de hormigón, luces de 6 m.
+- **T7 — Edificio Nexo** (Taller 7, 8 entregas) + **Plan Masa** (láminas del 04 oct).
+- **TESIS — Mundaneum Beirut** (USFQ): láminas, informe, fotos de maqueta y un PORTAFOLIO.pdf propio; + Plan Masa. Es el proyecto con el que obtuvo el título.
+- **T5 — Taller 5: "Facultad de Arquitectura"** (oct–dic 2020). Facultad en el centro histórico (calles Chile, Guayaquil, Juan José Flores, Mejía). Concepto: aprendizaje por investigación activa/pasiva; un espacio de **exposición** central articula talleres, biblioteca, auditorio y aulas. Archivos: análisis de programa, anteproyectos 2–4 y entrega final (corte longitudinal 1:200, malla estructural, axonometría estructural, implantación 1:500).
+- **T8 — Proyecto Avanzado II, Portugal** (mar–jun 2022). Intervención en la aldea de **Casa Branca**.
   - *Aldea Jardín* (análisis urbano, con Katherine Pazmiño): revitalizar y unificar la aldea mediante los espacios verdes existentes; el edificio se subordina al jardín. Diagramas de tipos de verde, contracción/expansión, límite y recorrido, lleno/vacío.
   - *Galería-Talleres de Arte — "el muro como organizador"*: el muro existente se convierte en recorrido y genera filtros hacia patios; talleres en edificio restaurado. Láminas con maqueta blanca, planta, axonometría, cortes y fotos del sitio.
-- **S4, S6, S7, TESIS**: carpetas vacías — material pendiente.
 
 ## Notas técnicas sobre los archivos
 
@@ -168,3 +176,5 @@ Antes de redactar los textos finales, pedir para cada obra de WORK: **ubicación
   - `03-terminado-arco-y-puerta.jpg` ← `IMG_8935.HEIC`; `04-terminado-jardin-interior.jpg` ← `IMG_8937.HEIC`.
   - `05-proceso-apertura-de-muros.jpg` ← `IMG_5828.HEIC`; `06-proceso-nueva-viga-y-vano.jpg` ← `IMG_5910.HEIC`.
   - Pares antes/después posibles: `d953867b`/`IMG_6180` (arco en obra) → `5114f3ae`/`IMG_8935`; `IMG_5910` → `IMG_8762` (vano terminado, de noche). Evitar `774dd02f` y `8bb3246b` (crucifijo, objeto personal) y fotos con obreros identificables.
+- **2026-11-08 (cont.)** — Joaquín curó todo el material y aclaró roles: YM = proyecto propio; WORK = jefe de obra en Arq. Buró, diseño de Diez + Muller; UNI = T4–T8 + Tesis (Mundaneum Beirut). La web ahora separa "Proyecto propio" y "Jefe de obra en Arq. Buró" con créditos en cada tarjeta, y Académico lista T4 → Tesis.
+- **Siguiente paso**: extraer láminas de los PDF (hace falta una herramienta; propuesta: paquete npm `mupdf`, WASM sin compilación, instalado fuera del repo) para las portadas académicas; luego páginas de proyecto.

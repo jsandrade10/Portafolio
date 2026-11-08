@@ -1,21 +1,34 @@
 // Página única. Las tarjetas sin foto siguen como cajas grises hasta tener material.
 import BeforeAfter from './BeforeAfter.jsx'
 
-// Datos de cada obra. Campos en null = PENDIENTE (preguntar a Joaquín; no inventar rol, año, ubicación ni m²).
+// Datos de los proyectos. Campos en null = PENDIENTE (preguntar a Joaquín; no inventar año, ubicación ni m²).
 // Si `portada` es null, la tarjeta muestra la caja gris.
+
+// Proyecto propio: diseño y dirección de obra de Joaquín.
+const propios = [
+  { nombre: 'Remodelación YM', tipo: 'Remodelación de vivienda', credito: 'Diseño y dirección de obra: Joaquín Andrade', portada: '/img/obras/remodelacion-ym.jpg', alt: 'Remodelación YM: sala de doble altura con cielo de madera y vigas, arcos y piso de madera', anio: null, ubicacion: null },
+]
+
+// Obras construidas por Arq. Buró con diseño de Diez + Muller; Joaquín es jefe de obra.
+const creditoBuro = 'Diseño: Diez + Muller · Construcción: Arq. Buró'
 const obras = [
-  { nombre: 'Casa JC', tipo: 'Vivienda', portada: '/img/obras/casa-jc.jpg', alt: 'Casa JC: volumen superior de hormigón visto en voladizo sobre una base de piedra, con chimenea roja', anio: null, ubicacion: null },
-  { nombre: 'Casa FR', tipo: 'Vivienda', portada: '/img/obras/casa-fr.jpg', alt: 'Casa FR en obra: muros de tierra apisonada y columnas de acero bajo la losa', anio: null, ubicacion: null },
-  { nombre: 'Casa AJ', tipo: 'Vivienda', portada: '/img/obras/casa-aj.jpg', alt: 'Casa AJ: volumen de hormigón visto con jardinera y gradas entre árboles', anio: null, ubicacion: null },
+  { nombre: 'Casa JC', tipo: 'Vivienda', portada: '/img/obras/casa-jc.jpg', alt: 'Casa JC: volumen superior de hormigón visto en voladizo sobre una base de piedra, con chimenea roja' },
+  { nombre: 'Casa FR', tipo: 'Vivienda', portada: '/img/obras/casa-fr.jpg', alt: 'Casa FR en obra: muros de tierra apisonada y columnas de acero bajo la losa' },
+  { nombre: 'Casa AJ', tipo: 'Vivienda', portada: '/img/obras/casa-aj.jpg', alt: 'Casa AJ: volumen de hormigón visto con jardinera y gradas entre árboles' },
   { nombre: 'Casa BR', tipo: 'Vivienda', portada: null },
   { nombre: 'Casa JV', tipo: 'Vivienda', portada: null },
   { nombre: 'Casa LT', tipo: 'Vivienda', portada: null },
   { nombre: 'Colegio Mine', tipo: 'Educativo · Sala multiusos', portada: null },
-  { nombre: 'Remodelación YM', tipo: 'Remodelación', portada: null },
-]
+].map((o) => ({ anio: null, ubicacion: null, credito: creditoBuro, ...o }))
+
+// Recorrido universitario (USFQ), de T4 a la tesis.
 const academicos = [
-  { nombre: 'S5 — Facultad de Arquitectura', tipo: 'Taller 5 · USFQ · 2020', portada: null },
-  { nombre: 'S8 — Portugal', tipo: 'Proyecto Avanzado II · 2022', portada: null },
+  { nombre: 'Centro Cultural Comunitario “Equinoccio”', tipo: 'Taller 4 · USFQ · 2020', credito: 'Con Sofía Murillo', portada: null },
+  { nombre: 'Facultad de Arquitectura', tipo: 'Taller 5 · USFQ · 2020', portada: null },
+  { nombre: 'Biblioteca', tipo: 'Taller 6 · USFQ', portada: null },
+  { nombre: 'Edificio Nexo', tipo: 'Taller 7 · USFQ', portada: null },
+  { nombre: 'Galería-Talleres de Arte', tipo: 'Taller 8 · Casa Branca, Portugal · 2022', portada: null },
+  { nombre: 'Mundaneum Beirut', tipo: 'Tesis de grado · USFQ', portada: null },
 ]
 const contacto = {
   email: 'jsandrade10@gmail.com',
@@ -30,7 +43,7 @@ function Placeholder({ label, className = '' }) {
 function Grid({ items }) {
   return (
     <div className="grid">
-      {items.map(({ nombre, tipo, portada, alt, anio, ubicacion }) => (
+      {items.map(({ nombre, tipo, credito, portada, alt, anio, ubicacion }) => (
         <article key={nombre} className="card">
           {portada ? (
             <div className="card-img">
@@ -41,6 +54,7 @@ function Grid({ items }) {
           )}
           <h3>{nombre}</h3>
           <p className="muted">{[tipo, anio, ubicacion].filter(Boolean).join(' · ')}</p>
+          {credito && <p className="muted credito">{credito}</p>}
         </article>
       ))}
     </div>
@@ -75,7 +89,12 @@ export default function App() {
         </section>
 
         <section id="proyectos" className="section">
-          <h2>Obra construida</h2>
+          <h2>Proyectos</h2>
+          <h3 className="subhead">Proyecto propio</h3>
+          <p className="muted intro">Diseñado y dirigido por mí, de principio a fin.</p>
+          <Grid items={propios} />
+          <h3 className="subhead">Jefe de obra en Arq. Buró</h3>
+          <p className="muted intro">Viviendas diseñadas por Diez + Muller y construidas por Arq. Buró, donde dirijo la obra en sitio.</p>
           <Grid items={obras} />
         </section>
 
