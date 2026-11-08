@@ -65,10 +65,10 @@ export default function App() {
       <main>
         <section id="inicio" className="hero">
           <BeforeAfter
-            before={{ src: '/img/hero/casa-aj-obra.jpg', alt: 'Casa AJ durante la construcción, en obra gris' }}
-            after={{ src: '/img/hero/casa-aj-final.jpg', alt: 'Casa AJ terminada: volúmenes de hormigón visto y muro de ladrillo' }}
-            beforeLabel="En obra"
-            afterLabel="Terminado"
+            left={{ src: '/img/hero/casa-aj-obra.jpg', alt: 'Casa AJ durante la construcción, en obra gris' }}
+            right={{ src: '/img/hero/casa-aj-final.jpg', alt: 'Casa AJ terminada: volúmenes de hormigón visto y muro de ladrillo' }}
+            leftLabel="En obra"
+            rightLabel="Terminado"
           />
           <div className="hero-text">
             <h1>Joaquín Andrade</h1>
@@ -81,7 +81,7 @@ export default function App() {
           <h3 className="subhead">Proyecto propio</h3>
           <Grid items={propios} />
           <h3 className="subhead">Jefe de obra en Arq. Buró</h3>
-          <p className="muted intro">Viviendas diseñadas por Diez + Muller y construidas por Arq. Buró, donde dirijo la obra en sitio.</p>
+          <p className="muted intro">Obras diseñadas por Diez + Muller y construidas por Arq. Buró, donde trabajo como jefe de obra.</p>
           <Grid items={obras} />
         </section>
 

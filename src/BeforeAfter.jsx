@@ -1,15 +1,15 @@
 import { useRef, useState } from 'react'
 
-// Comparador antes/después: la barra sigue al mouse (o al dedo al arrastrar).
-// Izquierda de la barra = `after` (terminado), derecha = `before` (en obra):
-// al mover de izquierda a derecha se revela la obra terminada.
-export default function BeforeAfter({ before, after, beforeLabel, afterLabel }) {
+// Comparador de dos fotos alineadas: la barra sigue al mouse (o al dedo al arrastrar).
+// `left` se ve a la izquierda de la barra y `right` a la derecha.
+// En el inicio: izquierda = en obra, derecha = terminado; al mover hacia la derecha se ve más obra.
+export default function BeforeAfter({ left, right, leftLabel, rightLabel }) {
   const ref = useRef(null)
   const [pos, setPos] = useState(50)
 
   const moveTo = (clientX) => {
-    const { left, width } = ref.current.getBoundingClientRect()
-    setPos(Math.min(100, Math.max(0, ((clientX - left) / width) * 100)))
+    const { left: x0, width } = ref.current.getBoundingClientRect()
+    setPos(Math.min(100, Math.max(0, ((clientX - x0) / width) * 100)))
   }
 
   const onPointerMove = (e) => {
@@ -31,21 +31,21 @@ export default function BeforeAfter({ before, after, beforeLabel, afterLabel }) 
       onKeyDown={onKeyDown}
       role="slider"
       tabIndex={0}
-      aria-label="Comparar obra en proceso y terminada"
+      aria-label={`Comparar: ${leftLabel} a la izquierda, ${rightLabel} a la derecha`}
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={Math.round(pos)}
     >
-      <img src={before.src} alt={before.alt} className="ba-img" fetchPriority="high" draggable="false" />
+      <img src={right.src} alt={right.alt} className="ba-img" fetchPriority="high" draggable="false" />
       <img
-        src={after.src}
-        alt={after.alt}
+        src={left.src}
+        alt={left.alt}
         className="ba-img"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         draggable="false"
       />
-      <span className="ba-label ba-label-left">{afterLabel}</span>
-      <span className="ba-label ba-label-right">{beforeLabel}</span>
+      <span className="ba-label ba-label-left">{leftLabel}</span>
+      <span className="ba-label ba-label-right">{rightLabel}</span>
       <div className="ba-bar" style={{ left: `${pos}%` }}>
         <span className="ba-handle" aria-hidden="true">‹ ›</span>
       </div>
