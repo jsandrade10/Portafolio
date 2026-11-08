@@ -1,35 +1,9 @@
-// Página única. Las tarjetas sin foto siguen como cajas grises hasta tener material.
+// Página única. Las tarjetas con fotos abren el visor (Lightbox) con la galería del proyecto.
+import { useState } from 'react'
 import BeforeAfter from './BeforeAfter.jsx'
+import Lightbox from './Lightbox.jsx'
+import { propios, obras, academicos } from './proyectos.js'
 
-// Datos de los proyectos. Campos en null = PENDIENTE (preguntar a Joaquín; no inventar año, ubicación ni m²).
-// Si `portada` es null, la tarjeta muestra la caja gris.
-
-// Proyecto propio: diseño y dirección de obra de Joaquín.
-const propios = [
-  { nombre: 'Remodelación YM', tipo: 'Remodelación de vivienda', credito: 'Diseño y dirección de obra: Joaquín Andrade', portada: '/img/obras/remodelacion-ym.jpg', alt: 'Remodelación YM: sala de doble altura con cielo de madera y vigas, arcos y piso de madera', anio: null, ubicacion: null },
-]
-
-// Obras construidas por Arq. Buró con diseño de Diez + Muller; Joaquín es jefe de obra.
-const creditoBuro = 'Diseño: Diez + Muller · Construcción: Arq. Buró'
-const obras = [
-  { nombre: 'Casa JC', tipo: 'Vivienda', portada: '/img/obras/casa-jc.jpg', alt: 'Casa JC: volumen superior de hormigón visto en voladizo sobre una base de piedra, con chimenea roja' },
-  { nombre: 'Casa FR', tipo: 'Vivienda', portada: '/img/obras/casa-fr.jpg', alt: 'Casa FR en obra: muros de tierra apisonada y columnas de acero bajo la losa' },
-  { nombre: 'Casa AJ', tipo: 'Vivienda', portada: '/img/obras/casa-aj.jpg', alt: 'Casa AJ: volumen de hormigón visto con jardinera y gradas entre árboles' },
-  { nombre: 'Casa BR', tipo: 'Vivienda', portada: null },
-  { nombre: 'Casa JV', tipo: 'Vivienda', portada: null },
-  { nombre: 'Casa LT', tipo: 'Vivienda', portada: null },
-  { nombre: 'Colegio Mine', tipo: 'Educativo · Sala multiusos', portada: null },
-].map((o) => ({ anio: null, ubicacion: null, credito: creditoBuro, ...o }))
-
-// Recorrido universitario (USFQ), de T4 a la tesis.
-const academicos = [
-  { nombre: 'Centro Cultural Comunitario “Equinoccio”', tipo: 'Taller 4 · USFQ · 2020', credito: 'Con Sofía Murillo', portada: null },
-  { nombre: 'Facultad de Arquitectura', tipo: 'Taller 5 · USFQ · 2020', portada: null },
-  { nombre: 'Biblioteca', tipo: 'Taller 6 · USFQ', portada: null },
-  { nombre: 'Edificio Nexo', tipo: 'Taller 7 · USFQ', portada: null },
-  { nombre: 'Galería-Talleres de Arte', tipo: 'Taller 8 · Casa Branca, Portugal · 2022', portada: null },
-  { nombre: 'Mundaneum Beirut', tipo: 'Tesis de grado · USFQ', portada: null },
-]
 const contacto = {
   email: 'jsandrade10@gmail.com',
   telefono: '099 275 4846',
@@ -41,22 +15,35 @@ function Placeholder({ label, className = '' }) {
 }
 
 function Grid({ items }) {
+  const [abierto, setAbierto] = useState(null)
   return (
     <div className="grid">
-      {items.map(({ nombre, tipo, credito, portada, alt, anio, ubicacion }) => (
-        <article key={nombre} className="card">
-          {portada ? (
-            <div className="card-img">
-              <img src={portada} alt={alt} loading="lazy" width="1200" height="900" />
-            </div>
-          ) : (
-            <Placeholder label="Foto" className="ph-card" />
-          )}
-          <h3>{nombre}</h3>
-          <p className="muted">{[tipo, anio, ubicacion].filter(Boolean).join(' · ')}</p>
-          {credito && <p className="muted credito">{credito}</p>}
-        </article>
-      ))}
+      {items.map((p) => {
+        const { nombre, tipo, credito, portada, alt, anio, ubicacion, fotos } = p
+        const imagen = portada ? (
+          <div className="card-img">
+            <img src={portada} alt={alt} loading="lazy" width="1200" height="900" />
+            {fotos?.length > 1 && <span className="card-n">{fotos.length} fotos</span>}
+          </div>
+        ) : (
+          <Placeholder label="Foto" className="ph-card" />
+        )
+        return (
+          <article key={nombre} className="card">
+            {fotos?.length ? (
+              <button className="card-btn" onClick={() => setAbierto(p)} aria-label={`Ver fotos de ${nombre}`}>
+                {imagen}
+              </button>
+            ) : (
+              imagen
+            )}
+            <h3>{nombre}</h3>
+            <p className="muted">{[tipo, ubicacion, anio].filter(Boolean).join(' · ')}</p>
+            {credito && <p className="muted credito">{credito}</p>}
+          </article>
+        )
+      })}
+      {abierto && <Lightbox titulo={abierto.nombre} fotos={abierto.fotos} onClose={() => setAbierto(null)} />}
     </div>
   )
 }
@@ -91,7 +78,6 @@ export default function App() {
         <section id="proyectos" className="section">
           <h2>Proyectos</h2>
           <h3 className="subhead">Proyecto propio</h3>
-          <p className="muted intro">Diseñado y dirigido por mí, de principio a fin.</p>
           <Grid items={propios} />
           <h3 className="subhead">Jefe de obra en Arq. Buró</h3>
           <p className="muted intro">Viviendas diseñadas por Diez + Muller y construidas por Arq. Buró, donde dirijo la obra en sitio.</p>
