@@ -42,12 +42,15 @@ Los archivos `._*` y `.DS_Store` son basura de macOS: ignorarlos.
 - **Los `.dwg` de WORK NO son de autoría de Joaquín.** Solo sirven para *entender* el proyecto (programa, distribución, superficies, niveles). **Nunca** publicarlos, exportarlos ni redibujarlos tal cual en el sitio. Si se necesita un gráfico explicativo, hacer diagramas propios simplificados (esquemas de zonificación, recorridos, etc.) y confirmarlo antes con Joaquín.
 - **No modificar, mover ni borrar los originales** en `UNI/`, `WORK/` y `REMODELACIÓN YM/` (solo crear carpetas con copias si Joaquín lo pide). Todo material procesado (fotos convertidas, recortes, miniaturas) va dentro del proyecto del sitio en `~/Desktop/Portafolio`.
 - `CASA JV/` contiene `CASA JV.bak`, `.dwl` y `.dwl2` (archivos de bloqueo/respaldo de AutoCAD): ignorarlos.
-- **Créditos**: en S8 Portugal la fase de análisis urbano ("Aldea Jardín", entrega 1) es en coautoría con **Katherine Pazmiño**; la Galería-Talleres de Arte final aparece firmada solo por Joaquín. Mantener los créditos correctos.
+- **Créditos** (histórico): en T8 Portugal la fase de análisis urbano ("Aldea Jardín", entrega 1) es en coautoría con **Katherine Pazmiño**; la Galería-Talleres de Arte final aparece firmada solo por Joaquín. Mantener los créditos correctos.
 - **Roles y créditos (confirmados por Joaquín, 2026-11-08)** — respetarlos siempre en el sitio:
   - **Remodelación YM**: su **primer proyecto como arquitecto, diseñado y dirigido enteramente por él** (proyecto propio). Es la pieza de autoría profesional del portafolio.
   - **WORK (todas las casas + Colegio Mine)**: **diseño de Diez + Muller** (firma de arquitectura muy reconocida en Ecuador), **construcción de Arq. Buró**, empresa donde Joaquín trabaja como **jefe de obra / residente de obra**. **No son diseños de Joaquín ni es el constructor**: nunca presentarlas como diseño propio. Siempre acreditar a Diez + Muller como autores del diseño.
   - **UNI**: proyectos académicos propios en la USFQ. T4 (Centro Comunitario) es en coautoría con **Sofía Murillo** (aparece en la lámina).
-  - Siguen PENDIENTES (no inventar): año, ubicación y m² de cada obra; título exacto a usar ("Jefe de obra" o "Residente de obra"); permiso de Diez + Muller / Arq. Buró y de los clientes para publicar las fotos (las profesionales `_A74…`/`DSC…` probablemente son del fotógrafo de Diez + Muller: preguntar crédito del fotógrafo).
+  - **Título de Joaquín en WORK: "Jefe de obra"** (confirmado). **Permiso para publicar todas las fotos de las carpetas: confirmado** por Joaquín (2026-11-08).
+  - **Años**: T4 y T5 2020 · T6 y T7 2021 · T8 Portugal y Tesis 2022 (tesis entregada el 14/12/2022, Taller IX, tutor Jaime López Andrade, PhD; nombre completo en la tesis: Joaquín Sebastián Andrade Soria). **YM: Quito, 2025.**
+  - T8: las entregas de PROCESO (entrega 1 "Aldea Jardín" y entrega 2 L1–L3) son con **Katherine Pazmiño**; las láminas finales de la Galería-Talleres, solo Joaquín.
+  - Siguen PENDIENTES (no inventar): año, ubicación y m² de cada obra de WORK; crédito del fotógrafo de las fotos profesionales.
 - Los nombres de las obras son iniciales de clientes (AJ, BR, FR…). No intentar deducir ni publicar nombres de clientes.
 - Hay fotos con personas, vehículos y placas: evitar o recortar las que muestren datos identificables.
 
@@ -102,7 +105,12 @@ Remodelación de vivienda: interiores con cielo de madera y vigas, arcos nuevos,
   - `sips` y `qlmanage` (nativos de macOS) para imágenes: no hay ImageMagick, `pdftoppm` ni Python.
     - convertir: `sips -s format jpeg -Z 1600 entrada.HEIC --out salida.jpg`
     - miniatura de la 1.ª página de un PDF: `qlmanage -t -s 2000 -o <dir> archivo.pdf`
-    - Para extraer **todas** las páginas de los PDF de UNI hará falta otra herramienta (p. ej. un paquete npm sin compilación nativa) — preguntar a Joaquín antes de instalar.
+    - **PDF → mupdf** (npm, WASM, instalado con permiso de Joaquín en `~/Desktop/pdf-tools/`, FUERA del repo):
+      - `node inventario.mjs <pdf> <dir> [px]`: texto de todas las páginas (texto.txt), vista previa de cada página y tamaños.
+      - `node render.mjs trabajos.json`: renderiza páginas o recortes (`recorte: [x0,y0,x1,y1]` en fracciones de página) a JPG.
+      - PDFs grandes: usar `node --max-old-space-size=4096`.
+    - **Orientación EXIF**: `sips` convierte HEIC dejando los píxeles acostados con la etiqueta Orientation=6. Antes de recortar, correr `node ~/Desktop/pdf-tools/normaliza.cjs <jpgs>` (gira píxeles y deja la etiqueta en 1). `sips -g pixelWidth` NO es fiable para esto; usar `node ~/Desktop/pdf-tools/dims.cjs <jpg>`.
+    - Hojas de contacto: HTML con grilla de miniaturas + `qlmanage -t -s 1800 -o <dir> hoja.html`. Ojo: rutas con tildes no cargan, y qlmanage puede devolver una versión en caché.
 - **Espacio**: el disco interno de la Mac tiene poco espacio (~5 GB libres al 2026-10-12). Mantener el proyecto liviano y avisar antes de descargar cosas grandes.
 
 ## Dirección del sitio web
@@ -118,16 +126,19 @@ Remodelación de vivienda: interiores con cielo de madera y vigas, arcos nuevos,
 | Archivo | Qué hay |
 |---|---|
 | `index.html` | `lang="es"`, título "Joaquín Andrade — Arquitectura". |
-| `src/App.jsx` | Página única con anclas: header fijo (Proyectos, Académico, Sobre mí, Contacto) → hero → Obra construida → Académico → Sobre mí → Contacto → footer. Listas `obras`, `academicos` y objeto `contacto` al inicio del archivo. |
+| `src/App.jsx` | Página única con anclas: header fijo (Proyectos, Académico, Sobre mí, Contacto) → hero → Proyectos ("Proyecto propio" + "Jefe de obra en Arq. Buró") → Académico → Sobre mí → Contacto → footer. `Grid` pinta tarjetas; si el proyecto tiene `fotos`, la tarjeta es un botón que abre el `Lightbox`. |
+| `src/proyectos.js` | **Todos los datos**: `propios`, `obras`, `academicos` (nombre, tipo, año, ubicación, crédito, resumen, portada, alt, fotos). `galeria(slug, alts)` arma la lista de fotos: un texto alternativo por foto, en orden. |
+| `src/Lightbox.jsx` | Visor a pantalla completa: flechas, teclado (← → Esc), deslizar en celular, tira de miniaturas, pie de foto = alt, precarga de vecinas, bloqueo de scroll. |
 | `src/BeforeAfter.jsx` | Comparador antes/después: la barra sigue al mouse sin clic; en táctil se arrastra; flechas del teclado ±5 %. Izquierda de la barra = `after` (terminado), derecha = `before` (en obra). Usa `clip-path` sobre la imagen `after`. |
 | `src/index.css` | Estilos globales con variables en `:root` (`--bg`, `--fg`, `--muted`, `--ph`, `--gutter`) + clases `.ba-*` del comparador y `.contact`. |
 | `public/img/hero/` | `casa-aj-obra.jpg` y `casa-aj-final.jpg`, 2100×1400, calidad ~75. |
-| `public/img/obras/` | Portadas de tarjeta 1200×900 (4:3), calidad ~72: `casa-jc.jpg` (`_A749249-HDR`), `casa-fr.jpg` (`DSC00628-HDR`, en obra), `casa-aj.jpg` (`_A749544-HDR`). |
+| `public/img/obras/`, `public/img/academico/` | Portadas de tarjeta 1200×900 (4:3). |
+| `public/img/<slug>/` | Galería de cada proyecto: `NN.jpg` (fotos 1600 px; láminas 2000 px) + `NN-t.jpg` (miniatura 400 px). Orden: terminado primero, proceso al final. ~40 MB en total. |
 
 - **Hero (hecho)**: comparador de **Casa AJ** — `WORK/CASA AJ/ajviejo.HEIF` (en obra) vs `ajnuevo.JPEG` (terminada). La foto de obra se recortó a 3:2 para alinearla con la final; la altura coincide, pero queda ~10 % de desfase horizontal porque no se tomaron desde el mismo punto. Si Joaquín consigue una foto de obra con el mismo encuadre, reemplazarla. Etiquetas: "Terminado" (izq.) / "En obra" (der.). El texto de nombre + frase va debajo de la imagen.
 - **Contacto (hecho)**: email `jsandrade10@gmail.com` (`mailto:`), teléfono `099 275 4846` (`tel:+593992754846`) y enlace a WhatsApp (`https://wa.me/593992754846`). Faltan LinkedIn/Instagram y CV.
-- **Tarjetas de obra**: cada obra es un objeto en `obras` (`nombre`, `tipo`, `portada`, `alt`, `anio`, `ubicacion`); `null` = PENDIENTE y no se muestra. JC, FR y AJ ya tienen portada y van primero. Casa FR: todas las fotos profesionales son de obra gris (no hay foto de la casa terminada).
-- **Pendiente (siguen como cajas grises)**: portadas de BR, JV, LT, Colegio Mine, Remodelación YM y de los académicos; datos de todas las obras; Sobre mí (foto de perfil, línea de tiempo), frase de presentación del hero.
+- **Proyectos (hecho)**: los 14 proyectos tienen portada y galería. Casa FR: todas sus fotos son de obra gris. Campos `null` = PENDIENTE y no se muestran.
+- **Pendiente**: Sobre mí (foto de perfil, línea de tiempo), frase de presentación del hero.
 
 **Cómo preparar imágenes** (lo que funcionó): convertir con `sips` a JPG, redimensionar (`-z alto ancho` o `-Z lado_mayor`), calidad con `-s formatOptions 75`; recortar con `-c alto ancho --cropOffset y x`. Para comparadores antes/después, las dos fotos deben quedar con **la misma proporción y tamaño**. Revisar visualmente el resultado antes de subir. Nombres en minúsculas con guiones.
 
@@ -178,3 +189,5 @@ Antes de redactar los textos finales, pedir para cada obra de WORK: **ubicación
   - Pares antes/después posibles: `d953867b`/`IMG_6180` (arco en obra) → `5114f3ae`/`IMG_8935`; `IMG_5910` → `IMG_8762` (vano terminado, de noche). Evitar `774dd02f` y `8bb3246b` (crucifijo, objeto personal) y fotos con obreros identificables.
 - **2026-11-08 (cont.)** — Joaquín curó todo el material y aclaró roles: YM = proyecto propio; WORK = jefe de obra en Arq. Buró, diseño de Diez + Muller; UNI = T4–T8 + Tesis (Mundaneum Beirut). La web ahora separa "Proyecto propio" y "Jefe de obra en Arq. Buró" con créditos en cada tarjeta, y Académico lista T4 → Tesis.
 - **Siguiente paso**: extraer láminas de los PDF (hace falta una herramienta; propuesta: paquete npm `mupdf`, WASM sin compilación, instalado fuera del repo) para las portadas académicas; luego páginas de proyecto.
+- **2026-11-08 (cont. 2)** — Joaquín confirmó "Jefe de obra", permiso para todas las fotos, años de T6/T7 (2021) y Tesis (2022), YM = Quito 2025. Se instaló mupdf en `~/Desktop/pdf-tools`, se extrajeron texto y vistas de los 34 PDF (182 págs.), y se armaron galerías con visor para los 14 proyectos (8 obras + 6 académicos), con resúmenes de concepto sacados de las láminas. Portada de YM cambiada a `03.jpg` (arco y vano de doble altura).
+- **Siguiente paso sugerido**: revisar el sitio en el navegador (celular y escritorio); textos "En pocas palabras" por obra; Sobre mí (foto, línea de tiempo: USFQ 2018?–2022, Portugal 2022, Arq. Buró); frase del hero; páginas de proyecto individuales si hacen falta.

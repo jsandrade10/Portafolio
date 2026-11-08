@@ -142,3 +142,4 @@ h1, h2, h3 { font-weight: 500; margin: 0 0 .5rem; }
   .lb-prev, .lb-next { display: none; } /* en celular se desliza con el dedo */
   .lb-mini img { height: 44px; }
 }
+.resumen { font-size: .92rem; line-height: 1.5; margin: 8px 0 0; max-width: 60ch; }

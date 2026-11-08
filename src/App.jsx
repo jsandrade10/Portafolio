@@ -19,11 +19,11 @@ function Grid({ items }) {
   return (
     <div className="grid">
       {items.map((p) => {
-        const { nombre, tipo, credito, portada, alt, anio, ubicacion, fotos } = p
+        const { nombre, tipo, credito, resumen, portada, alt, anio, ubicacion, fotos } = p
         const imagen = portada ? (
           <div className="card-img">
             <img src={portada} alt={alt} loading="lazy" width="1200" height="900" />
-            {fotos?.length > 1 && <span className="card-n">{fotos.length} fotos</span>}
+            {fotos?.length > 1 && <span className="card-n">{fotos.length} imágenes</span>}
           </div>
         ) : (
           <Placeholder label="Foto" className="ph-card" />
@@ -40,6 +40,7 @@ function Grid({ items }) {
             <h3>{nombre}</h3>
             <p className="muted">{[tipo, ubicacion, anio].filter(Boolean).join(' · ')}</p>
             {credito && <p className="muted credito">{credito}</p>}
+            {resumen && <p className="resumen">{resumen}</p>}
           </article>
         )
       })}
