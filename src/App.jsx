@@ -1,8 +1,22 @@
-// Wireframe: cajas grises con la estructura del sitio. Sin contenido real todavía.
+// Página única. Las tarjetas sin foto siguen como cajas grises hasta tener material.
 import BeforeAfter from './BeforeAfter.jsx'
 
-const obras = ['Casa AJ', 'Casa BR', 'Casa FR', 'Casa JC', 'Casa JV', 'Casa LT', 'Colegio Mine', 'Remodelación YM']
-const academicos = ['S5 — Facultad de Arquitectura', 'S8 — Portugal']
+// Datos de cada obra. Campos en null = PENDIENTE (preguntar a Joaquín; no inventar rol, año, ubicación ni m²).
+// Si `portada` es null, la tarjeta muestra la caja gris.
+const obras = [
+  { nombre: 'Casa JC', tipo: 'Vivienda', portada: '/img/obras/casa-jc.jpg', alt: 'Casa JC: volumen superior de hormigón visto en voladizo sobre una base de piedra, con chimenea roja', anio: null, ubicacion: null },
+  { nombre: 'Casa FR', tipo: 'Vivienda', portada: '/img/obras/casa-fr.jpg', alt: 'Casa FR en obra: muros de tierra apisonada y columnas de acero bajo la losa', anio: null, ubicacion: null },
+  { nombre: 'Casa AJ', tipo: 'Vivienda', portada: '/img/obras/casa-aj.jpg', alt: 'Casa AJ: volumen de hormigón visto con jardinera y gradas entre árboles', anio: null, ubicacion: null },
+  { nombre: 'Casa BR', tipo: 'Vivienda', portada: null },
+  { nombre: 'Casa JV', tipo: 'Vivienda', portada: null },
+  { nombre: 'Casa LT', tipo: 'Vivienda', portada: null },
+  { nombre: 'Colegio Mine', tipo: 'Educativo · Sala multiusos', portada: null },
+  { nombre: 'Remodelación YM', tipo: 'Remodelación', portada: null },
+]
+const academicos = [
+  { nombre: 'S5 — Facultad de Arquitectura', tipo: 'Taller 5 · USFQ · 2020', portada: null },
+  { nombre: 'S8 — Portugal', tipo: 'Proyecto Avanzado II · 2022', portada: null },
+]
 const contacto = {
   email: 'jsandrade10@gmail.com',
   telefono: '099 275 4846',
@@ -16,11 +30,17 @@ function Placeholder({ label, className = '' }) {
 function Grid({ items }) {
   return (
     <div className="grid">
-      {items.map((nombre) => (
+      {items.map(({ nombre, tipo, portada, alt, anio, ubicacion }) => (
         <article key={nombre} className="card">
-          <Placeholder label="Foto" className="ph-card" />
+          {portada ? (
+            <div className="card-img">
+              <img src={portada} alt={alt} loading="lazy" width="1200" height="900" />
+            </div>
+          ) : (
+            <Placeholder label="Foto" className="ph-card" />
+          )}
           <h3>{nombre}</h3>
-          <p className="muted">Tipo · Año · Ubicación</p>
+          <p className="muted">{[tipo, anio, ubicacion].filter(Boolean).join(' · ')}</p>
         </article>
       ))}
     </div>

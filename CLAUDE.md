@@ -109,10 +109,12 @@ Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombre
 | `src/BeforeAfter.jsx` | Comparador antes/después: la barra sigue al mouse sin clic; en táctil se arrastra; flechas del teclado ±5 %. Izquierda de la barra = `after` (terminado), derecha = `before` (en obra). Usa `clip-path` sobre la imagen `after`. |
 | `src/index.css` | Estilos globales con variables en `:root` (`--bg`, `--fg`, `--muted`, `--ph`, `--gutter`) + clases `.ba-*` del comparador y `.contact`. |
 | `public/img/hero/` | `casa-aj-obra.jpg` y `casa-aj-final.jpg`, 2100×1400, calidad ~75. |
+| `public/img/obras/` | Portadas de tarjeta 1200×900 (4:3), calidad ~72: `casa-jc.jpg` (`_A749249-HDR`), `casa-fr.jpg` (`DSC00628-HDR`, en obra), `casa-aj.jpg` (`_A749544-HDR`). |
 
 - **Hero (hecho)**: comparador de **Casa AJ** — `WORK/CASA AJ/ajviejo.HEIF` (en obra) vs `ajnuevo.JPEG` (terminada). La foto de obra se recortó a 3:2 para alinearla con la final; la altura coincide, pero queda ~10 % de desfase horizontal porque no se tomaron desde el mismo punto. Si Joaquín consigue una foto de obra con el mismo encuadre, reemplazarla. Etiquetas: "Terminado" (izq.) / "En obra" (der.). El texto de nombre + frase va debajo de la imagen.
 - **Contacto (hecho)**: email `jsandrade10@gmail.com` (`mailto:`), teléfono `099 275 4846` (`tel:+593992754846`) y enlace a WhatsApp (`https://wa.me/593992754846`). Faltan LinkedIn/Instagram y CV.
-- **Pendiente (siguen como cajas grises)**: tarjetas de Obra construida y Académico (sin fotos ni datos), Sobre mí (foto de perfil, línea de tiempo), frase de presentación del hero.
+- **Tarjetas de obra**: cada obra es un objeto en `obras` (`nombre`, `tipo`, `portada`, `alt`, `anio`, `ubicacion`); `null` = PENDIENTE y no se muestra. JC, FR y AJ ya tienen portada y van primero. Casa FR: todas las fotos profesionales son de obra gris (no hay foto de la casa terminada).
+- **Pendiente (siguen como cajas grises)**: portadas de BR, JV, LT, Colegio Mine, Remodelación YM y de los académicos; datos de todas las obras; Sobre mí (foto de perfil, línea de tiempo), frase de presentación del hero.
 
 **Cómo preparar imágenes** (lo que funcionó): convertir con `sips` a JPG, redimensionar (`-z alto ancho` o `-Z lado_mayor`), calidad con `-s formatOptions 75`; recortar con `-c alto ancho --cropOffset y x`. Para comparadores antes/después, las dos fotos deben quedar con **la misma proporción y tamaño**. Revisar visualmente el resultado antes de subir. Nombres en minúsculas con guiones.
 
@@ -150,3 +152,7 @@ Antes de redactar los textos finales, pedir para cada obra de WORK: **ubicación
 - Repo clonado, proyecto React + Vite creado, **Vercel conectado y desplegando** desde `main`.
 - Se agregaron los datos de contacto y el hero con comparador antes/después de Casa AJ.
 - **Próximo paso sugerido**: llenar las tarjetas de proyectos con fotos reales (empezar por Casa JC, Casa FR y Casa AJ, que tienen fotografía profesional) y pedir a Joaquín los datos pendientes de cada obra.
+
+**2026-11-08 — segunda sesión**
+- Portadas reales (4:3) en las tarjetas de Casa JC, Casa FR y Casa AJ; datos de obra quedan en `null` hasta que Joaquín los confirme.
+- Espacio libre en la Mac: ~2,6 GB.
