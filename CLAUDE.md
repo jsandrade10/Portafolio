@@ -14,7 +14,13 @@ Idioma del sitio: español (dejar preparada la estructura para una versión en i
 
 ```
 /Volumes/JAR BK 1T/PORTFOLIO./   ← material original; ojo: la carpeta termina en punto
-├── UNI/               ← proyectos universitarios (autoría propia)
+├── REMODELACIÓN YM/   ← obra profesional (movida aquí desde WORK/ por Joaquín, 2026-11)
+│   └── selección/     ← 6 fotos curadas para el portafolio (creada a pedido de Joaquín)
+├── UNI/               ← proyectos universitarios (autoría propia); renombrados T4–T8 al 2026-11-08:
+│   ├── T4/  T5/FACULTAD DE ARQUITECTURA/  T6/BIBLIOTECA/  T7/{PLAN MASA, EDIFICIO NEXO}/
+│   ├── TESIS/{PLAN MASA, MUNDANEUM BEIRUT}/   ← contenido aún sin revisar
+│   └── T8 PORTUGAL/   (PROCESO/, ENTREGA FINAL/)
+│   (estructura anterior, ya no vigente:)
 │   ├── S4/  S6/  S7/  TESIS/   ← VACÍAS por ahora (pendiente de material)
 │   ├── S5/            ← Taller 5, USFQ, 2020 — "Facultad de Arquitectura"
 │   └── S8 PORTUGAL/   ← Proyecto Avanzado II, 2022 — "Aldea Jardín" / Galería-Talleres de Arte
@@ -22,8 +28,7 @@ Idioma del sitio: español (dejar preparada la estructura para una versión en i
 │       └── ENTREGA FINAL/  (CUADERNO.pdf, laminas finales.pdf)
 └── WORK/              ← obra profesional: una carpeta por proyecto
     ├── CASA AJ/  CASA BR/  CASA FR/  CASA JC/  CASA JV/  CASA LT/
-    ├── COLEGIO MINE/
-    └── REMODELACIÓN YM/
+    └── COLEGIO MINE/
 ```
 
 Los archivos `._*` y `.DS_Store` son basura de macOS: ignorarlos.
@@ -39,7 +44,7 @@ Los archivos `._*` y `.DS_Store` son basura de macOS: ignorarlos.
 ## Reglas importantes
 
 - **Los `.dwg` de WORK NO son de autoría de Joaquín.** Solo sirven para *entender* el proyecto (programa, distribución, superficies, niveles). **Nunca** publicarlos, exportarlos ni redibujarlos tal cual en el sitio. Si se necesita un gráfico explicativo, hacer diagramas propios simplificados (esquemas de zonificación, recorridos, etc.) y confirmarlo antes con Joaquín.
-- **No modificar, mover ni borrar los originales** en `UNI/` y `WORK/`. Todo material procesado (fotos convertidas, recortes, miniaturas) va dentro del proyecto del sitio en `~/Desktop/Portafolio`.
+- **No modificar, mover ni borrar los originales** en `UNI/` y `WORK/` (excepción autorizada: carpetas de selección con copias, como `REMODELACIÓN YM/selección/`). Todo material procesado (fotos convertidas, recortes, miniaturas) va dentro del proyecto del sitio en `~/Desktop/Portafolio`.
 - `CASA JV/` contiene `CASA JV.bak`, `.dwl` y `.dwl2` (archivos de bloqueo/respaldo de AutoCAD): ignorarlos.
 - **Créditos**: en S8 Portugal la fase de análisis urbano ("Aldea Jardín", entrega 1) es en coautoría con **Katherine Pazmiño**; la Galería-Talleres de Arte final aparece firmada solo por Joaquín. Mantener los créditos correctos.
 - **Rol en cada obra profesional: DESCONOCIDO.** No inventar el rol (diseño, dirección de obra, residencia, interiorismo…), el estudio/empleador, la ubicación, el año ni los m². Preguntar a Joaquín y marcar como `PENDIENTE` hasta tenerlo.
@@ -61,7 +66,7 @@ Observaciones a partir de las fotos (a confirmar con Joaquín). Fechas en nombre
 | **CASA JV** | 15 | Celular | Terraza cubierta con mueble de hormigón/chimenea, cielo raso de madera, vista a la montaña. |
 | **CASA LT** | 15 | Celular + fotos WhatsApp (2024-01) | Volumen con revoque color terracota, celosía vertical, zócalo de piedra; etapa de obra. |
 | **COLEGIO MINE** | 7 | Celular | **Sala multiusos** (el dwg se llama `SALA MULTIUSOS MINE.dwg`): pabellón poligonal con cubierta metálica, ventanales con marcos de madera, entre eucaliptos. Único proyecto no residencial. |
-| **REMODELACIÓN YM** | 123 | Celular | Remodelación: interiores con cielo de madera y vigas, arcos, piso de madera. Mucho material → ideal para **antes / durante / después**. Requiere curaduría fuerte. |
+| **REMODELACIÓN YM** | 89 (75 HEIC + 14 JPG de WhatsApp, 960–1600px) | Celular | Remodelación: interiores con cielo de madera y vigas, arcos, piso de madera. Mucho material → ideal para **antes / durante / después**. Requiere curaduría fuerte. |
 
 ### Proyectos universitarios (UNI) — Universidad San Francisco de Quito (USFQ)
 
@@ -156,3 +161,10 @@ Antes de redactar los textos finales, pedir para cada obra de WORK: **ubicación
 **2026-11-08 — segunda sesión**
 - Portadas reales (4:3) en las tarjetas de Casa JC, Casa FR y Casa AJ; datos de obra quedan en `null` hasta que Joaquín los confirme.
 - Espacio libre en la Mac: ~2,6 GB.
+- Joaquín reorganizó el disco: `REMODELACIÓN YM/` está ahora en la raíz y `UNI/` usa T4–T8 + TESIS con subcarpetas por proyecto (revisar su contenido en otra sesión).
+- **Remodelación YM — `selección/`** (4 terminado + 2 proceso; el resultado final manda, el proceso acompaña):
+  - `01-terminado-sala-doble-altura.jpg` ← `f6d6be57…JPG` (960×1280; `4a7b11b7…` es duplicado). Candidata a portada.
+  - `02-terminado-fachada-ladrillo.jpg` ← `eab7b77d…JPG` (fachada de ladrillo al anochecer, puerta de arco).
+  - `03-terminado-arco-y-puerta.jpg` ← `IMG_8935.HEIC`; `04-terminado-jardin-interior.jpg` ← `IMG_8937.HEIC`.
+  - `05-proceso-apertura-de-muros.jpg` ← `IMG_5828.HEIC`; `06-proceso-nueva-viga-y-vano.jpg` ← `IMG_5910.HEIC`.
+  - Pares antes/después posibles: `d953867b`/`IMG_6180` (arco en obra) → `5114f3ae`/`IMG_8935`; `IMG_5910` → `IMG_8762` (vano terminado, de noche). Evitar `774dd02f` y `8bb3246b` (crucifijo, objeto personal) y fotos con obreros identificables.
