@@ -66,7 +66,9 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 
 ## Estado actual del sitio (2026-11-08)
 
-**Stack**: React + Vite, sitio estático de una página (sin router), Vercel. Comandos en `~/Desktop/Portafolio`: `npm run dev` (http://localhost:5173), `npm run build`.
+**Stack**: React + Vite, sitio estático con rutas por hash (sin dependencias), Vercel.
+
+**Diseño (2026-11-09, pedido de Joaquín: "tal cual" https://mk27.com/)**: fondo negro, Roboto Light 12,5 px con espaciado, menú en mayúsculas a la derecha (PROYECTO PROPIO · JEFE DE OBRA · ACADÉMICO · SOBRE MÍ · CONTACTO), nombre a la izquierda (no se copia el logo, textos ni fotos de MK27). Inicio = franjas a todo el ancho en blanco y negro (color y nombre al pasar el mouse; en celular, nombre siempre visible). Categoría = grilla de 3 columnas (1,6:1, 3 px de separación), B/N con color al pasar. Proyecto = galería grande con miniaturas (clic → visor a pantalla completa), ficha "campo > valor" a la derecha, texto debajo y navegación anterior/siguiente. El comparador obra/terminado está ahora en la página de Casa AJ (y una franja del inicio lleva ahí). Rutas: `#/`, `#/proyecto-propio`, `#/jefe-de-obra`, `#/academico`, `#/p/<slug>`, `#/sobre-mi`, `#/contacto`. Capturas: `node ~/Desktop/pdf-tools/capturas2.mjs http://localhost:4173/ <dir>`. Comandos en `~/Desktop/Portafolio`: `npm run dev` (http://localhost:5173), `npm run build`.
 
 | Archivo | Qué hay |
 |---|---|
@@ -131,7 +133,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 
 ## Principios de diseño
 
-- Estética sobria y arquitectónica: mucho blanco, tipografía limpia (system-ui), paleta neutra que no compita con el hormigón, la piedra y la madera.
+- Estética tipo MK27: fondo negro, texto blanco pequeño, fotos protagonistas (B/N en listados, color en el proyecto).
 - Imágenes grandes, `loading="lazy"`, JPG optimizados; rápido en celular (los clientes lo verán desde WhatsApp).
 - Menú de máximo 5 elementos, siempre visible; cada proyecto a 1 clic.
 - Textos cortos y claros para clientes; el detalle técnico, aparte.
