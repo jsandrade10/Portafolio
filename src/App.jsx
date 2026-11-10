@@ -35,12 +35,15 @@ const franjas = [
   { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo.jpg', pos: '50% 35%' },
   { slug: 'casa-aj', src: '/img/casa-aj/01.jpg', pos: '50% 60%' },
   { slug: 'casa-fr', src: '/img/casa-fr/01.jpg', pos: '50% 50%' },
+  { slug: 'biblioteca', src: '/img/disenos/biblioteca.jpg', pos: '50% 50%' },
   { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut.jpg', pos: '50% 50%' },
   { slug: 'casa-jv', src: '/img/casa-jv/01.jpg', pos: '50% 55%' },
   { slug: 'casa-lt', src: '/img/casa-lt/01.jpg', pos: '50% 50%' },
+  { slug: 'facultad-arquitectura', src: '/img/disenos/facultad-arquitectura.jpg', pos: '50% 50%' },
   { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres.jpg', pos: '50% 50%' },
   { slug: 'casa-br', src: '/img/casa-br/01.jpg', pos: '50% 50%' },
   { slug: 'colegio-mine', src: '/img/colegio-mine/01.jpg', pos: '50% 60%' },
+  { slug: 'centro-comunitario', src: '/img/disenos/centro-comunitario.jpg', pos: '50% 50%' },
 ]
 
 function useRuta() {
@@ -152,7 +155,7 @@ function ficha(p) {
     return [k.toLowerCase(), v]
   })
   if (obras.includes(p)) g2.push(['jefe de obra', 'Joaquín Andrade'])
-  if (disenos.includes(p)) g2.push(['diseño', 'Joaquín Andrade'])
+  if (disenos.includes(p) && !p.credito) g2.push(['diseño', 'Joaquín Andrade'])
   return [g1, g2].filter((g) => g.length)
 }
 

@@ -19,7 +19,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 |---|---|---|
 | **Remodelación YM** (Quito, 2025) | Su **primer proyecto como arquitecto**, diseñado y dirigido enteramente por él. | "Diseño y dirección de obra: Joaquín Andrade". Sección "Proyecto propio". |
 | **WORK**: Casas AJ, BR, FR, JC, JV, LT + Colegio Mine | **Diseño de Diez + Muller** (firma muy reconocida en Ecuador), **construcción de Arq. Buró**, donde Joaquín trabaja como **jefe de obra**. NO son diseños suyos ni es el constructor. | "Diseño: Diez + Muller · Construcción: Arq. Buró". Sección "Jefe de obra en Arq. Buró". Título confirmado: **"Jefe de obra"**. |
-| **UNI** (USFQ) | Proyectos académicos propios. En el sitio solo **T7 (Edificio Nexo), T8 (Galería-Talleres) y Tesis (Mundaneum Beirut)**, en la sección **"Diseños"**. | **Nunca presentarlos como universitarios** (pedido de Joaquín, 2026-11-09): sin "taller", "USFQ", "tesis", "tutor", "entrega" ni "lámina" en ningún texto, ruta o imagen. Ficha: tipo, ubicación, año, "diseño > Joaquín Andrade". T4, T5 y T6 quitados del sitio. |
+| **UNI** (USFQ) | Proyectos académicos propios. En el sitio, **los 6 (T4 → Tesis)** en la sección **"Diseños"** (T4–T6 se quitaron y Joaquín pidió volverlos a poner el 2026-11-09). | **Nunca presentarlos como universitarios** (pedido de Joaquín, 2026-11-09): sin "taller", "USFQ", "tesis", "tutor", "entrega" ni "lámina" en ningún texto, ruta o imagen. Ficha: tipo, ubicación, año, "diseño > Joaquín Andrade". T4 (Centro Comunitario) acredita "diseño > Joaquín Andrade y Sofía Murillo". |
 
 - **Permiso para publicar todas las fotos de las carpetas: confirmado** por Joaquín.
 - **Años**: T4 y T5 2020 · T6 y T7 2021 · T8 (Portugal) y Tesis 2022. Tesis entregada el 14/12/2022, Taller IX. Nombre completo en la tesis: Joaquín Sebastián Andrade Soria.
@@ -29,7 +29,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 
 ## Preferencias de Joaquín (aprendidas en las sesiones)
 
-- **Diseños (antes "Académico")**: solo T7, T8 y Tesis, sin ninguna referencia universitaria; las láminas de T7 llevaban una franja "USFQ · TALLER 7 · ENTREGA FINAL" + número de estudiante: se recortó (`recorta.mjs`, filas 0–1905); se quitó la portada del PORTAFOLIO de la tesis (decía "USFQ 22.12.2022"). Si se agregan imágenes nuevas, revisar que no tengan logos ni rótulos de la universidad.
+- **Diseños (antes "Académico")**: T4 → Tesis, sin ninguna referencia universitaria. Rótulos borrados: T4 (franja gris inferior "USFQ · Sofía Murillo · Joaquín Andrade · Taller de Arquitectura II · Ejercicio II…", recortada en cada lámina a 1312–1328 px de alto), T5 (franja negra "USFQ · nº de estudiante · Taller 5", recortada a 1860–1890 px), T6 lámina 02 (encabezado "USFQ / TALLER VI / ENTREGA FINAL / JOAQUÍN ANDRADE" rellenado en blanco con `blanquea.mjs`, rectángulo 60,52,548×182); las láminas de T7 llevaban una franja "USFQ · TALLER 7 · ENTREGA FINAL" + número de estudiante: se recortó (`recorta.mjs`, filas 0–1905); se quitó la portada del PORTAFOLIO de la tesis (decía "USFQ 22.12.2022"). Si se agregan imágenes nuevas, revisar que no tengan logos ni rótulos de la universidad.
 - **Solo entregas FINALES.** Nada de análisis, anteproyectos, entregas intermedias ni maquetas de estudio. Se pueden usar recortes de las láminas finales para mostrar detalles.
 - **En obras: lo más llamativo es el resultado terminado**; el proceso acompaña al final de cada galería.
 - **Inicio**: comparador con **En obra a la izquierda y Terminado a la derecha**; las dos fotos deben verse como **la misma imagen** (mismo ángulo y perspectiva). **No hacer zoom de más**: debe verse la casa completa.
@@ -97,7 +97,10 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - `casa-lt` (5): `IMG_4090, PHOTO-…-44, PHOTO-…-44 2, PHOTO-…-44 3, IMG_4291` (volúmenes terracota, celosía vertical, piedra). Portada recorte de `IMG_4090`.
 - `colegio-mine` (5): `IMG_4040, 4054, 4592, 4156` + obra `IMG_0822` (sala multiusos: pabellón poligonal, cubierta metálica, eucaliptos).
 
-**Diseños (en el sitio) — solo entregas finales** (página del PDF → número de imagen). T4–T6 (`centro-comunitario`, `facultad-arquitectura`, `biblioteca`) se quitaron del sitio el 2026-11-09; sus fuentes: T4 `CENTRO COMUNITARIO.pdf` págs. 9,1,2,5,6,7; T5 y T6 `ENTREGA FINAL.pdf`.
+**Diseños (en el sitio) — solo entregas finales** (página del PDF → número de imagen; portadas en `public/img/disenos/`)
+- `centro-comunitario` (6): T4 `CENTRO COMUNITARIO.pdf` págs. 9, 1, 2, 5, 6, 7. Portada: axonometría (pág. 9, recorte `[.02,.03,.52,.52]`).
+- `facultad-arquitectura` (5): T5 `ENTREGA FINAL.pdf` págs. 5, 1, 2, 3, 4. Portada: vista 3D con la torre (pág. 5, `[.056,.635,.434,.835]`).
+- `biblioteca` (8): T6 `ENTREGA FINAL.pdf` págs. 7, 1, 2, 3, 4, 6, 5, 8. Portada: quiebrasoles de madera (pág. 7, `[.38,.70,.852,.95]`).
 - `edificio-nexo` (6): T7 `ENTREGA FINAL.pdf` págs. 6, 1, 2, 3, 4, 5. Portada: vista desde la calle José Correa (pág. 6, `[.05,.045,.95,.40]`). Las 6 láminas recortadas a 1413×1905 (sin la franja USFQ).
 - `galeria-talleres` (7): recortes de T8 `laminas finales.pdf` pág. 1 — maqueta `[.025,.05,.475,.75]`, planta `[.52,.05,.885,.59]`, axonometría y cortes `[.52,.62,.885,.95]`, fotos de maqueta `[.884,.41,.98,.955]`, fotos del sitio `[.884,.04,.98,.41]`, mitad izquierda `[0,0,.5,1]`, mitad derecha `[.5,0,1,1]`. Portada: maqueta blanca `[.02,.17,.48,.68]`.
 - `mundaneum-beirut` (13): `PORTAFOLIO.pdf` págs. 21, 17, 29, 30, 7, 20, 23, 27, 28 + `ENTREGA FINAL.pdf` 1, 2 + `MAQUETA.pdf` 1, 2. Portada: maqueta final (PORTAFOLIO pág. 29, `[.17,.17,.87,.912]`). Se quitaron las págs. 14 y 15 (maquetas de proceso). Se quitó también la pág. 1 (portada con "USFQ").
@@ -118,7 +121,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - **Mac** Intel, macOS 12.6, **sin Command Line Tools de Xcode** (`/usr/bin/git` y `python3` no funcionan). Node.js 22 + npm 10 en `/usr/local/bin` (sin paquetes con compilación nativa).
 - **git**: `~/.local/bin/git` (el de GitHub Desktop en `~/Applications`); credenciales con Git Credential Manager, ya autorizado para jsandrade10.
 - **Imágenes**: `sips` y `qlmanage` (no hay ImageMagick ni Python).
-  - Convertir/redimensionar: `sips -s format jpeg -s formatOptions 72 -Z 1600 in.HEIC --out out.jpg`. **`sips -c` recorta centrado e ignora `--cropOffset`**: para recortar un rectángulo usar `node ~/Desktop/pdf-tools/recorta.mjs in.jpg out.jpg x y ancho alto` (y `banda.mjs` detecta franjas negras inferiores).
+  - Convertir/redimensionar: `sips -s format jpeg -s formatOptions 72 -Z 1600 in.HEIC --out out.jpg`. **`sips -c` recorta centrado e ignora `--cropOffset`**: para recortar un rectángulo usar `node ~/Desktop/pdf-tools/recorta.mjs in.jpg out.jpg x y ancho alto` (`banda.mjs` e `inicio_franja.mjs <fraccion> <jpgs>` ubican franjas/rótulos oscuros; `blanquea.mjs in out x y w h` rellena un rectángulo de blanco).
   - **Orientación EXIF**: `sips` deja las fotos verticales de celular con los píxeles acostados y Orientation=6. Antes de recortar: `node ~/Desktop/pdf-tools/normaliza.cjs <jpgs>` (gira píxeles y deja la etiqueta en 1). Para medir, usar `node ~/Desktop/pdf-tools/dims.cjs <jpg>` (`sips -g pixelWidth` engaña).
   - Hojas de contacto para revisar muchas fotos: HTML con grilla de miniaturas + `qlmanage -t -s 1800 -o <dir> hoja.html`. Las rutas con tildes no cargan, y qlmanage puede devolver una versión vieja en caché (cambiar el nombre del html).
 - **`~/Desktop/pdf-tools/`** (FUERA del repo; npm `mupdf` (WASM) y `puppeteer-core`, instalados con permiso de Joaquín):
