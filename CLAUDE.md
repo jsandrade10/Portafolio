@@ -32,7 +32,9 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - **Diseños (antes "Académico")**: T4 → Tesis, sin ninguna referencia universitaria. Rótulos borrados: T4 (franja gris inferior "USFQ · Sofía Murillo · Joaquín Andrade · Taller de Arquitectura II · Ejercicio II…", recortada en cada lámina a 1312–1328 px de alto), T5 (franja negra "USFQ · nº de estudiante · Taller 5", recortada a 1860–1890 px), T6 lámina 02 (encabezado "USFQ / TALLER VI / ENTREGA FINAL / JOAQUÍN ANDRADE" rellenado en blanco con `blanquea.mjs`, rectángulo 60,52,548×182); las láminas de T7 llevaban una franja "USFQ · TALLER 7 · ENTREGA FINAL" + número de estudiante: se recortó (`recorta.mjs`, filas 0–1905); se quitó la portada del PORTAFOLIO de la tesis (decía "USFQ 22.12.2022"). Si se agregan imágenes nuevas, revisar que no tengan logos ni rótulos de la universidad.
 - **Solo entregas FINALES.** Nada de análisis, anteproyectos, entregas intermedias ni maquetas de estudio. Se pueden usar recortes de las láminas finales para mostrar detalles.
 - **En obras: lo más llamativo es el resultado terminado**; el proceso acompaña al final de cada galería.
-- **Inicio**: comparador con **En obra a la izquierda y Terminado a la derecha**; las dos fotos deben verse como **la misma imagen** (mismo ángulo y perspectiva). **No hacer zoom de más**: debe verse la casa completa.
+- **Inicio**: franjas horizontales, una por proyecto, en el orden que él pidió; que no se vean demasiado cortadas en computadora. Detalles de color solo si son **muy sobrios**.
+- **Comparador** (ahora en Casa AJ): **En obra a la izquierda y Terminado a la derecha**; las dos fotos deben verse como **la misma imagen**. **No hacer zoom de más**: debe verse la casa completa.
+- **Créditos de Sofía Murillo: quitados** a pedido de Joaquín (no volver a ponerlos).
 - Revisar **también en computadora**, no solo en celular (los problemas de la sesión 3 eran solo de escritorio).
 - Corregir libremente textos mal escritos o mal redactados (los míos y los sacados de láminas).
 - No usar frases autorreferenciales tipo "Diseñado y dirigido por mí, de principio a fin" (la pidió quitar).
@@ -65,23 +67,32 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - **No modificar, mover ni borrar originales** (solo crear carpetas con copias si Joaquín lo pide).
 - PDFs muy pesados (hasta 370 MB): nunca enlazarlos; exportar páginas/recortes optimizados.
 
-## Estado actual del sitio (2026-11-08)
+## Estado actual del sitio (2026-11-09)
 
-**Stack**: React + Vite, sitio estático con rutas por hash (sin dependencias), Vercel.
+**Stack**: React + Vite, sitio estático con rutas por hash (sin dependencias), Vercel. Comandos en `~/Desktop/Portafolio`: `npm run dev` (http://localhost:5173), `npm run build`.
 
-**Diseño (2026-11-09, inspirado en https://mk27.com/ a pedido de Joaquín)**: fondo negro, Roboto Light 12,5 px con espaciado, nombre a la izquierda (no se copia el logo, textos ni fotos de MK27) y **hamburguesa** a la derecha (también en computadora) que abre un menú a pantalla completa: **PROYECTOS** (Remodelación YM + obras de Arq. Buró), **DISEÑOS** (Nexo, Galería-Talleres, Mundaneum), SOBRE MÍ, CONTACTO. **Inicio = franjas horizontales a todo el ancho, una por proyecto** (alto en computadora `clamp(260px, 25vw, 440px)` ≈ 360 px a 1440 px de ancho, porque Joaquín las veía muy cortadas; en celular 230 px), en el orden pedido por Joaquín: Remodelación YM, Casa JC, FR, AJ, JV, LT, BR, Colegio Mine, Mundaneum Beirut, Galería-Talleres, Edificio Nexo, Facultad, Biblioteca, Centro Comunitario. La franja de la Facultad usa `disenos/facultad-arquitectura-inicio.jpg`: gris con el ladrillo en un tono cálido suave (`detalle_color.mjs`, color #a06a4e, fuerza 0.45) y sin filtro B/N (`color: true`). Portada de Mundaneum = render de la fachada de arcos con la mezquita y las ruinas (recorte de `mundaneum-beirut/01.jpg`, 74,206,1856×846). (lista `franjas` en App.jsx, con `pos` = parte visible de la foto), B/N con color, nombre y rol ("Jefe de obra", "Diseño y dirección de obra", "Diseño") al pasar el mouse; en celular el nombre se ve siempre, con sombra inferior. Se probó un mosaico de tamaños distintos y **Joaquín prefirió las franjas horizontales** (2026-11-09). Categoría = grilla de 3 columnas (1,6:1, 3 px de separación), B/N con color al pasar. Proyecto = galería grande con miniaturas (clic → visor a pantalla completa), ficha "campo > valor" a la derecha, texto debajo y navegación anterior/siguiente. El comparador obra/terminado está en la página de Casa AJ. Rutas: `#/`, `#/proyectos`, `#/disenos`, `#/p/<slug>` (**todas las fotos del proyecto en grilla de 3 columnas**, como las categorías de mk27; es lo que abre cada franja del inicio y el menú), `#/p/<slug>/<n>` (al hacer clic en una foto: foto n grande, ficha a la derecha, miniaturas abajo; la dirección se actualiza al cambiar de foto; abajo: proyecto anterior · TODAS LAS FOTOS · siguiente), `#/sobre-mi`, `#/contacto`. Capturas: `node ~/Desktop/pdf-tools/capturas2.mjs http://localhost:4173/ <dir>`. Comandos en `~/Desktop/Portafolio`: `npm run dev` (http://localhost:5173), `npm run build`.
+**Diseño** (inspirado en https://mk27.com/ a pedido de Joaquín; no se copia su logo, textos ni fotos):
+- Fondo negro, Roboto Light 12,5 px con espaciado, nombre "JOAQUÍN ANDRADE · ARQUITECTO" a la izquierda y **hamburguesa** a la derecha (también en computadora).
+- **Menú** a pantalla completa: **PROYECTOS** (Remodelación YM + obras de Arq. Buró), **DISEÑOS** (los 6 proyectos universitarios, presentados sin referencia a la universidad), SOBRE MÍ, CONTACTO.
+- **Inicio** = franjas horizontales a todo el ancho, **una por proyecto** (lista `franjas` en App.jsx; `pos` = parte visible de la foto). Alto: computadora `clamp(260px, 25vw, 440px)` (≈360 px a 1440 px; Joaquín las veía muy cortadas con 230), celular 230 px. B/N; al pasar el mouse, color + nombre + rol ("Jefe de obra", "Diseño y dirección de obra", "Diseño"); en celular el nombre se ve siempre con sombra inferior. Se probó un mosaico de tamaños distintos y **Joaquín prefirió las franjas horizontales**.
+- **Orden del inicio (pedido por Joaquín)**: Remodelación YM, Casa JC, FR, AJ, JV, LT, BR, Colegio Mine, Mundaneum Beirut, Galería-Talleres, Edificio Nexo, Facultad, Biblioteca, Centro Comunitario. (El menú y la grilla de Diseños siguen otro orden: YM, JC, FR, AJ, BR, JV, LT, Mine / CC, Facultad, Biblioteca, Nexo, Galería, Mundaneum — se ofreció igualarlos, sin respuesta aún.)
+- Franja de la **Facultad**: `disenos/facultad-arquitectura-inicio.jpg`, gris con el ladrillo en tono terracota apagado (`detalle_color.mjs`, #a06a4e, fuerza 0.45; los blancos no se tiñen) y sin filtro B/N (`color: true`). Portada de **Mundaneum** = render de la fachada de arcos con la mezquita y las ruinas romanas (recorte de `mundaneum-beirut/01.jpg`, 74,206,1856×846 → 1600×729).
+- **Rutas**: `#/` · `#/proyectos` y `#/disenos` (grilla de portadas) · `#/p/<slug>` = **todas las fotos del proyecto en grilla de 3 columnas** (lo que abre cada franja y el menú; B/N, color y descripción al pasar) · `#/p/<slug>/<n>` = al hacer clic en una foto: foto n grande (clic → visor a pantalla completa), ficha "campo > valor" a la derecha, miniaturas abajo, resumen debajo; la dirección se actualiza al cambiar de foto; al pie: ‹ proyecto anterior · TODAS LAS FOTOS · siguiente › · `#/sobre-mi` · `#/contacto`.
+- **Fichas**: tipo, ubicación, año; obras: "diseño > Diez + Muller · construcción > Arq. Buró · jefe de obra > Joaquín Andrade"; YM: "diseño y dirección de obra > Joaquín Andrade"; diseños: "diseño > Joaquín Andrade", **excepto el Centro Comunitario** (`coautoria: true`, sin crédito de diseño).
+- El **comparador obra/terminado** (Casa AJ) está en la página `#/p/casa-aj/<n>`, debajo del resumen.
+- **Sobre mí** (provisional): "Arquitecto en Quito. Jefe de obra en Arq. Buró." + formación (Arquitectura, USFQ), proyecto propio, trabajo; caja gris para la foto. **Contacto**: email, teléfono, WhatsApp, Quito.
 
 | Archivo | Qué hay |
 |---|---|
-| `index.html` | `lang="es"`, título "Joaquín Andrade — Arquitectura". |
-| `src/App.jsx` | Rutas por hash (`useRuta`). `Header` (nombre + menú; hamburguesa en celular), `Inicio` (lista `franjas`), `Categoria` (grilla; `categorias` con su intro), `Proyecto` (`Galeria` + `ficha()` "campo > valor" generada de tipo/ubicación/año/crédito; en obras de Arq. Buró agrega "jefe de obra > Joaquín Andrade"; comparador solo en `casa-aj`), `SobreMi`, `Contacto`. El slug de cada proyecto sale de la carpeta de sus fotos. |
-| `src/proyectos.js` | **Todos los datos**: `propios`, `obras`, `academicos` (nombre, tipo, anio, ubicacion, credito, resumen, portada, alt, fotos). `galeria(slug, alts)` arma las fotos: un texto (alt y pie de foto) por imagen, en el mismo orden que los archivos `NN.jpg`. **Si se agrega o quita una imagen, renumerar archivos y ajustar la lista de textos.** |
-| `src/Lightbox.jsx` | Visor a pantalla completa: flechas, teclado (← → Esc), deslizar en celular, tira de miniaturas, pie de foto, precarga de vecinas, bloqueo de scroll. La imagen va `position:absolute; inset:0; object-fit:contain` (no usar `max-height:%`, en escritorio se salía de la pantalla). |
-| `src/BeforeAfter.jsx` | Comparador: la barra sigue al mouse sin clic; en táctil se arrastra; flechas ±5 %. Props `left`/`right`, `leftLabel`/`rightLabel` (`clip-path` sobre `left`). |
-| `src/index.css` | Variables en `:root` (`--bg` negro, `--izq` 240 px = margen del contenido alineado con el menú). Cortes: ≤1100 px el menú baja bajo el nombre; ≤700 px hamburguesa, grilla de 1 columna y proyecto apilado. |
-| `public/img/hero/` | `casa-aj-obra.jpg` (alineada) y `casa-aj-final.jpg`, 2100×1400. |
-| `public/img/obras/`, `public/img/disenos/` | Portadas de tarjeta 1200×900 (4:3). |
-| `public/img/<slug>/` | Galerías: `NN.jpg` (fotos 1600 px; láminas 2000 px) + `NN-t.jpg` (miniatura 400 px). ~40 MB en total. |
+| `index.html` | `lang="es"`, título "Joaquín Andrade — Arquitectura", fuente Roboto (Google Fonts), theme-color negro. |
+| `src/App.jsx` | `useRuta` (hash), `Header` (nombre + hamburguesa + menú), `Inicio` (`franjas`), `Categoria`, `Fotos` (grilla de un proyecto), `Proyecto` (`Galeria` + `ficha()`), `SobreMi`, `Contacto`. `slugDe(p)` = carpeta de sus fotos; `rolDe(p)` = texto del rol. |
+| `src/proyectos.js` | **Todos los datos**: `propios`, `obras`, `disenos` (nombre, tipo, anio, ubicacion, credito, coautoria, resumen, portada, alt, fotos). `galeria(slug, alts)` arma las fotos: un texto (alt y pie de foto) por imagen, en el orden de los archivos `NN.jpg`. **Si se agrega o quita una imagen, renumerar archivos y ajustar la lista de textos.** |
+| `src/Lightbox.jsx` | Visor a pantalla completa: flechas, teclado (← → Esc), deslizar en celular, miniaturas, pie de foto. La imagen va `position:absolute; inset:0; object-fit:contain` (no usar `max-height:%`). |
+| `src/BeforeAfter.jsx` | Comparador: la barra sigue al mouse sin clic; en táctil se arrastra; flechas ±5 %. |
+| `src/index.css` | Variables en `:root` (`--bg` negro, `--izq` 240 px = margen del contenido). Cortes: ≤1100 px `--izq` 44 px; ≤700 px celular (grillas de 1 columna, proyecto apilado). |
+| `public/img/hero/` | `casa-aj-obra.jpg` (alineada) y `casa-aj-final.jpg`, 2100×1400 (comparador). |
+| `public/img/obras/`, `public/img/disenos/` | Portadas 1200×900 (Mundaneum 1600×729) + `facultad-arquitectura-inicio.jpg`. |
+| `public/img/<slug>/` | Galerías: `NN.jpg` (fotos 1600 px; láminas 2000 px) + `NN-t.jpg` (miniatura 400 px). |
 
 ### Contenido de cada galería (fuente → archivo)
 
@@ -103,7 +114,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - `biblioteca` (8): T6 `ENTREGA FINAL.pdf` págs. 7, 1, 2, 3, 4, 6, 5, 8. Portada: quiebrasoles de madera (pág. 7, `[.38,.70,.852,.95]`).
 - `edificio-nexo` (6): T7 `ENTREGA FINAL.pdf` págs. 6, 1, 2, 3, 4, 5. Portada: vista desde la calle José Correa (pág. 6, `[.05,.045,.95,.40]`). Las 6 láminas recortadas a 1413×1905 (sin la franja USFQ).
 - `galeria-talleres` (7): recortes de T8 `laminas finales.pdf` pág. 1 — maqueta `[.025,.05,.475,.75]`, planta `[.52,.05,.885,.59]`, axonometría y cortes `[.52,.62,.885,.95]`, fotos de maqueta `[.884,.41,.98,.955]`, fotos del sitio `[.884,.04,.98,.41]`, mitad izquierda `[0,0,.5,1]`, mitad derecha `[.5,0,1,1]`. Portada: maqueta blanca `[.02,.17,.48,.68]`.
-- `mundaneum-beirut` (13): `PORTAFOLIO.pdf` págs. 21, 17, 29, 30, 7, 20, 23, 27, 28 + `ENTREGA FINAL.pdf` 1, 2 + `MAQUETA.pdf` 1, 2. Portada: maqueta final (PORTAFOLIO pág. 29, `[.17,.17,.87,.912]`). Se quitaron las págs. 14 y 15 (maquetas de proceso). Se quitó también la pág. 1 (portada con "USFQ").
+- `mundaneum-beirut` (13): `PORTAFOLIO.pdf` págs. 21, 17, 29, 30, 7, 20, 23, 27, 28 + `ENTREGA FINAL.pdf` 1, 2 + `MAQUETA.pdf` 1, 2. Portada: render de la fachada de arcos (ver arriba; antes era la maqueta final). Se quitaron las págs. 14 y 15 (maquetas de proceso). Se quitó también la pág. 1 (portada con "USFQ").
 
 Los resúmenes de cada proyecto académico se escribieron a partir del texto de las propias láminas (concepto, ubicación, estructura), en lenguaje simple.
 
@@ -128,7 +139,8 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
   - `inventario.mjs <pdf> <dir> [px]` → texto de todas las páginas (`texto.txt`), vista previa de cada página, tamaños (`info.json`).
   - `render.mjs trabajos.json` → páginas o recortes a JPG: `[{pdf, pagina, recorte:[x0,y0,x1,y1] (fracciones), lado, calidad, salida}]`. PDFs grandes: `node --max-old-space-size=4096`.
   - `alinear.mjs config.json` → alinea dos fotos (comparador del inicio).
-  - `capturas.mjs <url> <dir>` → capturas con Chrome en computadora (1440×900) y celular (390×844): inicio, visor abierto (Casa JC y Facultad) y Proyectos. Uso: `npm run build && npx vite preview --port 4173 &`, luego `node ~/Desktop/pdf-tools/capturas.mjs http://localhost:4173/ <dir>`, y al final `pkill -f "vite preview"`. **Usarlo antes de subir cualquier cambio visual.**
+  - `capturas2.mjs <url> <dir>` → capturas con Chrome de las rutas de la lista `rutas` (editarla), en computadora y celular, con scroll previo para que carguen las imágenes, + menú abierto. **Usarlo antes de subir cualquier cambio visual.** `recorta.mjs`, `blanquea.mjs`, `banda.mjs`, `inicio_franja.mjs`, `franjas_oscuras.mjs`, `detalle_color.mjs` (ver Imágenes).
+  - `capturas.mjs <url> <dir>` (versión vieja, del diseño blanco) → capturas con Chrome en computadora (1440×900) y celular (390×844): inicio, visor abierto (Casa JC y Facultad) y Proyectos. Uso: `npm run build && npx vite preview --port 4173 &`, luego `node ~/Desktop/pdf-tools/capturas.mjs http://localhost:4173/ <dir>`, y al final `pkill -f "vite preview"`. **Usarlo antes de subir cualquier cambio visual.**
   - `normaliza.cjs`, `dims.cjs` (ver arriba).
 - **Espacio en disco**: muy justo (~1,2 GB libres al 2026-11-08; renderizar PDFs grandes genera ~1 GB de swap temporal). Borrar archivos temporales del scratchpad y `dist/` al terminar; avisar antes de descargar cosas grandes.
 
@@ -136,7 +148,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 
 - Estética tipo MK27: fondo negro, texto blanco pequeño, fotos protagonistas (B/N en listados, color en el proyecto).
 - Imágenes grandes, `loading="lazy"`, JPG optimizados; rápido en celular (los clientes lo verán desde WhatsApp).
-- Menú de máximo 5 elementos, siempre visible; cada proyecto a 1 clic.
+- Menú detrás de la hamburguesa con todos los proyectos listados: cada proyecto a 1–2 clics.
 - Textos cortos y claros para clientes; el detalle técnico, aparte.
 - Responsive y accesible (alt en todas las fotos; teclado en el visor y el comparador).
 
@@ -144,9 +156,11 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 
 **Falta que Joaquín entregue:**
 - **Sobre mí**: foto de perfil, año de ingreso a la USFQ, trayectoria para la línea de tiempo (USFQ → Portugal 2022 → titulación dic. 2022 → YM 2025 → Arq. Buró desde ¿?), habilidades y software.
-- **Frase de presentación** del inicio (hoy dice "Arquitecto — frase de presentación").
+- Texto definitivo de **Sobre mí** (hoy es provisional).
 - **LinkedIn / Instagram** y **CV en PDF** (para Contacto).
 - Opcional: año, ubicación y m² de cada obra de WORK; crédito del fotógrafo; original en alta resolución de `REMODELACIÓN YM/01.jpg`; una foto de obra de Casa AJ tomada desde el mismo punto que la terminada.
+
+**Para la próxima sesión (ofrecido, sin respuesta):** igualar el orden del menú y de la grilla de Diseños al del inicio; en celular, quitar el texto que se superpone a las láminas en la grilla de fotos; ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide; copiar este CLAUDE.md al disco externo (no estuvo conectado en la sesión 3).
 
 **Ideas para después** (consultar antes): textos "En pocas palabras" por obra (sistema constructivo, materiales: hormigón visto, ladrillo, piedra, tierra apisonada, madera); páginas individuales por proyecto con ficha técnica; filtros por tipo; versión en inglés.
 
@@ -161,3 +175,13 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 4. Confirmó "Jefe de obra", permiso para todas las fotos, años y YM = Quito 2025. Se instaló `mupdf`; se leyeron los 34 PDF (182 págs.); galerías con visor para los 14 proyectos y resúmenes a partir de las láminas.
 5. Joaquín pidió **solo entregas finales** en Académico (se quitó todo el proceso; T8 con recortes de su lámina final), corregir textos, **invertir el comparador** (obra a la izquierda) y **alinear las dos fotos** (homografía + corrección suave).
 6. Joaquín: la portada quedó con demasiado zoom y en computadora las imágenes se veían mal. Se abrió el encuadre al 87 %; en escritorio el comparador ya no recorta (3:2) y el visor encaja las fotos. Se instaló `puppeteer-core` para revisar con capturas de Chrome; verificado en computadora y celular.
+
+**2026-11-09 — sesión 3** (larga; disco externo NO conectado):
+1. Joaquín pidió el sitio "tal cual" https://mk27.com/: se rehízo con fondo negro, franjas en el inicio, grilla por categoría y página de proyecto con ficha (sin copiar logo, textos ni fotos de MK27).
+2. Pidió: inicio con una foto por proyecto, menú de hamburguesa con **Proyectos** (YM + obras) y **Diseños** (lo académico), y que **en ningún lado** se vea que los diseños son universitarios. Se quitaron T4–T6, se recortaron las franjas "USFQ" de Nexo y se quitó la portada con "USFQ" de Mundaneum; carpeta `img/academico` → `img/disenos`.
+3. Se probó un mosaico de tamaños distintos; Joaquín prefirió volver a las franjas horizontales.
+4. Cada franja abre ahora la grilla con todas las fotos del proyecto; al elegir una foto se ve la ficha con la galería.
+5. Volvieron T4 (Centro Comunitario), T5 (Facultad) y T6 (Biblioteca), sin rótulos USFQ (recortes y un encabezado blanqueado).
+6. Se quitaron los créditos de Sofía Murillo, se fijó el orden del inicio, portada de Mundaneum = render de los arcos, detalle de color terracota en la franja de la Facultad.
+7. Franjas más altas en computadora.
+
