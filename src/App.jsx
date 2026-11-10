@@ -2,7 +2,8 @@
 //   #/                 inicio: franjas horizontales, una por proyecto
 //   #/proyectos        grilla de obras (proyecto propio + jefe de obra)
 //   #/disenos          grilla de diseños
-//   #/p/<slug>         página de un proyecto
+//   #/p/<slug>         todas las fotos del proyecto en grilla (como las categorías de mk27)
+//   #/p/<slug>/<n>     ficha del proyecto con la foto n grande, info a la derecha y miniaturas abajo
 //   #/sobre-mi, #/contacto
 // El menú se abre con la hamburguesa (en computadora y en celular).
 // IMPORTANTE: los diseños NO se presentan como trabajos universitarios (pedido de Joaquín).
@@ -70,7 +71,7 @@ function Header({ ruta }) {
       window.removeEventListener('keydown', onKey)
     }
   }, [abierto])
-  const actual = ruta.startsWith('p/') ? ruta.slice(2) : null
+  const actual = ruta.startsWith('p/') ? ruta.split('/')[1] : null
   return (
     <header className={`hd${abierto ? ' hd-abierto' : ''}`}>
       <a href="#/" className="hd-logo" aria-label="Inicio">
@@ -155,8 +156,12 @@ function ficha(p) {
   return [g1, g2].filter((g) => g.length)
 }
 
-function Galeria({ p }) {
-  const [i, setI] = useState(0)
+function Galeria({ p, inicio = 0 }) {
+  const [i, setI] = useState(inicio)
+  // Mantiene la dirección al día con la foto que se ve (sin recargar ni saltar).
+  useEffect(() => {
+    history.replaceState(null, '', `#/p/${slugDe(p)}/${i + 1}`)
+  }, [i, p])
   const [visor, setVisor] = useState(false)
   const n = p.fotos.length
   const ir = (d) => setI((v) => (v + d + n) % n)
@@ -211,7 +216,27 @@ function Galeria({ p }) {
   )
 }
 
-function Proyecto({ p, cat }) {
+// Todas las fotos de un proyecto en grilla; cada foto abre la ficha en esa imagen.
+function Fotos({ p }) {
+  const slug = slugDe(p)
+  return (
+    <main>
+      <h1 className="tit-cat">{p.nombre}</h1>
+      <div className="grilla">
+        {p.fotos.map((f, k) => (
+          <a key={f.src} href={`#/p/${slug}/${k + 1}`} className="celda">
+            <img src={f.src} alt={f.alt} loading={k < 6 ? 'eager' : 'lazy'} />
+            <span className="celda-txt">
+              <em>{f.alt}</em>
+            </span>
+          </a>
+        ))}
+      </div>
+    </main>
+  )
+}
+
+function Proyecto({ p, cat, foto }) {
   const lista = cat.items
   const k = lista.indexOf(p)
   const ant = lista[(k - 1 + lista.length) % lista.length]
@@ -220,7 +245,7 @@ function Proyecto({ p, cat }) {
   return (
     <main className="proy">
       <div className="proy-media">
-        <Galeria key={slug} p={p} />
+        <Galeria key={`${slug}-${foto}`} p={p} inicio={foto} />
       </div>
       <aside className="proy-ficha">
         <h1>{p.nombre}</h1>
@@ -249,7 +274,7 @@ function Proyecto({ p, cat }) {
         {lista.length > 1 && (
           <nav className="proy-nav">
             <a href={`#/p/${slugDe(ant)}`}>‹ {ant.nombre}</a>
-            <a href={`#/${cat.id}`}>{cat.nombre}</a>
+            <a href={`#/p/${slug}`}>Todas las fotos</a>
             <a href={`#/p/${slugDe(sig)}`}>{sig.nombre} ›</a>
           </nav>
         )}
@@ -297,9 +322,11 @@ export default function App() {
   if (cat) pagina = <Categoria cat={cat} />
   else if (ruta === 'sobre-mi') pagina = <SobreMi />
   else if (ruta === 'contacto') pagina = <Contacto />
-  else if (ruta.startsWith('p/') && porSlug[ruta.slice(2)]) {
-    const p = porSlug[ruta.slice(2)]
-    pagina = <Proyecto p={p} cat={categorias.find((c) => c.items.includes(p))} />
+  else if (ruta.startsWith('p/') && porSlug[ruta.split('/')[1]]) {
+    const [, slug, n] = ruta.split('/')
+    const p = porSlug[slug]
+    const foto = Math.min(Math.max(parseInt(n, 10) || 0, 0), p.fotos.length)
+    pagina = n ? <Proyecto p={p} cat={categorias.find((c) => c.items.includes(p))} foto={Math.max(foto - 1, 0)} /> : <Fotos p={p} />
   }
   useEffect(() => {
     const titulo = document.querySelector('main h1')?.textContent
