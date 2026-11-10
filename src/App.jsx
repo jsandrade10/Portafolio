@@ -1,13 +1,15 @@
-// Sitio con estructura tipo estudio de arquitectura (fondo negro, franjas de categorías,
-// grilla de proyectos y página de proyecto con ficha). Rutas con hash, sin dependencias:
-//   #/                     inicio (franjas)
-//   #/<categoria>          grilla: proyecto-propio, jefe-de-obra, academico
-//   #/p/<slug>             página de un proyecto
+// Sitio con estética tipo estudio (fondo negro). Rutas con hash, sin dependencias:
+//   #/                 inicio: mosaico con una foto por proyecto
+//   #/proyectos        grilla de obras (proyecto propio + jefe de obra)
+//   #/disenos          grilla de diseños
+//   #/p/<slug>         página de un proyecto
 //   #/sobre-mi, #/contacto
+// El menú se abre con la hamburguesa (en computadora y en celular).
+// IMPORTANTE: los diseños NO se presentan como trabajos universitarios (pedido de Joaquín).
 import { useEffect, useState } from 'react'
 import BeforeAfter from './BeforeAfter.jsx'
 import Lightbox from './Lightbox.jsx'
-import { propios, obras, academicos } from './proyectos.js'
+import { propios, obras, disenos } from './proyectos.js'
 
 const contacto = {
   email: 'jsandrade10@gmail.com',
@@ -16,42 +18,29 @@ const contacto = {
 }
 
 const slugDe = (p) => p.fotos[0].src.split('/')[2]
+const rolDe = (p) => (propios.includes(p) ? 'Diseño y dirección de obra' : obras.includes(p) ? 'Jefe de obra' : 'Diseño')
 
 const categorias = [
-  {
-    id: 'proyecto-propio',
-    nombre: 'Proyecto propio',
-    items: propios,
-    intro: 'Diseño y dirección de obra de Joaquín Andrade.',
-  },
-  {
-    id: 'jefe-de-obra',
-    nombre: 'Jefe de obra',
-    items: obras,
-    intro: 'Obras diseñadas por Diez + Muller y construidas por Arq. Buró, donde trabajo como jefe de obra.',
-  },
-  {
-    id: 'academico',
-    nombre: 'Académico',
-    items: academicos,
-    intro: 'Universidad San Francisco de Quito, del Taller 4 a la tesis de grado. Entregas finales.',
-  },
+  { id: 'proyectos', nombre: 'Proyectos', items: [...propios, ...obras] },
+  { id: 'disenos', nombre: 'Diseños', items: disenos },
 ]
 
-const menu = [
-  ...categorias.map((c) => ({ href: `#/${c.id}`, nombre: c.nombre })),
-  { href: '#/sobre-mi', nombre: 'Sobre mí' },
-  { href: '#/contacto', nombre: 'Contacto' },
-]
+const porSlug = Object.fromEntries([...propios, ...obras, ...disenos].map((p) => [slugDe(p), p]))
 
-// Franjas del inicio: una por sección, con la foto que la representa.
-const franjas = [
-  { href: '#/proyecto-propio', nombre: 'Proyecto propio', src: '/img/remodelacion-ym/01.jpg', pos: '50% 45%', alt: 'Remodelación YM' },
-  { href: '#/jefe-de-obra', nombre: 'Jefe de obra', src: '/img/casa-jc/01.jpg', pos: '50% 55%', alt: 'Casa JC' },
-  { href: '#/p/casa-aj', nombre: 'En obra / terminado', src: '/img/hero/casa-aj-final.jpg', pos: '50% 50%', alt: 'Casa AJ terminada' },
-  { href: '#/academico', nombre: 'Académico', src: '/img/academico/mundaneum-beirut.jpg', pos: '50% 50%', alt: 'Maqueta del Mundaneum Beirut' },
-  { href: '#/sobre-mi', nombre: 'Sobre mí', src: '/img/casa-aj/07.jpg', pos: '50% 50%', alt: 'Casa AJ en obra: encofrado de muros y gradas' },
-  { href: '#/contacto', nombre: 'Contacto', src: '/img/colegio-mine/01.jpg', pos: '50% 60%', alt: 'Colegio Mine: pabellón entre eucaliptos' },
+// Mosaico del inicio (4 columnas en computadora): tamaño de cada pieza y la foto que la representa.
+// g = grande 2×2, h = horizontal 2×1, v = vertical 1×2, c = chica 1×1. El orden llena la grilla sin huecos.
+const mosaico = [
+  { slug: 'casa-jc', t: 'g', src: '/img/casa-jc/01.jpg', pos: '50% 50%' },
+  { slug: 'edificio-nexo', t: 'h', src: '/img/disenos/edificio-nexo.jpg', pos: '50% 40%' },
+  { slug: 'casa-jv', t: 'c', src: '/img/casa-jv/01.jpg', pos: '50% 50%' },
+  { slug: 'mundaneum-beirut', t: 'c', src: '/img/disenos/mundaneum-beirut.jpg', pos: '50% 50%' },
+  { slug: 'remodelacion-ym', t: 'v', src: '/img/remodelacion-ym/01.jpg', pos: '50% 50%' },
+  { slug: 'casa-fr', t: 'h', src: '/img/casa-fr/01.jpg', pos: '50% 50%' },
+  { slug: 'casa-lt', t: 'v', src: '/img/casa-lt/01.jpg', pos: '50% 50%' },
+  { slug: 'galeria-talleres', t: 'h', src: '/img/disenos/galeria-talleres.jpg', pos: '50% 50%' },
+  { slug: 'colegio-mine', t: 'h', src: '/img/colegio-mine/01.jpg', pos: '50% 55%' },
+  { slug: 'casa-aj', t: 'g', src: '/img/casa-aj/01.jpg', pos: '50% 50%' },
+  { slug: 'casa-br', t: 'h', src: '/img/casa-br/01.jpg', pos: '50% 50%' },
 ]
 
 function useRuta() {
@@ -71,26 +60,44 @@ function useRuta() {
 function Header({ ruta }) {
   const [abierto, setAbierto] = useState(false)
   useEffect(() => setAbierto(false), [ruta])
-  const activo = (href) => {
-    const r = href.slice(2)
-    if (ruta === r) return true
-    if (ruta.startsWith('p/')) return categorias.find((c) => c.id === r)?.items.some((p) => `p/${slugDe(p)}` === ruta)
-    return false
-  }
+  useEffect(() => {
+    if (!abierto) return
+    const overflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const onKey = (e) => e.key === 'Escape' && setAbierto(false)
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = overflow
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [abierto])
+  const actual = ruta.startsWith('p/') ? ruta.slice(2) : null
   return (
     <header className={`hd${abierto ? ' hd-abierto' : ''}`}>
       <a href="#/" className="hd-logo" aria-label="Inicio">
-        <span>Joaquín</span>
-        <span>Andrade</span>
+        <span>Joaquín Andrade</span>
         <span className="hd-sub">Arquitecto</span>
       </a>
-      <button className="hd-burger" onClick={() => setAbierto((v) => !v)} aria-expanded={abierto} aria-label="Menú">
+      <button className="hd-burger" onClick={() => setAbierto((v) => !v)} aria-expanded={abierto} aria-controls="menu" aria-label={abierto ? 'Cerrar menú' : 'Abrir menú'}>
         <span /><span /><span />
       </button>
-      <nav className="hd-nav">
-        {menu.map((m) => (
-          <a key={m.href} href={m.href} className={activo(m.href) ? 'activo' : ''}>{m.nombre}</a>
+      <nav id="menu" className="menu" hidden={!abierto}>
+        {categorias.map((c) => (
+          <div key={c.id} className="menu-col">
+            <a href={`#/${c.id}`} className="menu-tit">{c.nombre}</a>
+            <ul>
+              {c.items.map((p) => (
+                <li key={p.nombre}>
+                  <a href={`#/p/${slugDe(p)}`} className={actual === slugDe(p) ? 'activo' : ''}>{p.nombre}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
+        <div className="menu-col">
+          <a href="#/sobre-mi" className="menu-tit">Sobre mí</a>
+          <a href="#/contacto" className="menu-tit">Contacto</a>
+        </div>
       </nav>
     </header>
   )
@@ -98,14 +105,20 @@ function Header({ ruta }) {
 
 function Inicio() {
   return (
-    <main className="franjas">
+    <main className="mosaico">
       <h1 className="sr-only">Joaquín Andrade, arquitecto</h1>
-      {franjas.map((f, i) => (
-        <a key={f.href + f.nombre} href={f.href} className="franja">
-          <img src={f.src} alt={f.alt} style={{ objectPosition: f.pos }} loading={i < 4 ? 'eager' : 'lazy'} />
-          <span>{f.nombre}</span>
-        </a>
-      ))}
+      {mosaico.map((m, i) => {
+        const p = porSlug[m.slug]
+        return (
+          <a key={m.slug} href={`#/p/${m.slug}`} className={`pieza pieza-${m.t}`}>
+            <img src={m.src} alt={p.alt} style={{ objectPosition: m.pos }} loading={i < 5 ? 'eager' : 'lazy'} />
+            <span className="pieza-txt">
+              <strong>{p.nombre}</strong>
+              <em>{rolDe(p)}</em>
+            </span>
+          </a>
+        )
+      })}
     </main>
   )
 }
@@ -113,15 +126,14 @@ function Inicio() {
 function Categoria({ cat }) {
   return (
     <main>
-      <h1 className="sr-only">{cat.nombre}</h1>
-      <p className="intro">{cat.intro}</p>
+      <h1 className="tit-cat">{cat.nombre}</h1>
       <div className="grilla">
         {cat.items.map((p) => (
           <a key={p.nombre} href={`#/p/${slugDe(p)}`} className="celda">
             <img src={p.portada} alt={p.alt} loading="lazy" width="1200" height="900" />
             <span className="celda-txt">
               <strong>{p.nombre}</strong>
-              <em>{p.tipo}</em>
+              <em>{rolDe(p)}</em>
             </span>
           </a>
         ))}
@@ -132,18 +144,15 @@ function Categoria({ cat }) {
 
 // Ficha técnica en el formato "campo > valor", con grupos separados por "-".
 function ficha(p) {
-  const g1 = []
-  const tipos = p.tipo.split(' · ')
-  g1.push(['tipo', tipos.filter((t) => !/^\d{4}$/.test(t)).join(' · ')])
+  const g1 = [['tipo', p.tipo]]
   if (p.ubicacion) g1.push(['ubicación', p.ubicacion])
-  const anio = p.anio ?? tipos.find((t) => /^\d{4}$/.test(t))
-  if (anio) g1.push(['año', anio])
+  if (p.anio) g1.push(['año', p.anio])
   const g2 = (p.credito ?? '').split(' · ').filter(Boolean).map((c) => {
-    if (c.startsWith('Con ')) return ['en equipo con', c.slice(4)]
     const [k, v] = c.split(': ')
     return [k.toLowerCase(), v]
   })
-  if (p.credito?.includes('Arq. Buró')) g2.push(['jefe de obra', 'Joaquín Andrade'])
+  if (obras.includes(p)) g2.push(['jefe de obra', 'Joaquín Andrade'])
+  if (disenos.includes(p)) g2.push(['diseño', 'Joaquín Andrade'])
   return [g1, g2].filter((g) => g.length)
 }
 
@@ -155,6 +164,7 @@ function Galeria({ p }) {
   useEffect(() => {
     if (visor) return
     const onKey = (e) => {
+      if (document.querySelector('.hd-abierto')) return
       if (e.key === 'ArrowRight') ir(1)
       else if (e.key === 'ArrowLeft') ir(-1)
     }
@@ -255,11 +265,9 @@ function SobreMi() {
       <div className="ph">Foto de perfil</div>
       <div className="pagina-txt">
         <h1>Sobre mí</h1>
-        <p>Arquitecto por la Universidad San Francisco de Quito (2022). Jefe de obra en Arq. Buró.</p>
+        <p>Arquitecto en Quito. Jefe de obra en Arq. Buró.</p>
         <p>-</p>
-        <p>formación &gt; USFQ, arquitectura</p>
-        <p>taller 8 &gt; Casa Branca, Portugal, 2022</p>
-        <p>titulación &gt; diciembre 2022 · tesis: Mundaneum Beirut</p>
+        <p>formación &gt; Arquitectura, Universidad San Francisco de Quito</p>
         <p>proyecto propio &gt; Remodelación YM, Quito, 2025</p>
         <p>trabajo &gt; jefe de obra en Arq. Buró</p>
       </div>
@@ -290,11 +298,9 @@ export default function App() {
   if (cat) pagina = <Categoria cat={cat} />
   else if (ruta === 'sobre-mi') pagina = <SobreMi />
   else if (ruta === 'contacto') pagina = <Contacto />
-  else if (ruta.startsWith('p/')) {
-    for (const c of categorias) {
-      const p = c.items.find((x) => slugDe(x) === ruta.slice(2))
-      if (p) pagina = <Proyecto p={p} cat={c} />
-    }
+  else if (ruta.startsWith('p/') && porSlug[ruta.slice(2)]) {
+    const p = porSlug[ruta.slice(2)]
+    pagina = <Proyecto p={p} cat={categorias.find((c) => c.items.includes(p))} />
   }
   useEffect(() => {
     const titulo = document.querySelector('main h1')?.textContent

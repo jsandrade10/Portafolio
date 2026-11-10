@@ -19,7 +19,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 |---|---|---|
 | **Remodelación YM** (Quito, 2025) | Su **primer proyecto como arquitecto**, diseñado y dirigido enteramente por él. | "Diseño y dirección de obra: Joaquín Andrade". Sección "Proyecto propio". |
 | **WORK**: Casas AJ, BR, FR, JC, JV, LT + Colegio Mine | **Diseño de Diez + Muller** (firma muy reconocida en Ecuador), **construcción de Arq. Buró**, donde Joaquín trabaja como **jefe de obra**. NO son diseños suyos ni es el constructor. | "Diseño: Diez + Muller · Construcción: Arq. Buró". Sección "Jefe de obra en Arq. Buró". Título confirmado: **"Jefe de obra"**. |
-| **UNI** (USFQ) | Proyectos académicos propios, T4 → Tesis. | T4: "Con Sofía Murillo" (firma la lámina). Tesis: "Tutor: Jaime López Andrade, PhD". |
+| **UNI** (USFQ) | Proyectos académicos propios. En el sitio solo **T7 (Edificio Nexo), T8 (Galería-Talleres) y Tesis (Mundaneum Beirut)**, en la sección **"Diseños"**. | **Nunca presentarlos como universitarios** (pedido de Joaquín, 2026-11-09): sin "taller", "USFQ", "tesis", "tutor", "entrega" ni "lámina" en ningún texto, ruta o imagen. Ficha: tipo, ubicación, año, "diseño > Joaquín Andrade". T4, T5 y T6 quitados del sitio. |
 
 - **Permiso para publicar todas las fotos de las carpetas: confirmado** por Joaquín.
 - **Años**: T4 y T5 2020 · T6 y T7 2021 · T8 (Portugal) y Tesis 2022. Tesis entregada el 14/12/2022, Taller IX. Nombre completo en la tesis: Joaquín Sebastián Andrade Soria.
@@ -29,7 +29,8 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 
 ## Preferencias de Joaquín (aprendidas en las sesiones)
 
-- **Académico: solo entregas FINALES.** Nada de análisis, anteproyectos, entregas intermedias ni maquetas de estudio. Se pueden usar recortes de las láminas finales para mostrar detalles.
+- **Diseños (antes "Académico")**: solo T7, T8 y Tesis, sin ninguna referencia universitaria; las láminas de T7 llevaban una franja "USFQ · TALLER 7 · ENTREGA FINAL" + número de estudiante: se recortó (`recorta.mjs`, filas 0–1905); se quitó la portada del PORTAFOLIO de la tesis (decía "USFQ 22.12.2022"). Si se agregan imágenes nuevas, revisar que no tengan logos ni rótulos de la universidad.
+- **Solo entregas FINALES.** Nada de análisis, anteproyectos, entregas intermedias ni maquetas de estudio. Se pueden usar recortes de las láminas finales para mostrar detalles.
 - **En obras: lo más llamativo es el resultado terminado**; el proceso acompaña al final de cada galería.
 - **Inicio**: comparador con **En obra a la izquierda y Terminado a la derecha**; las dos fotos deben verse como **la misma imagen** (mismo ángulo y perspectiva). **No hacer zoom de más**: debe verse la casa completa.
 - Revisar **también en computadora**, no solo en celular (los problemas de la sesión 3 eran solo de escritorio).
@@ -68,7 +69,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 
 **Stack**: React + Vite, sitio estático con rutas por hash (sin dependencias), Vercel.
 
-**Diseño (2026-11-09, pedido de Joaquín: "tal cual" https://mk27.com/)**: fondo negro, Roboto Light 12,5 px con espaciado, menú en mayúsculas a la derecha (PROYECTO PROPIO · JEFE DE OBRA · ACADÉMICO · SOBRE MÍ · CONTACTO), nombre a la izquierda (no se copia el logo, textos ni fotos de MK27). Inicio = franjas a todo el ancho en blanco y negro (color y nombre al pasar el mouse; en celular, nombre siempre visible). Categoría = grilla de 3 columnas (1,6:1, 3 px de separación), B/N con color al pasar. Proyecto = galería grande con miniaturas (clic → visor a pantalla completa), ficha "campo > valor" a la derecha, texto debajo y navegación anterior/siguiente. El comparador obra/terminado está ahora en la página de Casa AJ (y una franja del inicio lleva ahí). Rutas: `#/`, `#/proyecto-propio`, `#/jefe-de-obra`, `#/academico`, `#/p/<slug>`, `#/sobre-mi`, `#/contacto`. Capturas: `node ~/Desktop/pdf-tools/capturas2.mjs http://localhost:4173/ <dir>`. Comandos en `~/Desktop/Portafolio`: `npm run dev` (http://localhost:5173), `npm run build`.
+**Diseño (2026-11-09, inspirado en https://mk27.com/ a pedido de Joaquín)**: fondo negro, Roboto Light 12,5 px con espaciado, nombre a la izquierda (no se copia el logo, textos ni fotos de MK27) y **hamburguesa** a la derecha (también en computadora) que abre un menú a pantalla completa: **PROYECTOS** (Remodelación YM + obras de Arq. Buró), **DISEÑOS** (Nexo, Galería-Talleres, Mundaneum), SOBRE MÍ, CONTACTO. **Inicio = mosaico sobrio de rectángulos de distintos tamaños** (lista `mosaico` en App.jsx: g 2×2, h 2×1, v 1×2, c 1×1 en 4 columnas, sin huecos; en celular 2 columnas), una foto por proyecto, B/N con color, nombre y rol ("Jefe de obra", "Diseño y dirección de obra", "Diseño") al pasar el mouse. Categoría = grilla de 3 columnas (1,6:1, 3 px de separación), B/N con color al pasar. Proyecto = galería grande con miniaturas (clic → visor a pantalla completa), ficha "campo > valor" a la derecha, texto debajo y navegación anterior/siguiente. El comparador obra/terminado está en la página de Casa AJ. Rutas: `#/`, `#/proyectos`, `#/disenos`, `#/p/<slug>`, `#/sobre-mi`, `#/contacto`. Capturas: `node ~/Desktop/pdf-tools/capturas2.mjs http://localhost:4173/ <dir>`. Comandos en `~/Desktop/Portafolio`: `npm run dev` (http://localhost:5173), `npm run build`.
 
 | Archivo | Qué hay |
 |---|---|
@@ -79,7 +80,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 | `src/BeforeAfter.jsx` | Comparador: la barra sigue al mouse sin clic; en táctil se arrastra; flechas ±5 %. Props `left`/`right`, `leftLabel`/`rightLabel` (`clip-path` sobre `left`). |
 | `src/index.css` | Variables en `:root` (`--bg` negro, `--izq` 240 px = margen del contenido alineado con el menú). Cortes: ≤1100 px el menú baja bajo el nombre; ≤700 px hamburguesa, grilla de 1 columna y proyecto apilado. |
 | `public/img/hero/` | `casa-aj-obra.jpg` (alineada) y `casa-aj-final.jpg`, 2100×1400. |
-| `public/img/obras/`, `public/img/academico/` | Portadas de tarjeta 1200×900 (4:3). |
+| `public/img/obras/`, `public/img/disenos/` | Portadas de tarjeta 1200×900 (4:3). |
 | `public/img/<slug>/` | Galerías: `NN.jpg` (fotos 1600 px; láminas 2000 px) + `NN-t.jpg` (miniatura 400 px). ~40 MB en total. |
 
 ### Contenido de cada galería (fuente → archivo)
@@ -96,13 +97,10 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - `casa-lt` (5): `IMG_4090, PHOTO-…-44, PHOTO-…-44 2, PHOTO-…-44 3, IMG_4291` (volúmenes terracota, celosía vertical, piedra). Portada recorte de `IMG_4090`.
 - `colegio-mine` (5): `IMG_4040, 4054, 4592, 4156` + obra `IMG_0822` (sala multiusos: pabellón poligonal, cubierta metálica, eucaliptos).
 
-**Académico — solo entregas finales** (página del PDF → número de imagen)
-- `centro-comunitario` (6): T4 `CENTRO COMUNITARIO.pdf` págs. 9, 1, 2, 5, 6, 7. Portada: axonometría (pág. 9, recorte `[.02,.03,.52,.52]`).
-- `facultad-arquitectura` (5): T5 `ENTREGA FINAL.pdf` págs. 5, 1, 2, 3, 4. Portada: vista 3D con la torre (pág. 5, `[.056,.635,.434,.835]`).
-- `biblioteca` (8): T6 `ENTREGA FINAL.pdf` págs. 7, 1, 2, 3, 4, 6, 5, 8. Portada: quiebrasoles de madera (pág. 7, `[.38,.70,.852,.95]`).
-- `edificio-nexo` (6): T7 `ENTREGA FINAL.pdf` págs. 6, 1, 2, 3, 4, 5. Portada: vista desde la calle José Correa (pág. 6, `[.05,.045,.95,.40]`).
+**Diseños (en el sitio) — solo entregas finales** (página del PDF → número de imagen). T4–T6 (`centro-comunitario`, `facultad-arquitectura`, `biblioteca`) se quitaron del sitio el 2026-11-09; sus fuentes: T4 `CENTRO COMUNITARIO.pdf` págs. 9,1,2,5,6,7; T5 y T6 `ENTREGA FINAL.pdf`.
+- `edificio-nexo` (6): T7 `ENTREGA FINAL.pdf` págs. 6, 1, 2, 3, 4, 5. Portada: vista desde la calle José Correa (pág. 6, `[.05,.045,.95,.40]`). Las 6 láminas recortadas a 1413×1905 (sin la franja USFQ).
 - `galeria-talleres` (7): recortes de T8 `laminas finales.pdf` pág. 1 — maqueta `[.025,.05,.475,.75]`, planta `[.52,.05,.885,.59]`, axonometría y cortes `[.52,.62,.885,.95]`, fotos de maqueta `[.884,.41,.98,.955]`, fotos del sitio `[.884,.04,.98,.41]`, mitad izquierda `[0,0,.5,1]`, mitad derecha `[.5,0,1,1]`. Portada: maqueta blanca `[.02,.17,.48,.68]`.
-- `mundaneum-beirut` (14): `PORTAFOLIO.pdf` págs. 1, 21, 17, 29, 30, 7, 20, 23, 27, 28 + `ENTREGA FINAL.pdf` 1, 2 + `MAQUETA.pdf` 1, 2. Portada: maqueta final (PORTAFOLIO pág. 29, `[.17,.17,.87,.912]`). Se quitaron las págs. 14 y 15 (maquetas de proceso).
+- `mundaneum-beirut` (13): `PORTAFOLIO.pdf` págs. 21, 17, 29, 30, 7, 20, 23, 27, 28 + `ENTREGA FINAL.pdf` 1, 2 + `MAQUETA.pdf` 1, 2. Portada: maqueta final (PORTAFOLIO pág. 29, `[.17,.17,.87,.912]`). Se quitaron las págs. 14 y 15 (maquetas de proceso). Se quitó también la pág. 1 (portada con "USFQ").
 
 Los resúmenes de cada proyecto académico se escribieron a partir del texto de las propias láminas (concepto, ubicación, estructura), en lenguaje simple.
 
@@ -120,7 +118,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - **Mac** Intel, macOS 12.6, **sin Command Line Tools de Xcode** (`/usr/bin/git` y `python3` no funcionan). Node.js 22 + npm 10 en `/usr/local/bin` (sin paquetes con compilación nativa).
 - **git**: `~/.local/bin/git` (el de GitHub Desktop en `~/Applications`); credenciales con Git Credential Manager, ya autorizado para jsandrade10.
 - **Imágenes**: `sips` y `qlmanage` (no hay ImageMagick ni Python).
-  - Convertir/redimensionar: `sips -s format jpeg -s formatOptions 72 -Z 1600 in.HEIC --out out.jpg`; recortar `-c alto ancho --cropOffset y x`.
+  - Convertir/redimensionar: `sips -s format jpeg -s formatOptions 72 -Z 1600 in.HEIC --out out.jpg`. **`sips -c` recorta centrado e ignora `--cropOffset`**: para recortar un rectángulo usar `node ~/Desktop/pdf-tools/recorta.mjs in.jpg out.jpg x y ancho alto` (y `banda.mjs` detecta franjas negras inferiores).
   - **Orientación EXIF**: `sips` deja las fotos verticales de celular con los píxeles acostados y Orientation=6. Antes de recortar: `node ~/Desktop/pdf-tools/normaliza.cjs <jpgs>` (gira píxeles y deja la etiqueta en 1). Para medir, usar `node ~/Desktop/pdf-tools/dims.cjs <jpg>` (`sips -g pixelWidth` engaña).
   - Hojas de contacto para revisar muchas fotos: HTML con grilla de miniaturas + `qlmanage -t -s 1800 -o <dir> hoja.html`. Las rutas con tildes no cargan, y qlmanage puede devolver una versión vieja en caché (cambiar el nombre del html).
 - **`~/Desktop/pdf-tools/`** (FUERA del repo; npm `mupdf` (WASM) y `puppeteer-core`, instalados con permiso de Joaquín):
