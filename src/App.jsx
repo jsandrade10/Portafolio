@@ -1,5 +1,5 @@
 // Sitio con estética tipo estudio (fondo negro). Rutas con hash, sin dependencias:
-//   #/                 inicio: mosaico con una foto por proyecto
+//   #/                 inicio: franjas horizontales, una por proyecto
 //   #/proyectos        grilla de obras (proyecto propio + jefe de obra)
 //   #/disenos          grilla de diseños
 //   #/p/<slug>         página de un proyecto
@@ -27,20 +27,19 @@ const categorias = [
 
 const porSlug = Object.fromEntries([...propios, ...obras, ...disenos].map((p) => [slugDe(p), p]))
 
-// Mosaico del inicio (4 columnas en computadora): tamaño de cada pieza y la foto que la representa.
-// g = grande 2×2, h = horizontal 2×1, v = vertical 1×2, c = chica 1×1. El orden llena la grilla sin huecos.
-const mosaico = [
-  { slug: 'casa-jc', t: 'g', src: '/img/casa-jc/01.jpg', pos: '50% 50%' },
-  { slug: 'edificio-nexo', t: 'h', src: '/img/disenos/edificio-nexo.jpg', pos: '50% 40%' },
-  { slug: 'casa-jv', t: 'c', src: '/img/casa-jv/01.jpg', pos: '50% 50%' },
-  { slug: 'mundaneum-beirut', t: 'c', src: '/img/disenos/mundaneum-beirut.jpg', pos: '50% 50%' },
-  { slug: 'remodelacion-ym', t: 'v', src: '/img/remodelacion-ym/01.jpg', pos: '50% 50%' },
-  { slug: 'casa-fr', t: 'h', src: '/img/casa-fr/01.jpg', pos: '50% 50%' },
-  { slug: 'casa-lt', t: 'v', src: '/img/casa-lt/01.jpg', pos: '50% 50%' },
-  { slug: 'galeria-talleres', t: 'h', src: '/img/disenos/galeria-talleres.jpg', pos: '50% 50%' },
-  { slug: 'colegio-mine', t: 'h', src: '/img/colegio-mine/01.jpg', pos: '50% 55%' },
-  { slug: 'casa-aj', t: 'g', src: '/img/casa-aj/01.jpg', pos: '50% 50%' },
-  { slug: 'casa-br', t: 'h', src: '/img/casa-br/01.jpg', pos: '50% 50%' },
+// Inicio: franjas horizontales a todo el ancho, una por proyecto (pos = qué parte de la foto se ve).
+const franjas = [
+  { slug: 'casa-jc', src: '/img/casa-jc/01.jpg', pos: '50% 55%' },
+  { slug: 'remodelacion-ym', src: '/img/remodelacion-ym/01.jpg', pos: '50% 45%' },
+  { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo.jpg', pos: '50% 35%' },
+  { slug: 'casa-aj', src: '/img/casa-aj/01.jpg', pos: '50% 60%' },
+  { slug: 'casa-fr', src: '/img/casa-fr/01.jpg', pos: '50% 50%' },
+  { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut.jpg', pos: '50% 50%' },
+  { slug: 'casa-jv', src: '/img/casa-jv/01.jpg', pos: '50% 55%' },
+  { slug: 'casa-lt', src: '/img/casa-lt/01.jpg', pos: '50% 50%' },
+  { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres.jpg', pos: '50% 50%' },
+  { slug: 'casa-br', src: '/img/casa-br/01.jpg', pos: '50% 50%' },
+  { slug: 'colegio-mine', src: '/img/colegio-mine/01.jpg', pos: '50% 60%' },
 ]
 
 function useRuta() {
@@ -105,14 +104,14 @@ function Header({ ruta }) {
 
 function Inicio() {
   return (
-    <main className="mosaico">
+    <main className="franjas">
       <h1 className="sr-only">Joaquín Andrade, arquitecto</h1>
-      {mosaico.map((m, i) => {
+      {franjas.map((m, i) => {
         const p = porSlug[m.slug]
         return (
-          <a key={m.slug} href={`#/p/${m.slug}`} className={`pieza pieza-${m.t}`}>
-            <img src={m.src} alt={p.alt} style={{ objectPosition: m.pos }} loading={i < 5 ? 'eager' : 'lazy'} />
-            <span className="pieza-txt">
+          <a key={m.slug} href={`#/p/${m.slug}`} className="franja">
+            <img src={m.src} alt={p.alt} style={{ objectPosition: m.pos }} loading={i < 4 ? 'eager' : 'lazy'} />
+            <span className="franja-txt">
               <strong>{p.nombre}</strong>
               <em>{rolDe(p)}</em>
             </span>
