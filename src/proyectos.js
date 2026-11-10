@@ -144,7 +144,7 @@ export const disenos = [
     tipo: 'Cultural',
     ubicacion: 'Quito',
     anio: 2020,
-    credito: 'Diseño: Joaquín Andrade y Sofía Murillo',
+    coautoria: true, // proyecto en equipo: Joaquín pidió no mostrar créditos de coautoría; tampoco se dice "diseño > Joaquín Andrade"
     resumen: 'Centro cultural para Quito, entre los barrios González Suárez, La Floresta y Guápulo. Dos volúmenes con el programa se unen mediante un conector con vista hacia Guápulo, y la luz cenital ilumina el hall, la sala de lectura y la sala de exhibición.',
     portada: '/img/disenos/centro-comunitario.jpg',
     alt: 'Axonometría del Centro Cultural Comunitario sobre la ladera',
@@ -234,7 +234,7 @@ export const disenos = [
     anio: 2022,
     resumen: 'Tras la explosión del puerto de Beirut en 2020, un plan masa conecta los hitos históricos de la ciudad. El edificio es un museo de sitio junto al Foro Romano, inspirado en el Mundaneum de Paul Otlet, que cuenta la historia de Beirut: el recorrido empieza en la catedral de San Jorge y termina en el campanario.',
     portada: '/img/disenos/mundaneum-beirut.jpg',
-    alt: 'Maqueta del Mundaneum Beirut junto al campanario',
+    alt: 'Mundaneum Beirut: fachada de arcos junto a la mezquita, con las ruinas romanas al frente',
     fotos: galeria('mundaneum-beirut', [
       'Fachada del museo con arcos, junto a la mezquita y el campanario',
       'Museo de sitio histórico: concepto y vista interior',

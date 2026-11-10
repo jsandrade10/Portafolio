@@ -73,6 +73,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .franja-txt strong { font-weight: 300; font-size: 30px; text-transform: uppercase; letter-spacing: .04em; line-height: 1; }
 .franja-txt em { font-style: normal; text-transform: uppercase; color: #ddd; font-size: 11px; letter-spacing: .14em; }
+.franja-color img { filter: none; }
 .franja:hover img, .franja:focus-visible img { filter: grayscale(0); transform: scale(1.02); }
 .franja:hover .franja-txt, .franja:focus-visible .franja-txt { opacity: 1; }
 .celda-txt {
