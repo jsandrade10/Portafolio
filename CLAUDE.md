@@ -187,3 +187,5 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 
 
 **2026-11-11 — sesión 4**: menú, grillas y navegación igualados al orden del inicio (se reordenaron las listas de `proyectos.js`).
+- Facultad: la franja dejó de estar siempre en color; ahora es B/N y el tono cálido aparece al pasar el mouse, como las demás (pedido de Joaquín).
+- Joaquín pidió convertir las láminas de Diseños en renders realistas. Claude no genera imágenes; se probó mejorar la lámina del Mundaneum con canvas (cielo de atardecer, luz interior en los vidrios) y **Joaquín la rechazó: dejar las láminas como están**. No volver a proponerlo salvo que él traiga renders hechos o pida usar un generador externo (Higgsfield, previa autorización para subir imágenes).
