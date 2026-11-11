@@ -226,10 +226,10 @@ function Fotos({ p }) {
   return (
     <main>
       <h1 className="tit-cat">{p.nombre}</h1>
-      <div className="grilla">
+      <div className="grilla grilla-fotos">
         {p.fotos.map((f, k) => (
           <a key={f.src} href={`#/p/${slug}/${k + 1}`} className="celda">
-            <img src={f.src} alt={f.alt} loading={k < 6 ? 'eager' : 'lazy'} />
+            <img src={f.src} srcSet={`${f.thumb} 400w, ${f.src} 1600w`} sizes="(max-width: 700px) 34vw, 33vw" alt={f.alt} loading={k < 6 ? 'eager' : 'lazy'} />
             <span className="celda-txt">
               <em>{f.alt}</em>
             </span>

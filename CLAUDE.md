@@ -160,7 +160,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - **LinkedIn / Instagram** y **CV en PDF** (para Contacto).
 - Opcional: año, ubicación y m² de cada obra de WORK; crédito del fotógrafo; original en alta resolución de `REMODELACIÓN YM/01.jpg`; una foto de obra de Casa AJ tomada desde el mismo punto que la terminada.
 
-**Para la próxima sesión (ofrecido, sin respuesta):** en celular, quitar el texto que se superpone a las láminas en la grilla de fotos; ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide; copiar este CLAUDE.md al disco externo (no estuvo conectado en la sesión 3).
+**Para la próxima sesión (ofrecido, sin respuesta):** ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide; copiar este CLAUDE.md al disco externo (no estuvo conectado en la sesión 3).
 
 **Ideas para después** (consultar antes): textos "En pocas palabras" por obra (sistema constructivo, materiales: hormigón visto, ladrillo, piedra, tierra apisonada, madera); páginas individuales por proyecto con ficha técnica; filtros por tipo; versión en inglés.
 
@@ -189,3 +189,4 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 **2026-11-11 — sesión 4**: menú, grillas y navegación igualados al orden del inicio (se reordenaron las listas de `proyectos.js`).
 - Facultad: la franja dejó de estar siempre en color; ahora es B/N y el tono cálido aparece al pasar el mouse, como las demás (pedido de Joaquín).
 - Joaquín pidió convertir las láminas de Diseños en renders realistas. Claude no genera imágenes; se probó mejorar la lámina del Mundaneum con canvas (cielo de atardecer, luz interior en los vidrios) y **Joaquín la rechazó: dejar las láminas como están**. No volver a proponerlo salvo que él traiga renders hechos o pida usar un generador externo (Higgsfield, previa autorización para subir imágenes).
+- Celular: la grilla de fotos de cada proyecto (`.grilla-fotos`) ahora tiene 3 columnas como en computadora, sin texto encima, y carga las miniaturas `-t.jpg` (srcset).
