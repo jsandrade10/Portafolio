@@ -75,7 +75,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - Fondo negro, Roboto Light 12,5 px con espaciado, nombre "JOAQUÍN ANDRADE · ARQUITECTO" a la izquierda y **hamburguesa** a la derecha (también en computadora).
 - **Menú** a pantalla completa: **PROYECTOS** (Remodelación YM + obras de Arq. Buró), **DISEÑOS** (los 6 proyectos universitarios, presentados sin referencia a la universidad), SOBRE MÍ, CONTACTO.
 - **Inicio** = franjas horizontales a todo el ancho, **una por proyecto** (lista `franjas` en App.jsx; `pos` = parte visible de la foto). Alto: computadora `clamp(260px, 25vw, 440px)` (≈360 px a 1440 px; Joaquín las veía muy cortadas con 230), celular 230 px. B/N; al pasar el mouse, color + nombre + rol ("Jefe de obra", "Diseño y dirección de obra", "Diseño"); en celular el nombre se ve siempre con sombra inferior. Se probó un mosaico de tamaños distintos y **Joaquín prefirió las franjas horizontales**.
-- **Orden del inicio (pedido por Joaquín)**: Remodelación YM, Casa JC, FR, AJ, JV, LT, BR, Colegio Mine, Mundaneum Beirut, Galería-Talleres, Edificio Nexo, Facultad, Biblioteca, Centro Comunitario. (El menú y la grilla de Diseños siguen otro orden: YM, JC, FR, AJ, BR, JV, LT, Mine / CC, Facultad, Biblioteca, Nexo, Galería, Mundaneum — se ofreció igualarlos, sin respuesta aún.)
+- **Orden (pedido por Joaquín)**: Remodelación YM, Casa JC, FR, AJ, JV, LT, BR, Colegio Mine, Mundaneum Beirut, Galería-Talleres, Edificio Nexo, Facultad, Biblioteca, Centro Comunitario. Desde la sesión 4 el menú, las grillas y "proyecto anterior / siguiente" siguen este mismo orden (es el orden de las listas en `proyectos.js`).
 - Franja de la **Facultad**: `disenos/facultad-arquitectura-inicio.jpg`, gris con el ladrillo en tono terracota apagado (`detalle_color.mjs`, #a06a4e, fuerza 0.45; los blancos no se tiñen) y sin filtro B/N (`color: true`). Portada de **Mundaneum** = render de la fachada de arcos con la mezquita y las ruinas romanas (recorte de `mundaneum-beirut/01.jpg`, 74,206,1856×846 → 1600×729).
 - **Rutas**: `#/` · `#/proyectos` y `#/disenos` (grilla de portadas) · `#/p/<slug>` = **todas las fotos del proyecto en grilla de 3 columnas** (lo que abre cada franja y el menú; B/N, color y descripción al pasar) · `#/p/<slug>/<n>` = al hacer clic en una foto: foto n grande (clic → visor a pantalla completa), ficha "campo > valor" a la derecha, miniaturas abajo, resumen debajo; la dirección se actualiza al cambiar de foto; al pie: ‹ proyecto anterior · TODAS LAS FOTOS · siguiente › · `#/sobre-mi` · `#/contacto`.
 - **Fichas**: tipo, ubicación, año; obras: "diseño > Diez + Muller · construcción > Arq. Buró · jefe de obra > Joaquín Andrade"; YM: "diseño y dirección de obra > Joaquín Andrade"; diseños: "diseño > Joaquín Andrade", **excepto el Centro Comunitario** (`coautoria: true`, sin crédito de diseño).
@@ -160,7 +160,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - **LinkedIn / Instagram** y **CV en PDF** (para Contacto).
 - Opcional: año, ubicación y m² de cada obra de WORK; crédito del fotógrafo; original en alta resolución de `REMODELACIÓN YM/01.jpg`; una foto de obra de Casa AJ tomada desde el mismo punto que la terminada.
 
-**Para la próxima sesión (ofrecido, sin respuesta):** igualar el orden del menú y de la grilla de Diseños al del inicio; en celular, quitar el texto que se superpone a las láminas en la grilla de fotos; ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide; copiar este CLAUDE.md al disco externo (no estuvo conectado en la sesión 3).
+**Para la próxima sesión (ofrecido, sin respuesta):** en celular, quitar el texto que se superpone a las láminas en la grilla de fotos; ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide; copiar este CLAUDE.md al disco externo (no estuvo conectado en la sesión 3).
 
 **Ideas para después** (consultar antes): textos "En pocas palabras" por obra (sistema constructivo, materiales: hormigón visto, ladrillo, piedra, tierra apisonada, madera); páginas individuales por proyecto con ficha técnica; filtros por tipo; versión en inglés.
 
@@ -185,3 +185,5 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 6. Se quitaron los créditos de Sofía Murillo, se fijó el orden del inicio, portada de Mundaneum = render de los arcos, detalle de color terracota en la franja de la Facultad.
 7. Franjas más altas en computadora.
 
+
+**2026-11-11 — sesión 4**: menú, grillas y navegación igualados al orden del inicio (se reordenaron las listas de `proyectos.js`).
