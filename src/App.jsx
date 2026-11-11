@@ -41,8 +41,8 @@ const franjas = [
   { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut.jpg', pos: '50% 55%' },
   { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres.jpg', pos: '50% 50%' },
   { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo.jpg', pos: '50% 35%' },
-  // Imagen ya preparada en gris con el ladrillo en un tono cálido suave (detalle de color): no se le aplica el filtro B/N.
-  { slug: 'facultad-arquitectura', src: '/img/disenos/facultad-arquitectura-inicio.jpg', pos: '50% 77%', color: true },
+  // Imagen preparada en gris con el ladrillo en un tono cálido suave: B/N como las demás, el tono aparece al pasar el mouse.
+  { slug: 'facultad-arquitectura', src: '/img/disenos/facultad-arquitectura-inicio.jpg', pos: '50% 77%' },
   { slug: 'biblioteca', src: '/img/disenos/biblioteca.jpg', pos: '50% 50%' },
   { slug: 'centro-comunitario', src: '/img/disenos/centro-comunitario.jpg', pos: '50% 50%' },
 ]
@@ -114,7 +114,7 @@ function Inicio() {
       {franjas.map((m, i) => {
         const p = porSlug[m.slug]
         return (
-          <a key={m.slug} href={`#/p/${m.slug}`} className={`franja${m.color ? ' franja-color' : ''}`}>
+          <a key={m.slug} href={`#/p/${m.slug}`} className="franja">
             <img src={m.src} alt={p.alt} style={{ objectPosition: m.pos }} loading={i < 4 ? 'eager' : 'lazy'} />
             <span className="franja-txt">
               <strong>{p.nombre}</strong>
