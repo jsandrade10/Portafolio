@@ -1,6 +1,6 @@
 // Sitio con estética tipo estudio (fondo negro). Rutas con hash, sin dependencias:
 //   #/                 inicio: franjas horizontales, una por proyecto
-//   #/proyectos        grilla de obras (proyecto propio + jefe de obra)
+//   #/proyectos        grilla de obras (proyecto propio + dirección de obra)
 //   #/disenos          grilla de diseños
 //   #/p/<slug>         todas las fotos del proyecto en grilla (como las categorías de mk27)
 //   #/p/<slug>/<n>     ficha del proyecto con la foto n grande, info a la derecha y miniaturas abajo
@@ -19,7 +19,7 @@ const contacto = {
 }
 
 const slugDe = (p) => p.fotos[0].src.split('/')[2]
-const rolDe = (p) => (propios.includes(p) ? 'Diseño y dirección de obra' : obras.includes(p) ? 'Jefe de obra' : 'Diseño')
+const rolDe = (p) => (propios.includes(p) ? 'Diseño y dirección de obra' : obras.includes(p) ? 'Dirección de obra' : 'Diseño')
 
 const categorias = [
   { id: 'proyectos', nombre: 'Proyectos', items: [...propios, ...obras] },
@@ -155,7 +155,7 @@ function ficha(p) {
     const [k, v] = c.split(': ')
     return [k.toLowerCase(), v]
   })
-  if (obras.includes(p)) g2.push(['jefe de obra', 'Joaquín Andrade'])
+  if (obras.includes(p)) g2.push(['dirección de obra', 'Joaquín Andrade'])
   if (disenos.includes(p) && !p.credito && !p.coautoria) g2.push(['diseño', 'Joaquín Andrade'])
   return [g1, g2].filter((g) => g.length)
 }

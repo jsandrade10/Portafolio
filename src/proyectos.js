@@ -38,7 +38,7 @@ export const propios = [
   },
 ]
 
-// Obras construidas por Arq. Buró con diseño de Diez + Muller; Joaquín es jefe de obra.
+// Obras construidas por Arq. Buró con diseño de Diez + Muller; Joaquín lleva la dirección de obra.
 const creditoBuro = 'Diseño: Diez + Muller · Construcción: Arq. Buró'
 export const obras = [
   {
