@@ -293,7 +293,7 @@ function Proyecto({ p, cat, foto }) {
 // Cada entrada: [título, detalle, enlace opcional].
 const cv = [
   ['Experiencia', [
-    ['Arq. Buró · Quito', 'Dirección de Proyectos en obras residenciales diseñadas por Diez + Muller'],
+    ['Arq. Buró · Quito', 'Dirección de Proyectos en obras residenciales diseñadas por Diez + Muller · nov. 2023 – actualidad'],
     ['Remodelación YM · Oyambarillo, Quito', 'Proyecto propio: diseño y dirección de obra · 2025', '#/p/remodelacion-ym'],
     ['Arquitectura Infinita (Arquinf Constructores) · Quito', 'Diseño arquitectónico de proyectos residenciales · ene.–ago. 2023\nPrácticas profesionales · sep.–dic. 2022'],
     ['Grupo KFC · Quito', 'Pasantía en el departamento de Desarrollo y Proyectos · oct.–dic. 2017'],
