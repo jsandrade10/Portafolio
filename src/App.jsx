@@ -16,6 +16,7 @@ const contacto = {
   email: 'jsandrade10@gmail.com',
   telefono: '099 275 4846',
   telefonoIntl: '+593992754846',
+  linkedin: 'https://www.linkedin.com/in/joaquin-andrade-249205151',
 }
 
 const slugDe = (p) => p.fotos[0].src.split('/')[2]
@@ -293,7 +294,7 @@ function Proyecto({ p, cat, foto }) {
 // Cada entrada: [título, detalle, enlace opcional].
 const cv = [
   ['Experiencia', [
-    ['Arq. Buró · Quito', 'Dirección de Proyectos en obras residenciales diseñadas por Diez + Muller · nov. 2023 – actualidad'],
+    ['Arq. Buró · Quito', 'Dirección de Proyectos en obras residenciales diseñadas por Diez + Muller\nNov. 2023 – actualidad'],
     ['Remodelación YM · Oyambarillo, Quito', 'Proyecto propio: diseño y dirección de obra · 2025', '#/p/remodelacion-ym'],
     ['Arquitectura Infinita (Arquinf Constructores) · Quito', 'Diseño arquitectónico de proyectos residenciales · ene.–ago. 2023\nPrácticas profesionales · sep.–dic. 2022'],
     ['Grupo KFC · Quito', 'Pasantía en el departamento de Desarrollo y Proyectos · oct.–dic. 2017'],
@@ -358,11 +359,20 @@ function Contacto() {
     <main className="pagina">
       <div className="pagina-txt">
         <h1>Contacto</h1>
-        <p>email &gt; <a href={`mailto:${contacto.email}`}>{contacto.email}</a></p>
-        <p>teléfono &gt; <a href={`tel:${contacto.telefonoIntl}`}>{contacto.telefono}</a></p>
-        <p>whatsapp &gt; <a href={wa} target="_blank" rel="noreferrer">escríbeme</a></p>
-        <p>-</p>
-        <p>Quito, Ecuador</p>
+        <dl className="ficha-grupo">
+          {[
+            ['Email', <a href={`mailto:${contacto.email}`}>{contacto.email}</a>],
+            ['Teléfono', <a href={`tel:${contacto.telefonoIntl}`}>{contacto.telefono}</a>],
+            ['WhatsApp', <a href={wa} target="_blank" rel="noreferrer">Escríbeme</a>],
+            ['LinkedIn', <a href={contacto.linkedin} target="_blank" rel="noreferrer">Joaquín Andrade</a>],
+            ['Ubicación', 'Quito, Ecuador'],
+          ].map(([k, v]) => (
+            <div key={k} className="ficha-dato">
+              <dt>{k}:</dt>
+              <dd>{v}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </main>
   )

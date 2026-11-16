@@ -80,7 +80,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - **Rutas**: `#/` · `#/proyectos` y `#/disenos` (grilla de portadas) · `#/p/<slug>` = **todas las fotos del proyecto en grilla de 3 columnas** (lo que abre cada franja y el menú; B/N, color y descripción al pasar) · `#/p/<slug>/<n>` = al hacer clic en una foto: foto n grande (clic → visor a pantalla completa), ficha "campo > valor" a la derecha, miniaturas abajo, resumen debajo; la dirección se actualiza al cambiar de foto; al pie: ‹ proyecto anterior · TODAS LAS FOTOS · siguiente › · `#/sobre-mi` · `#/contacto`.
 - **Fichas**: cada dato en su línea, etiqueta gris con dos puntos arriba ("Tipo:", "Ubicación:", "Año:", "Diseño y dirección de obra:") y valor blanco debajo; grupos separados por líneas finas (`<dl class="ficha-grupo">`; pedido de Joaquín, antes era "campo > valor" con "-"). Datos: tipo, ubicación, año; obras: "Diseño: Diez + Muller · Construcción: Arq. Buró · Dirección de obra: Joaquín Andrade" (antes "jefe de obra"; Joaquín pidió "Dirección de obra" en los proyectos el 2026-11-16; también es el rol en las franjas del inicio); YM: tipo "Remodelación", ubicación "Oyambarillo, Quito, Ecuador", 2025, "diseño y dirección de obra > Joaquín Andrade" + descripción de 3 párrafos escrita por Joaquín (no reescribirla; `resumen` puede ser un texto o una lista de párrafos); diseños: "diseño > Joaquín Andrade", **excepto el Centro Comunitario** (`coautoria: true`, sin crédito de diseño).
 - El **comparador obra/terminado** (Casa AJ) está en la página `#/p/casa-aj/<n>`, debajo del resumen.
-- **Sobre mí** (2026-11-16, a partir de `PORTFOLIO./CV JOAQUIN ANDRADE.pdf` y `Retrato profesional en camisa blanca.png` → `public/img/sobre-mi/retrato.jpg` 840×1120): "Arquitecto en Quito. Dirección de Proyectos en Arq. Buró." + texto de presentación del CV + secciones Experiencia, Formación, Idiomas, Software (lista `cv` en App.jsx). **No publicar** la dirección de su casa ni los datos de las referencias del CV. El CV dice "Residente de obra … Arquitecto Cristian Del Valle, Constructor (nov. 2023 – a la fecha)" para las obras de Diez + Muller: Joaquín confirmó que es la misma empresa que Arq. Buró; en el sitio va "Arq. Buró · nov. 2023 – actualidad"; caja gris para la foto. **Contacto**: email, teléfono, WhatsApp, Quito.
+- **Sobre mí** (2026-11-16, a partir de `PORTFOLIO./CV JOAQUIN ANDRADE.pdf` y `Retrato profesional en camisa blanca.png` → `public/img/sobre-mi/retrato.jpg` 840×1120): "Arquitecto en Quito. Dirección de Proyectos en Arq. Buró." + texto de presentación del CV + secciones Experiencia, Formación, Idiomas, Software (lista `cv` en App.jsx). **No publicar** la dirección de su casa ni los datos de las referencias del CV. El CV dice "Residente de obra … Arquitecto Cristian Del Valle, Constructor (nov. 2023 – a la fecha)" para las obras de Diez + Muller: Joaquín confirmó que es la misma empresa que Arq. Buró; en el sitio va "Arq. Buró · nov. 2023 – actualidad"; caja gris para la foto. **Contacto** (mismo formato de ficha): Email, Teléfono, WhatsApp, LinkedIn (https://www.linkedin.com/in/joaquin-andrade-249205151, dado por Joaquín el 2026-11-16), Ubicación: Quito, Ecuador.
 
 | Archivo | Qué hay |
 |---|---|
@@ -155,7 +155,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 ## Pendiente / siguiente paso
 
 **Falta que Joaquín entregue:**
-- **LinkedIn / Instagram** y **CV en PDF** (para Contacto).
+- **Instagram** (opcional). El CV en PDF NO se publica (tiene su dirección y los datos de sus referencias).
 - Opcional: año, ubicación y m² de cada obra de WORK; crédito del fotógrafo; original en alta resolución de `REMODELACIÓN YM/01.jpg`; una foto de obra de Casa AJ tomada desde el mismo punto que la terminada.
 
 **Para la próxima sesión (ofrecido, sin respuesta):** ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide
@@ -195,3 +195,4 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - Fichas de todos los proyectos rediseñadas: "Etiqueta:" en gris arriba y valor debajo, grupos con líneas finas (pedido de Joaquín: más ordenado y claro, con dos puntos).
 - En las fichas de las obras de Arq. Buró y en el rol de las franjas: "Dirección de obra" en vez de "Jefe de obra" (pedido de Joaquín). Sobre mí: "Dirección de Proyectos en Arq. Buró" (pedido de Joaquín), con el mismo formato de ficha.
 - Sobre mí completo con el CV y el retrato (sin dirección ni referencias).
+- Contacto: LinkedIn agregado; la página pasó al formato de ficha.
