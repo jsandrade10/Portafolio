@@ -140,6 +140,13 @@ ul { list-style: none; margin: 0; padding: 0; }
 .pagina a:hover { border-color: #fff; }
 .pagina-txt { max-width: 520px; }
 .pagina-txt .ficha-grupo { margin-top: 18px; }
+.retrato { flex: none; width: 280px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; align-self: flex-start; }
+.cv-intro { margin-top: 14px !important; color: #cfcfcf; }
+.cv-sec { margin-top: 0 !important; }
+.pagina-txt .cv-intro + .cv-sec { margin-top: 22px !important; }
+.cv-sec h2 { margin: 0 0 8px; font-size: inherit; font-weight: inherit; color: var(--muted); }
+.cv-item + .cv-item { margin-top: 10px; }
+.cv-det { color: var(--muted); }
 .ph {
   display: grid; place-items: center; flex: none; width: 280px; aspect-ratio: 3 / 4;
   background: #151515; color: #555; text-transform: uppercase; font-size: 11px;
@@ -192,7 +199,7 @@ ul { list-style: none; margin: 0; padding: 0; }
   .gal-pie { padding: 0 var(--gutter); }
 
   .pagina { flex-direction: column; padding: 15px var(--gutter) 60px; }
-  .ph { width: 100%; max-width: 320px; }
+  .ph, .retrato { width: 100%; max-width: 320px; }
   .pie, .franjas + .pie { padding-left: var(--gutter); }
 }
 

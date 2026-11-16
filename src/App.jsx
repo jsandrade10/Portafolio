@@ -289,25 +289,64 @@ function Proyecto({ p, cat, foto }) {
   )
 }
 
+// Datos de "Sobre mí", tomados del CV de Joaquín (sin dirección ni referencias).
+// Cada entrada: [título, detalle, enlace opcional].
+const cv = [
+  ['Experiencia', [
+    ['Arq. Buró · Quito', 'Dirección de Proyectos en obras residenciales diseñadas por Diez + Muller'],
+    ['Remodelación YM · Oyambarillo, Quito', 'Proyecto propio: diseño y dirección de obra · 2025', '#/p/remodelacion-ym'],
+    ['Arquitectura Infinita (Arquinf Constructores) · Quito', 'Diseño arquitectónico de proyectos residenciales · ene.–ago. 2023\nPrácticas profesionales · sep.–dic. 2022'],
+    ['Grupo KFC · Quito', 'Pasantía en el departamento de Desarrollo y Proyectos · oct.–dic. 2017'],
+    ['Haller Architekten · Friburgo, Alemania', 'Pasantía · jun.–ago. 2016'],
+  ]],
+  ['Formación', [
+    ['Arquitectura', 'Universidad San Francisco de Quito · 2018–2022'],
+    ['Intercambio en Arquitectura', 'Universidad de Évora, Portugal · 2022'],
+    ['Bachillerato en Ciencias', 'Colegio Binacional Alemán, Quito · 2017'],
+  ]],
+  ['Idiomas', [
+    ['Español', 'Lengua materna'],
+    ['Inglés', 'Avanzado'],
+    ['Alemán', 'Intermedio'],
+  ]],
+  ['Software', [
+    ['AutoCAD · SketchUp · Twinmotion', 'Adobe Photoshop · Adobe Illustrator · Microsoft Office'],
+  ]],
+]
+
 function SobreMi() {
   return (
     <main className="pagina">
-      <div className="ph">Foto de perfil</div>
+      <img
+        className="retrato"
+        src="/img/sobre-mi/retrato.jpg"
+        alt="Retrato de Joaquín Andrade, arquitecto"
+        width="840"
+        height="1120"
+      />
       <div className="pagina-txt">
         <h1>Sobre mí</h1>
         <p>Arquitecto en Quito. Dirección de Proyectos en Arq. Buró.</p>
-        <dl className="ficha-grupo">
-          {[
-            ['Formación', 'Arquitectura, Universidad San Francisco de Quito'],
-            ['Proyecto propio', 'Remodelación YM, Oyambarillo, Quito, 2025'],
-            ['Trabajo', 'Dirección de Proyectos en Arq. Buró'],
-          ].map(([k, v]) => (
-            <div key={k} className="ficha-dato">
-              <dt>{k}:</dt>
-              <dd>{v}</dd>
-            </div>
-          ))}
-        </dl>
+        <p className="cv-intro">
+          Soy arquitecto con formación contemporánea y una visión integral del proceso constructivo, desde el
+          diseño hasta la obra. Tengo experiencia en la coordinación con clientes, proveedores y equipos de
+          trabajo, lo que me permite integrar creatividad, técnica y funcionalidad en cada proyecto. Me motiva
+          seguir aprendiendo, asumir nuevos retos y aportar valor en todas las etapas del desarrollo
+          arquitectónico.
+        </p>
+        {cv.map(([sec, items]) => (
+          <section key={sec} className="ficha-grupo cv-sec">
+            <h2>{sec}:</h2>
+            {items.map(([t, d, href]) => (
+              <div key={t} className="cv-item">
+                <p>{href ? <a href={href}>{t}</a> : t}</p>
+                {d.split('\n').map((l) => (
+                  <p key={l} className="cv-det">{l}</p>
+                ))}
+              </div>
+            ))}
+          </section>
+        ))}
       </div>
     </main>
   )
