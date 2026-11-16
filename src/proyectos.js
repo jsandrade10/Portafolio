@@ -15,10 +15,15 @@ function galeria(slug, alts) {
 export const propios = [
   {
     nombre: 'Remodelación YM',
-    tipo: 'Remodelación de vivienda',
+    tipo: 'Remodelación',
     anio: 2025,
-    ubicacion: 'Quito',
+    ubicacion: 'Oyambarillo, Quito, Ecuador',
     credito: 'Diseño y dirección de obra: Joaquín Andrade',
+    resumen: [
+      'El proyecto consistió en la renovación integral de una casa de campo, enfocada en mejorar la funcionalidad, amplitud y conexión entre sus espacios. La intervención incluyó el cambio de pisos, la ampliación de los ingresos para generar continuidad entre las áreas sociales y la remodelación completa de la cocina y los clósets de los dormitorios.',
+      'Se incorporaron arcos como recurso arquitectónico para dar carácter a los umbrales y definir las transiciones entre ambientes. Además, se renovaron los acabados y aparatos sanitarios de los baños, y se solucionaron las filtraciones mediante la impermeabilización de las cubiertas y el reemplazo de las tejas.',
+      'El resultado es una vivienda más limpia, amplia y funcional, donde los espacios sociales se integran y generan una mayor conexión en toda la casa.',
+    ],
     portada: '/img/obras/remodelacion-ym.jpg',
     alt: 'Remodelación YM: muro con arco y vano de doble altura, piso de madera y puerta tallada',
     fotos: galeria('remodelacion-ym', [

@@ -263,7 +263,7 @@ function Proyecto({ p, cat, foto }) {
         ))}
       </aside>
       <div className="proy-texto">
-        {p.resumen && <p>{p.resumen}</p>}
+        {[].concat(p.resumen ?? []).map((par, k) => <p key={k}>{par}</p>)}
         {slug === 'casa-aj' && (
           <div className="proy-ba">
             <p>En obra / terminado — mueve la barra para comparar.</p>
