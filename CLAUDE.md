@@ -18,7 +18,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 | Grupo | Qué es | Cómo se acredita en el sitio |
 |---|---|---|
 | **Remodelación YM** (Quito, 2025) | Su **primer proyecto como arquitecto**, diseñado y dirigido enteramente por él. | "Diseño y dirección de obra: Joaquín Andrade". Sección "Proyecto propio". |
-| **WORK**: Casas AJ, BR, FR, JC, JV, LT + Colegio Mine | **Diseño de Diez + Muller** (firma muy reconocida en Ecuador), **construcción de Arq. Buró**, donde Joaquín trabaja como **jefe de obra**. NO son diseños suyos ni es el constructor. | "Diseño: Diez + Muller · Construcción: Arq. Buró". Sección "Jefe de obra en Arq. Buró". Título confirmado: **"Jefe de obra"**. |
+| **WORK**: Casas AJ, BR, FR, JC, JV, LT + Colegio Mine | **Diseño de Diez + Muller** (firma muy reconocida en Ecuador), **construcción de Arq. Buró**, donde Joaquín trabaja como **jefe de obra**. NO son diseños suyos ni es el constructor. | "Diseño: Diez + Muller · Construcción: Arq. Buró". En la ficha y en las franjas su rol se muestra como **"Dirección de obra"** (pedido de Joaquín, 2026-11-16; antes "Jefe de obra"). Su cargo en Arq. Buró (Sobre mí): **"Dirección de Proyectos en Arq. Buró"**, desde nov. 2023. |
 | **UNI** (USFQ) | Proyectos académicos propios. En el sitio, **los 6 (T4 → Tesis)** en la sección **"Diseños"** (T4–T6 se quitaron y Joaquín pidió volverlos a poner el 2026-11-09). | **Nunca presentarlos como universitarios** (pedido de Joaquín, 2026-11-09): sin "taller", "USFQ", "tesis", "tutor", "entrega" ni "lámina" en ningún texto, ruta o imagen. Ficha: tipo, ubicación, año, "diseño > Joaquín Andrade". T4 (Centro Comunitario): **Joaquín pidió quitar los créditos de Sofía Murillo** (2026-11-09); como es trabajo en equipo, su ficha tampoco dice "diseño > Joaquín Andrade" (campo `coautoria: true`). |
 
 - **Permiso para publicar todas las fotos de las carpetas: confirmado** por Joaquín.
@@ -37,6 +37,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - **Créditos de Sofía Murillo: quitados** a pedido de Joaquín (no volver a ponerlos).
 - Revisar **también en computadora**, no solo en celular (los problemas de la sesión 3 eran solo de escritorio).
 - Corregir libremente textos mal escritos o mal redactados (los míos y los sacados de láminas).
+- **Láminas de Diseños (aprendido con Mundaneum, 2026-11-16)**: (1) **ninguna escala** ("ESC 1:…") en plantas ni cortes; (2) mejor **piezas sueltas** (cada planta, corte o render solo) que láminas completas abarrotadas; (3) cuando se agrupan diagramas, la lámina debe verse **limpia como las 03/04 de Mundaneum**: fondo blanco, márgenes amplios, títulos finos (Avenir Next), texto justificado a la izquierda y dibujos sueltos **sin cajas grises ni rótulos en negrita** — Joaquín rechazó ("no me gustan para nada") pegar los paneles originales con su fondo gris; (4) no repetir un mismo dibujo en dos imágenes; (5) orden: renders y concepto → recorrido → diagramas → planta baja → demás plantas → cortes → vistas → maqueta. Los textos de las láminas nuevas se resumen de los PDF (PORTAFOLIO/INFORME), corregidos y sin citas académicas.
 - No usar frases autorreferenciales tipo "Diseñado y dirigido por mí, de principio a fin" (la pidió quitar).
 - No instalar nada pesado en la Mac (sin Xcode CLT). Paquetes npm chicos sí, previa consulta, y fuera del repo.
 
@@ -67,7 +68,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - **No modificar, mover ni borrar originales** (solo crear carpetas con copias si Joaquín lo pide).
 - PDFs muy pesados (hasta 370 MB): nunca enlazarlos; exportar páginas/recortes optimizados.
 
-## Estado actual del sitio (2026-11-09)
+## Estado actual del sitio (2026-11-16)
 
 **Stack**: React + Vite, sitio estático con rutas por hash (sin dependencias), Vercel. Comandos en `~/Desktop/Portafolio`: `npm run dev` (http://localhost:5173), `npm run build`.
 
@@ -142,6 +143,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
   - `capturas2.mjs <url> <dir>` → capturas con Chrome de las rutas de la lista `rutas` (editarla), en computadora y celular, con scroll previo para que carguen las imágenes, + menú abierto. **Usarlo antes de subir cualquier cambio visual.** `recorta.mjs`, `blanquea.mjs`, `banda.mjs`, `inicio_franja.mjs`, `franjas_oscuras.mjs`, `detalle_color.mjs` (ver Imágenes).
   - `capturas.mjs <url> <dir>` (versión vieja, del diseño blanco) → capturas con Chrome en computadora (1440×900) y celular (390×844): inicio, visor abierto (Casa JC y Facultad) y Proyectos. Uso: `npm run build && npx vite preview --port 4173 &`, luego `node ~/Desktop/pdf-tools/capturas.mjs http://localhost:4173/ <dir>`, y al final `pkill -f "vite preview"`. **Usarlo antes de subir cualquier cambio visual.**
   - `normaliza.cjs`, `dims.cjs` (ver arriba).
+  - `compone.mjs pagina.html:salida.jpg …` → arma láminas nuevas con HTML/CSS y Chrome (captura el elemento `#l`; las imágenes con rutas relativas al html). `fondo_blanco.mjs in out r,g,b tol` → pasa a blanco un fondo uniforme conectado a los bordes (p. ej. paneles grises #e4e4e4 de las láminas). `texto.mjs in.pdf > out.txt` → solo el texto de un PDF (rápido, sin vistas previas). `rellena.mjs in out r,g,b x,y,w,h…` → borra rótulos (escalas, números de hoja) con un color.
 - **Espacio en disco**: muy justo (~1,2 GB libres al 2026-11-08; renderizar PDFs grandes genera ~1 GB de swap temporal). Borrar archivos temporales del scratchpad y `dist/` al terminar; avisar antes de descargar cosas grandes.
 
 ## Principios de diseño
@@ -158,7 +160,9 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - **Instagram** (opcional). El CV en PDF NO se publica (tiene su dirección y los datos de sus referencias).
 - Opcional: año, ubicación y m² de cada obra de WORK; crédito del fotógrafo; original en alta resolución de `REMODELACIÓN YM/01.jpg`; una foto de obra de Casa AJ tomada desde el mismo punto que la terminada.
 
-**Para la próxima sesión (ofrecido, sin respuesta):** ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide
+**SIGUIENTE PASO (acordado el 2026-11-16): seguir con el próximo proyecto de Diseños.** Mundaneum Beirut quedó terminado y aprobado ("perfecto"). Orden de Diseños en el sitio: Mundaneum ✔ → **Galería-Talleres** → Edificio Nexo → Facultad de Arquitectura → Biblioteca → Centro Comunitario. Preguntar a Joaquín cuál quiere revisar (probablemente Galería-Talleres, el siguiente). Para cada uno: mostrarle la galería actual, aplicar sus criterios de láminas (ver Preferencias: sin escalas, piezas sueltas, láminas limpias al estilo 03/04 de Mundaneum, sin rótulos universitarios) y exportar del PDF original con `render.mjs` (el disco externo debe estar conectado).
+
+**Otros (ofrecido, sin respuesta):** ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide; en Mundaneum, decidir si el emplazamiento (05) se suma a la lámina de sitio; revisar los textos nuevos de las láminas 06 y 07 de Mundaneum (resumidos por Claude).
 
 **Ideas para después** (consultar antes): textos "En pocas palabras" por obra (sistema constructivo, materiales: hormigón visto, ladrillo, piedra, tierra apisonada, madera); páginas individuales por proyecto con ficha técnica; filtros por tipo; versión en inglés.
 
@@ -200,4 +204,4 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - Mundaneum reorganizado (22 imágenes): las dos láminas de la entrega final se dividieron en diagramas, plantas, cortes, fachadas y renders sueltos (detalle arriba).
 - Mundaneum: plan masa + ubicación + análisis de sitio + ejes/foro romano en una sola lámina; estructura + programa en otra; sin escala en las plantas; sin fachadas (16 imágenes).
 - Mundaneum: se quitó también la escala de los dos cortes (Joaquín no quiere escalas en ninguna lámina).
-- Mundaneum: láminas 06 (sitio) y 07 (estructura y programa) rehechas al estilo limpio de las 03/04: fondo blanco, títulos finos, texto a la izquierda, dibujos sin cajas grises (pedido de Joaquín).
+- Mundaneum: láminas 06 (sitio) y 07 (estructura y programa) rehechas al estilo limpio de las 03/04: fondo blanco, títulos finos, texto a la izquierda, dibujos sin cajas grises (pedido de Joaquín). Joaquín: "perfecto". Cierre de sesión: guardar todo y seguir más tarde con el próximo proyecto de Diseños.
