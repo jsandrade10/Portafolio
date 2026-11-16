@@ -105,7 +105,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - `casa-aj` (8): `_A749544, ajnuevo, IMG_6158, IMG_7837, IMG_7836` + obra `ajviejo, IMG_3045, IMG_20241212_113615`. Portada `_A749544`.
 - `casa-br` (4): `IMG_9515, 9519, 9521, 9520` (fachada blanca con volumen de piedra oscura, escalera de madera, cocina, sala).
 - `casa-jv` (5): `IMG_1856, 1857, 2027, 8050, 8051` (volúmenes de revoque ocre, ventanales, luz cenital).
-- `casa-lt` (5): `IMG_4090, PHOTO-…-44, PHOTO-…-44 2, PHOTO-…-44 3, IMG_4291` (volúmenes terracota, celosía vertical, piedra). Portada recorte de `IMG_4090`.
+- `casa-lt` (8): `IMG_4090, PHOTO-…-44, PHOTO-…-44 2, PHOTO-…-44 3, IMG_7632, IMG_7633, IMG_7634` + obra `IMG_4291` (volúmenes terracota, celosía vertical, piedra). Las `IMG_763x` (HEIC) las agregó Joaquín al disco el 2026-11-10. Portada recorte de `IMG_4090`.
 - `colegio-mine` (5): `IMG_4040, 4054, 4592, 4156` + obra `IMG_0822` (sala multiusos: pabellón poligonal, cubierta metálica, eucaliptos).
 
 **Diseños (en el sitio) — solo entregas finales** (página del PDF → número de imagen; portadas en `public/img/disenos/`)
@@ -160,7 +160,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - **LinkedIn / Instagram** y **CV en PDF** (para Contacto).
 - Opcional: año, ubicación y m² de cada obra de WORK; crédito del fotógrafo; original en alta resolución de `REMODELACIÓN YM/01.jpg`; una foto de obra de Casa AJ tomada desde el mismo punto que la terminada.
 
-**Para la próxima sesión (ofrecido, sin respuesta):** ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide; copiar este CLAUDE.md al disco externo (no estuvo conectado en la sesión 3).
+**Para la próxima sesión (ofrecido, sin respuesta):** ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide; ¿usar una de las fotos nuevas de Casa LT (`IMG_7633`/`7632`) como portada y franja?; ¿agregar `WORK/CASA JC/IMG_6964.HEIC` (interior con la losa reticulada, comedor y sala; foto de celular, nunca se usó)?
 
 **Ideas para después** (consultar antes): textos "En pocas palabras" por obra (sistema constructivo, materiales: hormigón visto, ladrillo, piedra, tierra apisonada, madera); páginas individuales por proyecto con ficha técnica; filtros por tipo; versión en inglés.
 
@@ -191,3 +191,5 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - Joaquín pidió convertir las láminas de Diseños en renders realistas. Claude no genera imágenes; se probó mejorar la lámina del Mundaneum con canvas (cielo de atardecer, luz interior en los vidrios) y **Joaquín la rechazó: dejar las láminas como están**. No volver a proponerlo salvo que él traiga renders hechos o pida usar un generador externo (Higgsfield, previa autorización para subir imágenes).
 - Celular: la grilla de fotos de cada proyecto (`.grilla-fotos`) es de **2 columnas con fotos cuadradas**, sin texto encima (Joaquín vio 1 columna como "no es cuadrícula" y 3 columnas "muy pequeña"). `srcset` con las miniaturas `-t.jpg`.
 - Mundaneum: se borró el **índice lateral** ("Análisis del tema … Detalle arquitectónico", suena a tesis) de las láminas 02, 05 y 09 y los **números de hoja** de las láminas 01–09 (relleno blanco con `~/Desktop/pdf-tools/rellena.mjs in out r,g,b x,y,w,h…`; `caja_oscura.mjs` ubica texto oscuro en una región). Se editaron los JPG publicados (el disco externo no estaba conectado); si se re-exportan del PDF, repetirlo. Revisar lo mismo en láminas nuevas.
+
+**2026-11-16 — sesión 5** (disco externo conectado): CLAUDE.md copiado al disco. Casa LT: se agregaron 3 fotos nuevas del terminado (`IMG_7632–7634`, galería 05–07; la de obra pasó a 08).
