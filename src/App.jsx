@@ -254,12 +254,14 @@ function Proyecto({ p, cat, foto }) {
       <aside className="proy-ficha">
         <h1>{p.nombre}</h1>
         {ficha(p).map((g, gi) => (
-          <div key={gi}>
-            {gi > 0 && <p>-</p>}
+          <dl key={gi} className="ficha-grupo">
             {g.map(([k2, v]) => (
-              <p key={k2}>{k2} &gt; {v}</p>
+              <div key={k2} className="ficha-dato">
+                <dt>{k2.charAt(0).toUpperCase() + k2.slice(1)}:</dt>
+                <dd>{v}</dd>
+              </div>
             ))}
-          </div>
+          </dl>
         ))}
       </aside>
       <div className="proy-texto">
