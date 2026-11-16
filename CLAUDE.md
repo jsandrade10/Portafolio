@@ -114,7 +114,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - `biblioteca` (8): T6 `ENTREGA FINAL.pdf` págs. 7, 1, 2, 3, 4, 6, 5, 8. Portada: quiebrasoles de madera (pág. 7, `[.38,.70,.852,.95]`).
 - `edificio-nexo` (6): T7 `ENTREGA FINAL.pdf` págs. 6, 1, 2, 3, 4, 5. Portada: vista desde la calle José Correa (pág. 6, `[.05,.045,.95,.40]`). Las 6 láminas recortadas a 1413×1905 (sin la franja USFQ).
 - `galeria-talleres` (7): recortes de T8 `laminas finales.pdf` pág. 1 — maqueta `[.025,.05,.475,.75]`, planta `[.52,.05,.885,.59]`, axonometría y cortes `[.52,.62,.885,.95]`, fotos de maqueta `[.884,.41,.98,.955]`, fotos del sitio `[.884,.04,.98,.41]`, mitad izquierda `[0,0,.5,1]`, mitad derecha `[.5,0,1,1]`. Portada: maqueta blanca `[.02,.17,.48,.68]`.
-- `mundaneum-beirut` (13): `PORTAFOLIO.pdf` págs. 21, 17, 29, 30, 7, 20, 23, 27, 28 + `ENTREGA FINAL.pdf` 1, 2 + `MAQUETA.pdf` 1, 2. Portada: render de la fachada de arcos (ver arriba; antes era la maqueta final). Se quitaron las págs. 14 y 15 (maquetas de proceso). Se quitó también la pág. 1 (portada con "USFQ").
+- `mundaneum-beirut` (11): `PORTAFOLIO.pdf` págs. 21, 17, 7, 20, 23, 27, 28 + (se quitaron las págs. 29 y 30, "MAQUETA FINAL", a pedido de Joaquín el 2026-11-16) + `ENTREGA FINAL.pdf` 1, 2 + `MAQUETA.pdf` 1, 2. Portada: render de la fachada de arcos (ver arriba; antes era la maqueta final). Se quitaron las págs. 14 y 15 (maquetas de proceso). Se quitó también la pág. 1 (portada con "USFQ").
 
 Los resúmenes de cada proyecto académico se escribieron a partir del texto de las propias láminas (concepto, ubicación, estructura), en lenguaje simple.
 
@@ -188,7 +188,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - Facultad: la franja dejó de estar siempre en color; ahora es B/N y el tono cálido aparece al pasar el mouse, como las demás (pedido de Joaquín).
 - Joaquín pidió convertir las láminas de Diseños en renders realistas. Claude no genera imágenes; se probó mejorar la lámina del Mundaneum con canvas (cielo de atardecer, luz interior en los vidrios) y **Joaquín la rechazó: dejar las láminas como están**. No volver a proponerlo salvo que él traiga renders hechos o pida usar un generador externo (Higgsfield, previa autorización para subir imágenes).
 - Celular: la grilla de fotos de cada proyecto (`.grilla-fotos`) es de **2 columnas con fotos cuadradas**, sin texto encima (Joaquín vio 1 columna como "no es cuadrícula" y 3 columnas "muy pequeña"). `srcset` con las miniaturas `-t.jpg`.
-- Mundaneum: se borró el **índice lateral** ("Análisis del tema … Detalle arquitectónico", suena a tesis) de las láminas 02, 05 y 09 y los **números de hoja** de las láminas 01–09 (relleno blanco con `~/Desktop/pdf-tools/rellena.mjs in out r,g,b x,y,w,h…`; `caja_oscura.mjs` ubica texto oscuro en una región). Se editaron los JPG publicados (el disco externo no estaba conectado); si se re-exportan del PDF, repetirlo. Revisar lo mismo en láminas nuevas.
+- Mundaneum: se borró el **índice lateral** ("Análisis del tema … Detalle arquitectónico", suena a tesis) de las láminas 02, 05 y 09 y los **números de hoja** de las láminas 01–09 (relleno blanco con `~/Desktop/pdf-tools/rellena.mjs in out r,g,b x,y,w,h…`; `caja_oscura.mjs` ubica texto oscuro en una región). Se editaron los JPG publicados (el disco externo no estaba conectado); si se re-exportan del PDF, repetirlo. (Numeración de entonces: tras quitar las maquetas 03–04 el 2026-11-16, esas láminas son hoy 01–07.) Revisar lo mismo en láminas nuevas.
 
 **2026-11-16 — sesión 5** (disco externo conectado): CLAUDE.md copiado al disco. Casa LT: se agregaron 3 fotos nuevas del terminado (`IMG_7632–7634`, galería 05–07; la de obra pasó a 08).
 - Remodelación YM: ficha y descripción con los datos y el texto que dio Joaquín (Oyambarillo).
@@ -196,3 +196,4 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - En las fichas de las obras de Arq. Buró y en el rol de las franjas: "Dirección de obra" en vez de "Jefe de obra" (pedido de Joaquín). Sobre mí: "Dirección de Proyectos en Arq. Buró" (pedido de Joaquín), con el mismo formato de ficha.
 - Sobre mí completo con el CV y el retrato (sin dirección ni referencias).
 - Contacto: LinkedIn agregado; la página pasó al formato de ficha.
+- Mundaneum: se quitaron las dos láminas "MAQUETA FINAL" (antes 03 y 04); quedan 11 imágenes. Se mantienen las 2 fotos de la maqueta en su contexto (`MAQUETA.pdf`).

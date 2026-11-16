@@ -159,8 +159,6 @@ export const disenos = [
     fotos: galeria('mundaneum-beirut', [
       'Fachada del museo con arcos, junto a la mezquita y el campanario',
       'Museo de sitio histórico: concepto y vista interior',
-      'Maqueta',
-      'Maqueta, vista posterior',
       'Plan masa: zonas, calles y áreas verdes',
       'Circulación y recorrido',
       'Planta',
