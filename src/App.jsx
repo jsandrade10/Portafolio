@@ -295,11 +295,19 @@ function SobreMi() {
       <div className="ph">Foto de perfil</div>
       <div className="pagina-txt">
         <h1>Sobre mí</h1>
-        <p>Arquitecto en Quito. Jefe de obra en Arq. Buró.</p>
-        <p>-</p>
-        <p>formación &gt; Arquitectura, Universidad San Francisco de Quito</p>
-        <p>proyecto propio &gt; Remodelación YM, Quito, 2025</p>
-        <p>trabajo &gt; jefe de obra en Arq. Buró</p>
+        <p>Arquitecto en Quito. Dirección de Proyectos en Arq. Buró.</p>
+        <dl className="ficha-grupo">
+          {[
+            ['Formación', 'Arquitectura, Universidad San Francisco de Quito'],
+            ['Proyecto propio', 'Remodelación YM, Oyambarillo, Quito, 2025'],
+            ['Trabajo', 'Dirección de Proyectos en Arq. Buró'],
+          ].map(([k, v]) => (
+            <div key={k} className="ficha-dato">
+              <dt>{k}:</dt>
+              <dd>{v}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </main>
   )

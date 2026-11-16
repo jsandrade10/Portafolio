@@ -139,6 +139,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .pagina a { border-bottom: 1px solid #666; }
 .pagina a:hover { border-color: #fff; }
 .pagina-txt { max-width: 520px; }
+.pagina-txt .ficha-grupo { margin-top: 18px; }
 .ph {
   display: grid; place-items: center; flex: none; width: 280px; aspect-ratio: 3 / 4;
   background: #151515; color: #555; text-transform: uppercase; font-size: 11px;
