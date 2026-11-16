@@ -100,12 +100,12 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 - `remodelacion-ym` (7): `03, 01, 02, 04, 07, 05, 06` de `REMODELACIÓN YM/` → 01…07 (05–06 son proceso). Portada = recorte 4:3 de `03.jpg` (arco y vano de doble altura, puerta tallada). `01.jpg` original es de baja resolución (960×1280): pedir el original.
 
 **Jefe de obra (WORK)** — orden: terminado primero, obra al final
-- `casa-jc` (8): `_A749249, _A749199, _A749299, _A749373, _A749443` + obra `IMG-20241029-WA0047, IMG_20241202_172719, IMG_20250212_171055`. Portada `_A749249` (voladizo de hormigón, losa reticulada, chimenea roja).
+- `casa-jc` (9): `_A749249, _A749199, _A749299, _A749373, _A749443, IMG_6964` (interior: comedor y sala bajo la losa reticulada, agregada en la sesión 5) + obra `IMG-20241029-WA0047, IMG_20241202_172719, IMG_20250212_171055`. Portada `_A749249` (voladizo de hormigón, losa reticulada, chimenea roja).
 - `casa-fr` (6): `DSC00308, DSC00628, DSC00423, DSC03304, DSC03392, _A741470` — **todas en obra gris** (muros de tierra apisonada, acero). Portada `DSC00628`.
 - `casa-aj` (8): `_A749544, ajnuevo, IMG_6158, IMG_7837, IMG_7836` + obra `ajviejo, IMG_3045, IMG_20241212_113615`. Portada `_A749544`.
 - `casa-br` (4): `IMG_9515, 9519, 9521, 9520` (fachada blanca con volumen de piedra oscura, escalera de madera, cocina, sala).
 - `casa-jv` (5): `IMG_1856, 1857, 2027, 8050, 8051` (volúmenes de revoque ocre, ventanales, luz cenital).
-- `casa-lt` (8): `IMG_4090, PHOTO-…-44, PHOTO-…-44 2, PHOTO-…-44 3, IMG_7632, IMG_7633, IMG_7634` + obra `IMG_4291` (volúmenes terracota, celosía vertical, piedra). Las `IMG_763x` (HEIC) las agregó Joaquín al disco el 2026-11-10. Portada recorte de `IMG_4090`.
+- `casa-lt` (8): `IMG_7633, IMG_7632, IMG_7634, IMG_4090, PHOTO-…-44, PHOTO-…-44 2, PHOTO-…-44 3` + obra `IMG_4291` (volúmenes terracota, celosía vertical, piedra). Las `IMG_763x` (HEIC) las agregó Joaquín al disco el 2026-11-10. Portada y franja = `IMG_7633` (terraza de piedra con celosías), a pedido de Joaquín.
 - `colegio-mine` (5): `IMG_4040, 4054, 4592, 4156` + obra `IMG_0822` (sala multiusos: pabellón poligonal, cubierta metálica, eucaliptos).
 
 **Diseños (en el sitio) — solo entregas finales** (página del PDF → número de imagen; portadas en `public/img/disenos/`)
@@ -160,7 +160,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - **LinkedIn / Instagram** y **CV en PDF** (para Contacto).
 - Opcional: año, ubicación y m² de cada obra de WORK; crédito del fotógrafo; original en alta resolución de `REMODELACIÓN YM/01.jpg`; una foto de obra de Casa AJ tomada desde el mismo punto que la terminada.
 
-**Para la próxima sesión (ofrecido, sin respuesta):** ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide; ¿usar una de las fotos nuevas de Casa LT (`IMG_7633`/`7632`) como portada y franja?; ¿agregar `WORK/CASA JC/IMG_6964.HEIC` (interior con la losa reticulada, comedor y sala; foto de celular, nunca se usó)?
+**Para la próxima sesión (ofrecido, sin respuesta):** ajustar el encuadre (`pos`) de alguna franja si Joaquín lo pide
 
 **Ideas para después** (consultar antes): textos "En pocas palabras" por obra (sistema constructivo, materiales: hormigón visto, ladrillo, piedra, tierra apisonada, madera); páginas individuales por proyecto con ficha técnica; filtros por tipo; versión en inglés.
 
