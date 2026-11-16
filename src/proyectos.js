@@ -162,7 +162,7 @@ export const disenos = [
       'Museo de sitio histórico: concepto y vista interior',
       'Circulación y recorrido',
       'Emplazamiento junto al Foro Romano, la mezquita y la catedral',
-      'Plan masa, ubicación, análisis del sitio, ejes y Foro Romano',
+      'Ubicación, plan masa, tipología de los edificios y ejes del foro romano',
       'Estructura y programa',
       'Planta baja',
       'Planta +6,00',
