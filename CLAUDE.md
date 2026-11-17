@@ -99,7 +99,7 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 ### Contenido de cada galería (fuente → archivo)
 
 **Proyecto propio**
-- `remodelacion-ym` (7): `03, 01, 02, 04, 07, 05, 06` de `REMODELACIÓN YM/` → 01…07 (05–06 son proceso). Portada = recorte 4:3 de `03.jpg` (arco y vano de doble altura, puerta tallada). `01.jpg` original es de baja resolución (960×1280): pedir el original.
+- `remodelacion-ym` (7): `03, 01, 02, 04, 07, 05, 06` de `REMODELACIÓN YM/` → 01…07 (05–06 son proceso). Portada = recorte 4:3 de `03.jpg` (arco y vano de doble altura, puerta tallada). **Franja del inicio = `remodelacion-ym/03.jpg`, la fachada de ladrillo al anochecer** (`pos` 50% 42%: las tres arcadas, la lámpara y la puerta), pedido de Joaquín el 2026-11-17; antes era la foto vertical 01. `01.jpg` original es de baja resolución (960×1280): pedir el original.
 
 **Jefe de obra (WORK)** — orden: terminado primero, obra al final
 - `casa-jc` (9): `_A749249, _A749199, _A749299, _A749373, _A749443, IMG_6964` (interior: comedor y sala bajo la losa reticulada, agregada en la sesión 5) + obra `IMG-20241029-WA0047, IMG_20241202_172719, IMG_20250212_171055`. Portada `_A749249` (voladizo de hormigón, losa reticulada, chimenea roja).
