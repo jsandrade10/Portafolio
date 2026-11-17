@@ -215,7 +215,6 @@ export const disenos = [
     alt: 'Edificio Nexo visto desde la calle José Correa',
     fotos: galeria('edificio-nexo', [
       'Vista desde la calle José Correa',
-      'Vista desde la calle Carlos Arroyo',
       'Axonometrías',
       'Análisis: ubicación y uso mixto',
       'Análisis: estructura, envolvente y circulación',
