@@ -42,8 +42,8 @@ const franjas = [
   { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut.jpg', pos: '50% 55%' },
   { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres-inicio.jpg', pos: '50% 45%' },
   { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo.jpg', pos: '50% 35%' },
-  // Imagen preparada en gris con el ladrillo en un tono cálido suave: B/N como las demás, el tono aparece al pasar el mouse.
-  { slug: 'facultad-arquitectura', src: '/img/disenos/facultad-arquitectura-inicio.jpg', pos: '50% 77%' },
+  // Vista del conjunto pasada a ilustración (ilustra2.mjs: cielo de acuarela, líneas grises suaves, ladrillo cálido, grano).
+  { slug: 'facultad-arquitectura', src: '/img/disenos/facultad-arquitectura-inicio.jpg', pos: '50% 50%' },
   { slug: 'biblioteca', src: '/img/biblioteca/02.jpg', pos: '50% 10%' },
   { slug: 'centro-comunitario', src: '/img/centro-comunitario/02.jpg', pos: '50% 68%' },
 ]
