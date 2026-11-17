@@ -125,7 +125,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - Fuentes: `WORK/CASA AJ/ajviejo.HEIF` (en obra) y `ajnuevo.JPEG` (terminada), tomadas desde puntos distintos (la terminada más a la derecha).
 - La foto de obra se **deformó para calzar** sobre la terminada con `~/Desktop/pdf-tools/alinear.mjs` (configuración usada abajo): homografía inicial a partir de 6 esquinas de la fachada, optimizada por correlación de bordes (Nelder-Mead), y después una **corrección suave de 2.º grado** (`local.modelo: "poli"`) a partir de block matching. **No usar el modo thin-plate spline**: ondula la fachada.
 - Encuadre 3:2 = **87 % izquierdo** de la foto terminada (lo máximo que cubre la de obra; con menos ancho Joaquín lo sintió con demasiado zoom). Salida 2100×1400.
-- Resultado: la losa, el pilar de ladrillo, la ventana y el muro bajo calzan. Árboles y suelo no pueden calzar por la paralaje. Para un calce perfecto haría falta otra foto de obra desde el mismo punto.
+- Resultado: la losa, el pilar revestido de piedra, la ventana y el muro bajo calzan. Árboles y suelo no pueden calzar por la paralaje. Para un calce perfecto haría falta otra foto de obra desde el mismo punto.
 - Configuración usada (escala de 1000 px de ancho; final 1000×667, obra 1000×750):
   `pares` final→obra: (683,278)→(800,312), (686,555)→(812,575), (708,190)→(825,230), (238,197)→(385,240), (390,340)→(518,365), (390,510)→(518,530); `referencia` [[250,200],[700,200],[700,550],[250,550]]; `mascara` [[20,150,725,560]]; `excluir` auto [385,395,670,525] y árbol [40,100,180,560]; `local` {modelo:"poli", paso:25, radio:28, busca:20, nccMin:0.6, texturaMin:40}; `encuadre` [0, 44.2, 868].
 
