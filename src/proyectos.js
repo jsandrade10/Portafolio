@@ -240,8 +240,6 @@ export const disenos = [
     alt: 'Vista de la Facultad de Arquitectura en el centro histórico de Quito',
     fotos: galeria('facultad-arquitectura', [
       'Vista del conjunto en el centro histórico',
-      'Vista aérea: cubiertas con lucernarios sobre los talleres',
-      'Vista aérea desde el otro extremo',
       'Vista desde la calle',
       'Análisis: concepto e implantación',
       'Análisis: núcleo central y aulas',
@@ -253,8 +251,6 @@ export const disenos = [
       'Planta nivel +14,00: talleres',
       'Planta nivel −3,00: auditorio y foyer',
       'Sección',
-      'Sección en perspectiva: patio y zona de estudio',
-      'Sección en perspectiva: escaleras del núcleo',
     ]),
   },
   {
