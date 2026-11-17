@@ -161,7 +161,7 @@ export const disenos = [
     tipo: 'Museo',
     ubicacion: 'Beirut, Líbano',
     anio: 2022,
-    resumen: 'Tras la explosión del puerto de Beirut en 2020, un plan masa conecta los hitos históricos de la ciudad. El edificio es un museo de sitio junto al Foro Romano, inspirado en el Mundaneum de Paul Otlet, que cuenta la historia de Beirut: el recorrido empieza en la catedral de San Jorge y termina en el campanario.',
+    resumen: 'Tras la explosión del puerto de Beirut en 2020, un plan masa conecta los hitos históricos de la ciudad. El edificio, inspirado en el Mundaneum de Paul Otlet, es un museo de sitio junto al Foro Romano que cuenta la historia de Beirut: el recorrido empieza en la catedral de San Jorge y termina en el campanario.',
     portada: '/img/disenos/mundaneum-beirut.jpg',
     alt: 'Mundaneum Beirut: fachada de arcos junto a la mezquita, con las ruinas romanas al frente',
     fotos: galeria('mundaneum-beirut', [
@@ -170,7 +170,7 @@ export const disenos = [
       'Museo de sitio histórico: concepto y vista interior',
       'Circulación y recorrido',
       'Emplazamiento junto al Foro Romano, la mezquita y la catedral',
-      'Ubicación, plan masa, tipología de los edificios y ejes del foro romano',
+      'Ubicación, plan masa, tipología de los edificios y ejes del Foro Romano',
       'Estructura y programa',
       'Planta baja',
       'Planta +6,00',
