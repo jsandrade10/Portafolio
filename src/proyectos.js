@@ -64,9 +64,9 @@ export const obras = [
     portada: '/img/obras/casa-fr.jpg',
     alt: 'Casa FR: volúmenes con acabado de chukum y muros de hormigón visto pigmentado',
     fotos: galeria('casa-fr', [
-      'Exterior: volumen con acabado de chukum sobre muros de hormigón visto pigmentado, encofrados con madera enduelada; camino de piedra',
-      'Sala con ventanal de piso a techo hacia el jardín; muros y cielo con acabado de chukum',
-      'Comedor con muros y cielo con acabado de chukum',
+      'Exterior: volumen con acabado de chukum sobre muros de hormigón visto pigmentado',
+      'Sala con ventanal de piso a techo hacia el jardín; muros y tumbados con acabado de chukum',
+      'Comedor con muros y tumbados con acabado de chukum',
       'Corredor acristalado alrededor del patio de grava, con muros de hormigón visto pigmentado al fondo',
       'Patio interior con espejo de agua junto a un muro de hormigón visto pigmentado encofrado con madera enduelada; detrás del vidrio, la escalera de acero',
       'Terraza con fogón; muros y banca con acabado de chukum',
