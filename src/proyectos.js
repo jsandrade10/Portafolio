@@ -283,7 +283,7 @@ export const disenos = [
     fotos: galeria('centro-comunitario', [
       'Vista desde la González Suárez',
       'Vista del ingreso',
-      'Análisis: el lugar e implantación',
+      'Análisis: el lugar y la implantación',
       'Análisis: partido y forma',
       'Análisis: estructura, luz y circulación',
       'Análisis: programa',
