@@ -133,7 +133,7 @@ export const obras = [
     fotos: galeria('casa-br', [
       'Fachada blanca con volumen superior revestido en piedra oscura',
       'Escalera de madera junto a un muro de hormigón',
-      'Cocina abierta',
+      'Cocina abierta con isla, bajo un tumbado de doble altura',
       'Sala de doble altura',
     ]),
   },
