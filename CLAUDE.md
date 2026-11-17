@@ -217,3 +217,5 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 - Herramientas nuevas en `~/Desktop/pdf-tools/`: `oscurece`, `gris_global`, `tinta`, `perfil`, `ejes`, `aclara`, `conserva`, `blanquea_claros` (ver Entorno); `recorta.mjs` corregido (fallaba con imágenes grandes por la memoria WASM).
 - Error de Claude en esta sesión: afirmó haber revisado las carpetas de WORK sin hacerlo; luego lo corrigió. **Verificar antes de afirmar.**
 - Un `git push` se colgó sin avanzar: se mató y se repitió con éxito (ahora se sube con un límite de espera).
+
+**2026-11-17 — sesión 7**: Mundaneum, gramática corregida. Láminas 03 (museo de sitio) y 04 (circulación y recorrido): el texto original de la lámina se tapó con blanco y se reescribió corregido en Avenir Next (mismo estilo que las 06/07: títulos 44 px, cuerpo 20,5 px justificado); en la 03 también el título vertical. Lámina 06: último párrafo ("…una biblioteca, un archivo de Beirut y un museo…"). Resumen del proyecto reordenado. Pendiente de confirmar con Joaquín: la lámina 03 dice "arcos de ladrillo", pero la 07 dice que el museo es de piedra (Riyadh Yellow Stone).
