@@ -31,7 +31,7 @@ const porSlug = Object.fromEntries([...propios, ...obras, ...disenos].map((p) =>
 
 // Inicio: franjas horizontales a todo el ancho, una por proyecto (pos = qué parte de la foto se ve).
 const franjas = [
-  { slug: 'remodelacion-ym', src: '/img/remodelacion-ym/03.jpg', pos: '50% 42%' },
+  { slug: 'remodelacion-ym', src: '/img/remodelacion-ym/01.jpg', pos: '50% 55%', alta: true },
   { slug: 'casa-jc', src: '/img/casa-jc/01.jpg', pos: '50% 55%' },
   { slug: 'casa-fr', src: '/img/casa-fr/08.jpg', pos: '50% 50%' },
   { slug: 'casa-aj', src: '/img/casa-aj/01.jpg', pos: '50% 60%' },
@@ -115,7 +115,7 @@ function Inicio() {
       {franjas.map((m, i) => {
         const p = porSlug[m.slug]
         return (
-          <a key={m.slug} href={`#/p/${m.slug}`} className="franja">
+          <a key={m.slug} href={`#/p/${m.slug}`} className={m.alta ? "franja franja-alta" : "franja"}>
             <img src={m.src} alt={p.alt} style={{ objectPosition: m.pos }} loading={i < 4 ? 'eager' : 'lazy'} />
             <span className="franja-txt">
               <strong>{p.nombre}</strong>

@@ -73,6 +73,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 }
 .franja-txt strong { font-weight: 300; font-size: 30px; text-transform: uppercase; letter-spacing: .04em; line-height: 1; }
 .franja-txt em { font-style: normal; text-transform: uppercase; color: #ddd; font-size: 11px; letter-spacing: .14em; }
+/* Franja más alta (Remodelación YM: foto vertical; en computadora se ve el arco completo y la puerta) */
+@media (min-width: 701px) { .franja-alta { height: clamp(420px, 44vw, 700px); } }
 .franja:hover img, .franja:focus-visible img { filter: grayscale(0); transform: scale(1.02); }
 .franja:hover .franja-txt, .franja:focus-visible .franja-txt { opacity: 1; }
 .celda-txt {
