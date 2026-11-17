@@ -102,12 +102,12 @@ Sitio en vivo: Vercel, desplegado automáticamente desde `main` de https://githu
 
 **Jefe de obra (WORK)** — orden: terminado primero, obra al final
 - `casa-jc` (9): `_A749249, _A749199, _A749299, _A749373, _A749443, IMG_6964` (interior: comedor y sala bajo la losa reticulada, agregada en la sesión 5) + obra `IMG-20241029-WA0047, IMG_20241202_172719, IMG_20250212_171055`. Portada `_A749249` (voladizo de hormigón, losa reticulada, chimenea roja).
-- `casa-fr` (12): terminado `IMG_6663` (exterior), `6656` (sala), `6658` (comedor), `6659` (corredor acristalado), `6661` (patio con espejo de agua), `6228` (terraza con fogón) — HEIF agregados por Joaquín al disco el 2026-11-11, incluidos el 2026-11-16 — + obra `DSC00308, DSC00628, DSC00423, DSC03304, DSC03392, _A741470` (muros de tierra apisonada, acero). Portada (4:3, recorte 0,480,1200×900 de `IMG_6663` a 1200×1600) y franja = `IMG_6663`.
+- `casa-fr` (12): terminado `IMG_6663` (exterior), `6656` (sala), `6658` (comedor), `6659` (corredor acristalado), `6661` (patio con espejo de agua), `6228` (terraza con fogón) — HEIF agregados por Joaquín al disco el 2026-11-11, incluidos el 2026-11-16 — + obra `DSC00308, DSC00628, DSC00423, DSC03304, DSC03392, _A741470` (muros de tierra apisonada, acero). Portada (4:3, recorte 0,480,1200×900 de `IMG_6663` a 1200×1600) = `IMG_6663`; **franja del inicio = `DSC00628` (08.jpg)**: Joaquín prefirió dejarla como estaba.
 - `casa-aj` (8): `_A749544, ajnuevo, IMG_6158, IMG_7837, IMG_7836` + obra `ajviejo, IMG_3045, IMG_20241212_113615`. Portada `_A749544`.
 - `casa-br` (4): `IMG_9515, 9519, 9521, 9520` (fachada blanca con volumen de piedra oscura, escalera de madera, cocina, sala).
 - `casa-jv` (5): `IMG_1856, 1857, 2027, 8050, 8051` (volúmenes de revoque ocre, ventanales, luz cenital).
 - `casa-lt` (8): `IMG_7633, IMG_7632, IMG_7634, IMG_4090, PHOTO-…-44, PHOTO-…-44 2, PHOTO-…-44 3` + obra `IMG_4291` (volúmenes terracota, celosía vertical, piedra). Las `IMG_763x` (HEIC) las agregó Joaquín al disco el 2026-11-10. Portada y franja = `IMG_7633` (terraza de piedra con celosías), a pedido de Joaquín.
-- `colegio-mine` (5): `IMG_4040, 4054, 4592, 4156` + obra `IMG_0822` (sala multiusos: pabellón poligonal, cubierta metálica, eucaliptos).
+- `colegio-mine` (5): `IMG_4040, 4054, 4592, 4156` + obra `IMG_0822` (sala multiusos: pabellón poligonal, cubierta metálica, eucaliptos). **Franja del inicio** = `obras/colegio-mine-inicio.jpg`: foto frontal `IMG_4156` (2400×3200, filas 1020–1760), `pos` 50% 45% — Joaquín veía "chueca" la franja hecha con `IMG_4040` (cubierta cortada, alero curvo).
 
 **Diseños (en el sitio) — solo entregas finales** (página del PDF → número de imagen; portadas en `public/img/disenos/`)
 - `centro-comunitario` (6): T4 `CENTRO COMUNITARIO.pdf` págs. 9, 1, 2, 5, 6, 7. Portada: axonometría (pág. 9, recorte `[.02,.03,.52,.52]`).
