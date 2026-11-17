@@ -43,7 +43,7 @@ const franjas = [
   { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres-inicio.jpg', pos: '50% 45%' },
   { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo.jpg', pos: '50% 35%' },
   // Vista del conjunto pasada a ilustración (ilustra2.mjs: cielo de acuarela, líneas grises suaves, ladrillo cálido, grano).
-  { slug: 'facultad-arquitectura', src: '/img/disenos/facultad-arquitectura-inicio.jpg', pos: '50% 50%' },
+  { slug: 'facultad-arquitectura', src: '/img/disenos/facultad-arquitectura-inicio.jpg', pos: '50% 60%', gris: 0.7 },
   { slug: 'biblioteca', src: '/img/biblioteca/02.jpg', pos: '50% 10%' },
   { slug: 'centro-comunitario', src: '/img/centro-comunitario/02.jpg', pos: '50% 68%' },
 ]
@@ -116,7 +116,7 @@ function Inicio() {
         const p = porSlug[m.slug]
         return (
           <a key={m.slug} href={`#/p/${m.slug}`} className={m.alta ? "franja franja-alta" : "franja"}>
-            <img src={m.src} alt={p.alt} style={{ objectPosition: m.pos }} loading={i < 4 ? 'eager' : 'lazy'} />
+            <img src={m.src} alt={p.alt} style={{ objectPosition: m.pos, '--gris': m.gris }} loading={i < 4 ? 'eager' : 'lazy'} />
             <span className="franja-txt">
               <strong>{p.nombre}</strong>
               <em>{rolDe(p)}</em>
