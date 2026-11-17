@@ -40,7 +40,7 @@ const franjas = [
   { slug: 'casa-br', src: '/img/casa-br/01.jpg', pos: '50% 50%' },
   { slug: 'colegio-mine', src: '/img/colegio-mine/01.jpg', pos: '50% 60%' },
   { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut.jpg', pos: '50% 55%' },
-  { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres.jpg', pos: '50% 50%' },
+  { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres-inicio.jpg', pos: '50% 45%' },
   { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo.jpg', pos: '50% 35%' },
   // Imagen preparada en gris con el ladrillo en un tono cálido suave: B/N como las demás, el tono aparece al pasar el mouse.
   { slug: 'facultad-arquitectura', src: '/img/disenos/facultad-arquitectura-inicio.jpg', pos: '50% 77%' },
