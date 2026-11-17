@@ -102,7 +102,9 @@ export const obras = [
     fotos: galeria('casa-jv', [
       'Volúmenes con revoque ocre y grandes ventanales',
       'Esquina con alero de madera y ventanales de piso a techo',
+      'Volumen superior en voladizo sobre la base de hormigón, desde el jardín',
       'Volumen ocre sobre el ingreso',
+      'Detalle: esquina de los volúmenes contra el cielo',
       'Escalera iluminada por luz cenital',
       'Doble altura con baranda de madera',
     ]),
