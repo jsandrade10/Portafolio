@@ -158,6 +158,7 @@ Los resúmenes de cada proyecto académico se escribieron a partir del texto de 
 ## Pendiente / siguiente paso
 
 **Falta que Joaquín entregue:**
+- **Casa JV**: nombre, color y textura del acabado de los muros (es una pintura; Joaquín lo averiguará). Hasta entonces el texto dice solo "ocre".
 - **Instagram** (opcional). El CV en PDF NO se publica (tiene su dirección y los datos de sus referencias).
 - Opcional: año, ubicación y m² de cada obra de WORK; crédito del fotógrafo; original en alta resolución de `REMODELACIÓN YM/01.jpg`; una foto de obra de Casa AJ tomada desde el mismo punto que la terminada.
 
