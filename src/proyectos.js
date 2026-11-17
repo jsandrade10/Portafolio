@@ -85,13 +85,13 @@ export const obras = [
     alt: 'Casa AJ: volumen de hormigón visto con jardinera y gradas entre árboles',
     fotos: galeria('casa-aj', [
       'Volumen de hormigón visto con jardinera y gradas entre árboles',
-      'Fachada terminada: cochera bajo losa en voladizo y muro de ladrillo gris',
+      'Fachada: parqueadero bajo losa en voladizo y muro revestido de piedra',
       'Ingreso con gradas de hormigón y jardinera',
-      'Comedor y cocina abiertos, enmarcados por muro de ladrillo gris',
-      'Pasillo interior con luz rasante y piso de madera',
+      'Comedor y cocina abiertos, enmarcados por un muro con revestimiento de piedra',
+      'Remate de la escalera: muro de hormigón visto con luz rasante, pasamanos y piso de madera',
       'En obra: la fachada en obra gris',
       'En obra: encofrado de muros y gradas',
-      'En obra: apuntalamiento de losas',
+      'En obra: encofrado de los muros con su apuntalamiento',
     ]),
   },
   {
