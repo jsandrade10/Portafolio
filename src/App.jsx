@@ -311,7 +311,7 @@ const cv = [
     ['Alemán', 'Intermedio'],
   ]],
   ['Software', [
-    ['AutoCAD · SketchUp · Twinmotion', 'Adobe Photoshop · Adobe Illustrator · Microsoft Office'],
+    ['AutoCAD · SketchUp · Twinmotion', 'Microsoft Office · Adobe Illustrator · Adobe Photoshop'],
   ]],
 ]
 
