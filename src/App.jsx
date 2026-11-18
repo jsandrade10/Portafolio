@@ -356,7 +356,7 @@ function SobreMi() {
 function Contacto() {
   const wa = `https://wa.me/${contacto.telefonoIntl.replace('+', '')}`
   return (
-    <main className="pagina">
+    <main className="pagina contacto">
       <div className="pagina-txt">
         <h1>Contacto</h1>
         <dl className="ficha-grupo">

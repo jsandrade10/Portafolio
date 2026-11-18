@@ -148,6 +148,16 @@ ul { list-style: none; margin: 0; padding: 0; }
 .pagina-txt .cv-intro + .cv-sec { margin-top: 22px !important; }
 .cv-sec h2 { margin: 0 0 8px; font-size: inherit; font-weight: inherit; color: var(--muted); }
 .cv-item + .cv-item { margin-top: 10px; }
+
+/* Contacto: datos grandes y fáciles de tocar */
+.contacto .pagina-txt { max-width: 640px; }
+.contacto h1 { font-size: clamp(30px, 3.4vw, 46px); margin-bottom: 26px; }
+.contacto .ficha-grupo { padding: 0; }
+.contacto .ficha-dato { padding: 20px 0; border-bottom: 1px solid var(--linea); }
+.contacto .ficha-dato:last-child { border-bottom: 0; }
+.contacto .ficha-dato + .ficha-dato { margin-top: 0; }
+.contacto .ficha-dato dt { font-size: 13px; letter-spacing: .04em; margin-bottom: 4px; }
+.contacto .ficha-dato dd { font-size: clamp(19px, 1.9vw, 26px); line-height: 1.35; word-break: break-word; }
 .cv-det { color: var(--muted); }
 .ph {
   display: grid; place-items: center; flex: none; width: 280px; aspect-ratio: 3 / 4;
