@@ -169,7 +169,7 @@ export const disenos = [
     ubicacion: 'Beirut, Líbano',
     anio: 2022,
     resumen: 'Tras la explosión del puerto de Beirut en 2020, un plan masa conecta los hitos históricos de la ciudad. El edificio, inspirado en el Mundaneum de Paul Otlet, es un museo de sitio junto al Foro Romano que cuenta la historia de Beirut: el recorrido empieza en la catedral de San Jorge y termina en el campanario.',
-    portada: '/img/disenos/mundaneum-beirut.jpg',
+    portada: '/img/disenos/mundaneum-beirut-render.jpg',
     alt: 'Mundaneum Beirut: fachada de arcos junto a la mezquita, con las ruinas romanas al frente',
     fotos: galeria('mundaneum-beirut', [
       'Fachada del museo con arcos, junto a la mezquita y el campanario',
@@ -218,8 +218,8 @@ export const disenos = [
     ubicacion: 'Quito',
     anio: 2021,
     resumen: 'Edificio de uso mixto en la calle José Correa, frente al colegio 24 de Mayo. Reúne vivienda, comercio, oficinas y espacios de uso común para el barrio. Una malla estructural de 6 × 9 m ordena los departamentos, la vivienda y los demás usos tienen circulaciones independientes, y la planta baja se abre hacia la vereda.',
-    portada: '/img/disenos/edificio-nexo.jpg',
-    alt: 'Edificio Nexo visto desde la calle José Correa',
+    portada: '/img/disenos/edificio-nexo-render.jpg',
+    alt: 'Edificio Nexo: esquina con balcones, celosía de madera y planta baja comercial',
     fotos: galeria('edificio-nexo', [
       'Vista desde la calle José Correa',
       'Axonometrías',
@@ -238,8 +238,8 @@ export const disenos = [
     anio: 2020,
     coautoria: true, // proyecto en equipo: Joaquín pidió no mostrar créditos de coautoría; tampoco se dice "diseño > Joaquín Andrade"
     resumen: 'Centro cultural comunitario en Quito, entre la González Suárez, La Floresta y Guápulo. Dos volúmenes se unen mediante un conector con vista hacia Guápulo, y la luz cenital ilumina el hall, la sala de lectura y la sala de exhibición.',
-    portada: '/img/disenos/centro-comunitario.jpg',
-    alt: 'Axonometría del Centro Cultural Comunitario sobre la ladera',
+    portada: '/img/disenos/centro-comunitario-render.jpg',
+    alt: 'Centro Cultural Comunitario: fachadas de hormigón visto y el ingreso de vidrio, desde la calle',
     fotos: galeria('centro-comunitario', [
       'Vista desde la González Suárez',
       'Vista del ingreso',
