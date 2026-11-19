@@ -42,7 +42,7 @@ const franjas = [
   { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut-franja.jpg', pos: '50% 40%' },
   { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres-inicio.jpg', pos: '50% 45%' },
   { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo-franja.jpg', pos: '50% 55%' },
-  { slug: 'centro-comunitario', src: '/img/disenos/centro-comunitario-franja.jpg', pos: '50% 55%' },
+  { slug: 'centro-comunitario', src: '/img/disenos/centro-comunitario-franja.jpg', pos: '35% 45%' },
 ]
 
 function useRuta() {
