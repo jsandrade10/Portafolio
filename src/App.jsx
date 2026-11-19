@@ -39,10 +39,10 @@ const franjas = [
   { slug: 'casa-lt', src: '/img/casa-lt/01.jpg', pos: '50% 50%' },
   { slug: 'casa-br', src: '/img/casa-br/01.jpg', pos: '50% 50%' },
   { slug: 'colegio-mine', src: '/img/obras/colegio-mine-inicio.jpg', pos: '50% 45%' },
-  { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut-render.jpg', pos: '50% 46%' },
+  { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut-franja.jpg', pos: '50% 55%' },
   { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres-inicio.jpg', pos: '50% 45%' },
-  { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo-render.jpg', pos: '50% 55%' },
-  { slug: 'centro-comunitario', src: '/img/disenos/centro-comunitario-render.jpg', pos: '50% 40%' },
+  { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo-franja.jpg', pos: '50% 55%' },
+  { slug: 'centro-comunitario', src: '/img/disenos/centro-comunitario-franja.jpg', pos: '50% 55%' },
 ]
 
 function useRuta() {
