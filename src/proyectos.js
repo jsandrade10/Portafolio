@@ -241,8 +241,7 @@ export const disenos = [
     portada: '/img/disenos/centro-comunitario-render.jpg',
     alt: 'Centro Cultural Comunitario: fachadas de hormigón visto y el ingreso de vidrio, desde la calle',
     fotos: galeria('centro-comunitario', [
-      'Vista desde la González Suárez',
-      'Vista del ingreso',
+      'Vista del ingreso desde la calle',
       'Análisis: el lugar y la implantación',
       'Análisis: partido y forma',
       'Análisis: estructura, luz y circulación',
