@@ -111,24 +111,47 @@ function Header({ ruta }) {
 // la imagen desaparece y se ve el texto (en celular el texto va debajo).
 // fotos = grilla de las fotos de un proyecto: 2 columnas, más grandes; al pasar el mouse la foto
 // se acerca (zoom dentro de su borde) y aparece un "+" que lleva a la ficha con toda la info.
-// En pantallas táctiles (sin mouse), el primer toque oculta la foto y muestra el nombre, como el
-// "hover" de la computadora; el segundo toque abre el proyecto.
-const esTactil = () => window.matchMedia('(hover: none)').matches
+// En el celular, la foto que está bajo el dedo (al apoyarlo o al deslizarlo por la página) se oculta
+// y muestra el nombre, como el "hover" de la computadora; al levantar el dedo vuelve la foto.
+// Un toque normal abre el proyecto directamente.
 function Mosaico({ items, fotos }) {
-  const [tocado, setTocado] = useState(null)
+  const ref = useRef(null)
+  useEffect(() => {
+    if (fotos) return
+    let actual = null
+    const marcar = (el) => {
+      if (el === actual) return
+      actual?.classList.remove('tocado')
+      el?.classList.add('tocado')
+      actual = el
+    }
+    const mover = (e) => {
+      const t = e.touches[0]
+      if (!t) return
+      const el = document.elementFromPoint(t.clientX, t.clientY)?.closest('.mos-item')
+      marcar(el && ref.current?.contains(el) ? el : null)
+    }
+    const soltar = () => marcar(null)
+    document.addEventListener('touchstart', mover, { passive: true })
+    document.addEventListener('touchmove', mover, { passive: true })
+    document.addEventListener('touchend', soltar, { passive: true })
+    document.addEventListener('touchcancel', soltar, { passive: true })
+    return () => {
+      marcar(null)
+      document.removeEventListener('touchstart', mover)
+      document.removeEventListener('touchmove', mover)
+      document.removeEventListener('touchend', soltar)
+      document.removeEventListener('touchcancel', soltar)
+    }
+  }, [fotos])
   return (
-    <div className={fotos ? 'mosaico mosaico-fotos' : 'mosaico'}>
+    <div ref={ref} className={fotos ? 'mosaico mosaico-fotos' : 'mosaico'}>
       {items.map((m, i) => (
         <a
           key={m.href}
           href={m.href}
-          className={tocado === m.href ? 'mos-item tocado' : 'mos-item'}
+          className="mos-item"
           aria-label={fotos ? `${m.alt}: ver ficha` : undefined}
-          onClick={(e) => {
-            if (fotos || !esTactil() || tocado === m.href) return
-            e.preventDefault()
-            setTocado(m.href)
-          }}
         >
           <span className="mos-img">
             <span className="mos-marco">

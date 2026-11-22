@@ -100,6 +100,7 @@ ul { list-style: none; margin: 0; padding: 0; }
 .mos-item.tocado .mos-img { opacity: 0; }
 .mos-item.tocado .mos-txt { opacity: 1; }
 .mosaico-fotos .mos-item.tocado .mos-img { opacity: 1; }
+@media (hover: none) { .mos-img, .mos-txt { transition-duration: .15s; } }
 
 /* Título de Proyectos, Diseños y de la grilla de fotos, alineado con la cuadrícula */
 .tit-cat { padding: 4px 16px 6px clamp(44px, 6.25vw, 90px); font-size: 22px; text-transform: uppercase; letter-spacing: .06em; }
@@ -203,7 +204,7 @@ main:has(> .mosaico) + .pie { padding-left: clamp(44px, 6.25vw, 90px); }
   .menu-tit { font-size: 20px; }
   .menu-col ul { gap: 12px; }
 
-  /* Inicio en celular: 2 columnas; al tocar una foto desaparece y se ve el nombre (2.º toque abre) */
+  /* Inicio en celular: 2 columnas; la foto bajo el dedo desaparece y se ve el nombre */
   .mosaico { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; row-gap: 24px; padding: 14px var(--gutter) 24px; }
   .mos-txt { font-size: 14px; padding: 0 6px; }
   .mos-item { -webkit-tap-highlight-color: transparent; }
