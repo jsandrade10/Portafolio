@@ -1,5 +1,5 @@
 // Sitio con estética tipo estudio (fondo negro). Rutas con hash, sin dependencias:
-//   #/                 inicio: franjas horizontales, una por proyecto
+//   #/                 inicio: fondo blanco, cuadrícula de imágenes enteras, una por proyecto
 //   #/proyectos        grilla de obras (proyecto propio + dirección de obra)
 //   #/disenos          grilla de diseños
 //   #/p/<slug>         todas las fotos del proyecto en grilla (como las categorías de mk27)
@@ -29,20 +29,22 @@ const categorias = [
 
 const porSlug = Object.fromEntries([...propios, ...obras, ...disenos].map((p) => [slugDe(p), p]))
 
-// Inicio: franjas horizontales a todo el ancho, una por proyecto (pos = qué parte de la foto se ve).
-const franjas = [
-  { slug: 'remodelacion-ym', src: '/img/remodelacion-ym/01.jpg', pos: '50% 55%', alta: true },
-  { slug: 'casa-jc', src: '/img/casa-jc/01.jpg', pos: '50% 55%' },
-  { slug: 'casa-fr', src: '/img/casa-fr/05.jpg', pos: '50% 58%' },
-  { slug: 'casa-aj', src: '/img/casa-aj/01.jpg', pos: '50% 60%' },
-  { slug: 'casa-jv', src: '/img/casa-jv/01.jpg', pos: '50% 55%' },
-  { slug: 'casa-lt', src: '/img/casa-lt/01.jpg', pos: '50% 50%' },
-  { slug: 'casa-br', src: '/img/casa-br/01.jpg', pos: '50% 50%' },
-  { slug: 'colegio-mine', src: '/img/obras/colegio-mine-inicio.jpg', pos: '50% 45%' },
-  { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut-franja.jpg', pos: '50% 40%' },
-  { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres-inicio.jpg', pos: '50% 45%' },
-  { slug: 'edificio-nexo', src: '/img/disenos/edificio-nexo-franja.jpg', pos: '50% 55%' },
-  { slug: 'centro-comunitario', src: '/img/disenos/centro-comunitario-franja.jpg', pos: '35% 45%' },
+// Inicio (estilo kellenberger-white.com, pedido de Joaquín el 2026-11-22): fondo blanco,
+// cuadrícula de celdas cuadradas con UNA imagen por proyecto, entera (vertical u horizontal) y centrada;
+// al pasar el mouse la imagen desaparece y se ve el nombre. t = miniatura de 400 px (si existe).
+const mosaico = [
+  { slug: 'remodelacion-ym', src: '/img/remodelacion-ym/01.jpg', t: true },
+  { slug: 'casa-jc', src: '/img/casa-jc/01.jpg', t: true },
+  { slug: 'casa-fr', src: '/img/casa-fr/05.jpg', t: true },
+  { slug: 'casa-aj', src: '/img/casa-aj/01.jpg', t: true },
+  { slug: 'casa-jv', src: '/img/casa-jv/01.jpg', t: true },
+  { slug: 'casa-lt', src: '/img/casa-lt/01.jpg', t: true },
+  { slug: 'casa-br', src: '/img/casa-br/01.jpg', t: true },
+  { slug: 'colegio-mine', src: '/img/colegio-mine/01.jpg', t: true },
+  { slug: 'mundaneum-beirut', src: '/img/disenos/mundaneum-beirut-render.jpg' },
+  { slug: 'galeria-talleres', src: '/img/disenos/galeria-talleres.jpg' },
+  { slug: 'edificio-nexo', src: '/img/edificio-nexo/01.jpg', t: true },
+  { slug: 'centro-comunitario', src: '/img/centro-comunitario/01.jpg', t: true },
 ]
 
 function useRuta() {
@@ -107,17 +109,22 @@ function Header({ ruta }) {
 
 function Inicio() {
   return (
-    <main className="franjas">
+    <main className="mosaico">
       <h1 className="sr-only">Joaquín Andrade, arquitecto</h1>
-      {franjas.map((m, i) => {
+      {mosaico.map((m, i) => {
         const p = porSlug[m.slug]
         return (
-          <a key={m.slug} href={`#/p/${m.slug}`} className={m.alta ? "franja franja-alta" : "franja"}>
-            <img src={m.src} alt={p.alt} style={{ objectPosition: m.pos, '--gris': m.gris }} loading={i < 4 ? 'eager' : 'lazy'} />
-            <span className="franja-txt">
-              <strong>{p.nombre}</strong>
-              <em>{rolDe(p)}</em>
+          <a key={m.slug} href={`#/p/${m.slug}`} className="mos-item">
+            <span className="mos-img">
+              <img
+                src={m.src}
+                srcSet={m.t ? `${m.src.replace('.jpg', '-t.jpg')} 400w, ${m.src} 1200w` : undefined}
+                sizes="(max-width: 700px) 45vw, 28vw"
+                alt={p.alt}
+                loading={i < 6 ? 'eager' : 'lazy'}
+              />
             </span>
+            <span className="mos-txt">{p.nombre}</span>
           </a>
         )
       })}
@@ -388,6 +395,12 @@ export default function App() {
     const foto = Math.min(Math.max(parseInt(n, 10) || 0, 0), p.fotos.length)
     pagina = n ? <Proyecto p={p} cat={categorias.find((c) => c.items.includes(p))} foto={Math.max(foto - 1, 0)} /> : <Fotos p={p} />
   }
+  // El inicio va con fondo blanco (clase en <body>); el resto del sitio sigue negro.
+  const blanco = pagina.type === Inicio
+  useEffect(() => {
+    document.body.classList.toggle('blanco', blanco)
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', blanco ? '#ffffff' : '#000000')
+  }, [blanco])
   useEffect(() => {
     const titulo = document.querySelector('main h1')?.textContent
     document.title = titulo && ruta ? `${titulo} — Joaquín Andrade` : 'Joaquín Andrade — Arquitectura'
