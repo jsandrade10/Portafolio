@@ -1,8 +1,8 @@
-// Sitio con estética tipo estudio (fondo negro). Rutas con hash, sin dependencias:
-//   #/                 inicio: fondo blanco, cuadrícula de imágenes enteras, una por proyecto
+// Sitio con fondo blanco al estilo kellenberger-white.com (todo el sitio desde el 2026-11-22). Rutas con hash, sin dependencias:
+//   #/                 inicio: cuadrícula de imágenes enteras, una por proyecto
 //   #/proyectos        grilla de obras (proyecto propio + dirección de obra)
 //   #/disenos          grilla de diseños
-//   #/p/<slug>         todas las fotos del proyecto en grilla (como las categorías de mk27)
+//   #/p/<slug>         todas las fotos del proyecto en la misma cuadrícula del inicio
 //   #/p/<slug>/<n>     ficha del proyecto con la foto n grande, info a la derecha y miniaturas abajo
 //   #/sobre-mi, #/contacto
 // El menú se abre con la hamburguesa (en computadora y en celular).
@@ -107,27 +107,41 @@ function Header({ ruta }) {
   )
 }
 
+// Cuadrícula de celdas cuadradas con cada imagen entera y centrada; al pasar el mouse
+// la imagen desaparece y se ve el texto (en celular el texto va debajo, salvo sinTexto).
+function Mosaico({ items, sinTexto }) {
+  return (
+    <div className={sinTexto ? 'mosaico mosaico-fotos' : 'mosaico'}>
+      {items.map((m, i) => (
+        <a key={m.href} href={m.href} className="mos-item">
+          <span className="mos-img">
+            <img src={m.src} srcSet={m.srcSet} sizes="(max-width: 700px) 45vw, 28vw" alt={m.alt} loading={i < 6 ? 'eager' : 'lazy'} />
+          </span>
+          <span className="mos-txt">{m.txt}</span>
+        </a>
+      ))}
+    </div>
+  )
+}
+
+const imagenDe = Object.fromEntries(mosaico.map((m) => [m.slug, m]))
+const itemProyecto = (slug) => {
+  const m = imagenDe[slug]
+  const p = porSlug[slug]
+  return {
+    href: `#/p/${slug}`,
+    src: m.src,
+    srcSet: m.t ? `${m.src.replace('.jpg', '-t.jpg')} 400w, ${m.src} 1200w` : undefined,
+    alt: p.alt,
+    txt: p.nombre,
+  }
+}
+
 function Inicio() {
   return (
-    <main className="mosaico">
+    <main>
       <h1 className="sr-only">Joaquín Andrade, arquitecto</h1>
-      {mosaico.map((m, i) => {
-        const p = porSlug[m.slug]
-        return (
-          <a key={m.slug} href={`#/p/${m.slug}`} className="mos-item">
-            <span className="mos-img">
-              <img
-                src={m.src}
-                srcSet={m.t ? `${m.src.replace('.jpg', '-t.jpg')} 400w, ${m.src} 1200w` : undefined}
-                sizes="(max-width: 700px) 45vw, 28vw"
-                alt={p.alt}
-                loading={i < 6 ? 'eager' : 'lazy'}
-              />
-            </span>
-            <span className="mos-txt">{p.nombre}</span>
-          </a>
-        )
-      })}
+      <Mosaico items={mosaico.map((m) => itemProyecto(m.slug))} />
     </main>
   )
 }
@@ -136,17 +150,7 @@ function Categoria({ cat }) {
   return (
     <main>
       <h1 className="tit-cat">{cat.nombre}</h1>
-      <div className="grilla">
-        {cat.items.map((p) => (
-          <a key={p.nombre} href={`#/p/${slugDe(p)}`} className="celda">
-            <img src={p.portada} alt={p.alt} loading="lazy" width="1200" height="900" />
-            <span className="celda-txt">
-              <strong>{p.nombre}</strong>
-              <em>{rolDe(p)}</em>
-            </span>
-          </a>
-        ))}
-      </div>
+      <Mosaico items={cat.items.map((p) => itemProyecto(slugDe(p)))} />
     </main>
   )
 }
@@ -225,22 +229,16 @@ function Galeria({ p, inicio = 0 }) {
   )
 }
 
-// Todas las fotos de un proyecto en grilla; cada foto abre la ficha en esa imagen.
+// Todas las fotos de un proyecto en la misma cuadrícula del inicio; cada foto abre la ficha en esa imagen.
 function Fotos({ p }) {
   const slug = slugDe(p)
   return (
     <main>
       <h1 className="tit-cat">{p.nombre}</h1>
-      <div className="grilla grilla-fotos">
-        {p.fotos.map((f, k) => (
-          <a key={f.src} href={`#/p/${slug}/${k + 1}`} className="celda">
-            <img src={f.src} srcSet={`${f.thumb} 400w, ${f.src} 1600w`} sizes="(max-width: 700px) 50vw, 33vw" alt={f.alt} loading={k < 6 ? 'eager' : 'lazy'} />
-            <span className="celda-txt">
-              <em>{f.alt}</em>
-            </span>
-          </a>
-        ))}
-      </div>
+      <Mosaico
+        sinTexto
+        items={p.fotos.map((f, k) => ({ href: `#/p/${slug}/${k + 1}`, src: f.src, srcSet: `${f.thumb} 400w, ${f.src} 1600w`, alt: f.alt, txt: f.alt }))}
+      />
     </main>
   )
 }
@@ -395,12 +393,6 @@ export default function App() {
     const foto = Math.min(Math.max(parseInt(n, 10) || 0, 0), p.fotos.length)
     pagina = n ? <Proyecto p={p} cat={categorias.find((c) => c.items.includes(p))} foto={Math.max(foto - 1, 0)} /> : <Fotos p={p} />
   }
-  // El inicio va con fondo blanco (clase en <body>); el resto del sitio sigue negro.
-  const blanco = pagina.type === Inicio
-  useEffect(() => {
-    document.body.classList.toggle('blanco', blanco)
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', blanco ? '#ffffff' : '#000000')
-  }, [blanco])
   useEffect(() => {
     const titulo = document.querySelector('main h1')?.textContent
     document.title = titulo && ruta ? `${titulo} — Joaquín Andrade` : 'Joaquín Andrade — Arquitectura'

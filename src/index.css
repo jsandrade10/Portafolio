@@ -1,10 +1,10 @@
-/* Estética tipo estudio: fondo negro, texto blanco, Roboto Light pequeña con espaciado,
-   fotos en blanco y negro en las franjas y las grillas (color al pasar el mouse), color en el proyecto. */
+/* Estilo kellenberger-white.com en todo el sitio (pedido de Joaquín, 2026-11-22): fondo blanco, texto negro,
+   Roboto Light pequeña con espaciado, imágenes enteras y en color. */
 :root {
-  --bg: #000;
-  --fg: #fff;
-  --muted: #9a9a9a;
-  --linea: #333;
+  --bg: #fff;
+  --fg: #000;
+  --muted: #8a8a8a;
+  --linea: #ddd;
   --gap: 3px;
   --izq: 240px; /* margen izquierdo del contenido en computadora */
   --gutter: 16px;
@@ -14,7 +14,7 @@
   letter-spacing: .05em;
   color: var(--fg);
   background: var(--bg);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -38,11 +38,11 @@ ul { list-style: none; margin: 0; padding: 0; }
   display: flex; flex-direction: column; justify-content: center; gap: 6px;
   width: 48px; height: 48px; padding: 12px; margin-right: -12px; border: 0; background: none; cursor: pointer;
 }
-.hd-burger span { display: block; height: 1.5px; background: #fff; transition: transform .3s, opacity .3s; }
+.hd-burger span { display: block; height: 1.5px; background: var(--fg); transition: transform .3s, opacity .3s; }
 .hd-abierto .hd-burger span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
 .hd-abierto .hd-burger span:nth-child(2) { opacity: 0; }
 .hd-abierto .hd-burger span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
-.hd-burger:focus-visible { outline: 1px solid #fff; }
+.hd-burger:focus-visible { outline: 1px solid var(--fg); }
 
 /* Menú desplegado: pantalla completa, columnas Proyectos / Diseños / Sobre mí y Contacto */
 .menu {
@@ -56,17 +56,11 @@ ul { list-style: none; margin: 0; padding: 0; }
 .menu-tit { font-size: 22px; text-transform: uppercase; letter-spacing: .06em; }
 .menu-col ul { display: flex; flex-direction: column; gap: 9px; margin-top: -6px; }
 .menu-col ul a { color: var(--muted); text-transform: uppercase; transition: color .2s; }
-.menu a:hover, .menu a.activo { color: #fff; }
+.menu a:hover, .menu a.activo { color: var(--fg); }
 .menu-tit:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
 
-/* Inicio (estilo kellenberger-white.com): fondo blanco, 3 columnas de celdas cuadradas,
+/* Cuadrícula (inicio, Proyectos, Diseños y fotos de cada proyecto): 3 columnas de celdas cuadradas,
    cada imagen entera y centrada en su celda; al pasar el mouse se oculta y aparece el nombre. */
-body.blanco { --bg: #fff; --fg: #000; --muted: #8a8a8a; background: #fff; color: #000; color-scheme: light; }
-body.blanco .hd:not(.hd-abierto) { color: #000; }
-body.blanco .hd:not(.hd-abierto) .hd-burger span { background: #000; }
-body.blanco .hd-abierto { --bg: #000; --fg: #fff; --muted: #9a9a9a; color: #fff; }
-body.blanco .hd-abierto .menu { color: #fff; }
-body.blanco .pie { color: #aaa; }
 .mosaico {
   display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: clamp(32px, 5vw, 72px); row-gap: clamp(32px, 5vw, 72px);
@@ -85,22 +79,9 @@ body.blanco .pie { color: #aaa; }
   .mos-item:hover .mos-txt, .mos-item:focus-visible .mos-txt { opacity: 1; }
 }
 .mos-item:focus-visible { outline: 1px solid #000; outline-offset: 6px; }
-.celda-txt {
-  position: absolute; inset: auto 0 0 0; padding: 48px 18px 16px;
-  display: flex; flex-direction: column; gap: 5px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, .65));
-  opacity: 0; transition: opacity .4s ease;
-}
-.celda-txt strong { font-weight: 400; font-size: 15px; text-transform: uppercase; letter-spacing: .06em; }
-.celda-txt em { font-style: normal; text-transform: uppercase; color: #ccc; font-size: 10.5px; letter-spacing: .12em; }
 
-/* Categoría: grilla de 3 columnas */
-.tit-cat { padding: 4px 16px 18px var(--izq); font-size: 22px; text-transform: uppercase; letter-spacing: .06em; }
-.grilla { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
-.celda { position: relative; display: block; aspect-ratio: 1.6; overflow: hidden; background: #111; }
-.celda img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter .5s ease, transform 1.2s ease; }
-.celda:hover img, .celda:focus-visible img { filter: grayscale(0); transform: scale(1.03); }
-.celda:hover .celda-txt, .celda:focus-visible .celda-txt { opacity: 1; }
+/* Título de Proyectos, Diseños y de la grilla de fotos, alineado con la cuadrícula */
+.tit-cat { padding: 4px 16px 6px clamp(44px, 6.25vw, 90px); font-size: 22px; text-transform: uppercase; letter-spacing: .06em; }
 
 /* Página de proyecto: galería a la izquierda, ficha a la derecha, texto debajo */
 .proy {
@@ -123,13 +104,13 @@ body.blanco .pie { color: #aaa; }
 .proy-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 56px; padding-top: 14px; border-top: 1px solid var(--linea); text-transform: uppercase; width: min(908px, calc(100vw - var(--izq) - 16px)); }
 .proy-nav a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-.gal-escena { position: relative; aspect-ratio: 1.69; background: #000; }
+.gal-escena { position: relative; aspect-ratio: 1.69; background: var(--bg); }
 .gal-zoom { position: absolute; inset: 0; padding: 0; border: 0; background: none; cursor: zoom-in; }
 .gal-zoom img { width: 100%; height: 100%; object-fit: contain; animation: aparece .4s ease; }
 @keyframes aparece { from { opacity: 0; } }
 .gal-flecha {
   position: absolute; top: 50%; transform: translateY(-50%);
-  width: 44px; height: 64px; border: 0; background: rgba(0, 0, 0, .35); color: #fff;
+  width: 44px; height: 64px; border: 0; background: rgba(255, 255, 255, .7); color: #000;
   font-size: 34px; line-height: 1; cursor: pointer; opacity: 0; transition: opacity .3s;
 }
 .gal-escena:hover .gal-flecha, .gal-flecha:focus-visible { opacity: 1; }
@@ -137,7 +118,7 @@ body.blanco .pie { color: #aaa; }
 .gal-next { right: 0; }
 .gal-tira { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 .gal-tira button { padding: 0; border: 2px solid transparent; background: none; cursor: pointer; opacity: .6; }
-.gal-tira button.activa { border-color: #fff; opacity: 1; }
+.gal-tira button.activa { border-color: var(--fg); opacity: 1; }
 .gal-tira button:hover { opacity: 1; }
 .gal-tira img { height: 58px; width: 58px; object-fit: cover; }
 .gal-pie { margin: 8px 0 0; color: var(--muted); }
@@ -146,12 +127,12 @@ body.blanco .pie { color: #aaa; }
 .pagina { display: flex; gap: 32px; padding: 15px 16px 80px var(--izq); line-height: 1.75; }
 .pagina h1 { font-size: 30px; text-transform: uppercase; line-height: 1; margin: 0 0 14px; }
 .pagina p { margin: 0; }
-.pagina a { border-bottom: 1px solid #666; }
-.pagina a:hover { border-color: #fff; }
+.pagina a { border-bottom: 1px solid #bbb; }
+.pagina a:hover { border-color: var(--fg); }
 .pagina-txt { width: 100%; max-width: 520px; }
 .pagina-txt .ficha-grupo { margin-top: 18px; }
 .retrato { flex: none; width: 280px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; align-self: flex-start; }
-.cv-intro { margin-top: 14px !important; color: #cfcfcf; }
+.cv-intro { margin-top: 14px !important; color: #333; }
 .cv-sec { margin-top: 0 !important; }
 .pagina-txt .cv-intro + .cv-sec { margin-top: 22px !important; }
 .cv-sec h2 { margin: 0 0 8px; font-size: inherit; font-weight: inherit; color: var(--muted); }
@@ -168,14 +149,13 @@ body.blanco .pie { color: #aaa; }
 .cv-det { color: var(--muted); }
 .ph {
   display: grid; place-items: center; flex: none; width: 280px; aspect-ratio: 3 / 4;
-  background: #151515; color: #555; text-transform: uppercase; font-size: 11px;
+  background: #f2f2f2; color: #999; text-transform: uppercase; font-size: 11px;
 }
 
-.pie { padding: 40px 16px 32px var(--izq); color: #555; font-size: 11px; text-transform: uppercase; }
-.mosaico + .pie { padding-left: clamp(44px, 6.25vw, 90px); }
+.pie { padding: 40px 16px 32px var(--izq); color: #aaa; font-size: 11px; text-transform: uppercase; }
+main:has(> .mosaico) + .pie { padding-left: clamp(44px, 6.25vw, 90px); }
 
 @media (prefers-reduced-motion: reduce) {
-  .celda img { transition: filter .3s; transform: none !important; }
   .gal-zoom img, .menu { animation: none; }
 }
 
@@ -198,14 +178,10 @@ body.blanco .pie { color: #aaa; }
   .mos-item { aspect-ratio: auto; }
   .mos-img { position: relative; aspect-ratio: 1; }
   .mos-txt { position: static; opacity: 1; display: block; padding: 8px 0 0; font-size: 12px; letter-spacing: .03em; color: #555; }
-  .celda-txt { opacity: 1; padding: 36px 12px 10px; }
 
   .tit-cat { padding: 4px var(--gutter) 14px; }
-  .grilla { grid-template-columns: 1fr; }
-  /* Fotos de un proyecto: cuadrícula de 2 columnas, fotos cuadradas, sin texto encima */
-  .grilla-fotos { grid-template-columns: repeat(2, 1fr); }
-  .grilla-fotos .celda { aspect-ratio: 1; }
-  .grilla-fotos .celda-txt { display: none; }
+  /* Fotos de un proyecto: sin texto debajo (los pies son largos) */
+  .mosaico-fotos .mos-txt { display: none; }
 
   .proy { display: block; padding: 0 0 60px; }
   .proy-ficha { padding: 22px var(--gutter) 0; }
@@ -220,13 +196,13 @@ body.blanco .pie { color: #aaa; }
 
   .pagina { flex-direction: column; padding: 15px var(--gutter) 60px; }
   .ph, .retrato { width: 100%; max-width: 320px; }
-  .pie, .mosaico + .pie { padding-left: var(--gutter); }
+  .pie, main:has(> .mosaico) + .pie { padding-left: var(--gutter); }
 }
 
 /* Comparador (página de Casa AJ) */
 .ba {
   position: relative; overflow: hidden; aspect-ratio: 3 / 2;
-  cursor: ew-resize; user-select: none; touch-action: pan-y; background: #111;
+  cursor: ew-resize; user-select: none; touch-action: pan-y; background: #eee;
 }
 .ba:focus-visible { outline: 2px solid var(--fg); outline-offset: -2px; }
 .ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
@@ -244,29 +220,29 @@ body.blanco .pie { color: #aaa; }
 .lb {
   position: fixed; inset: 0; z-index: 100;
   display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto;
-  background: rgba(0, 0, 0, .97); color: #eee;
+  background: #fff; color: #111;
 }
 .lb-top { display: flex; align-items: center; gap: 16px; padding: 12px var(--gutter); }
 .lb-titulo { text-transform: uppercase; }
-.lb-cont { color: #999; margin-right: auto; }
+.lb-cont { color: #888; margin-right: auto; }
 .lb-escena { position: relative; min-height: 0; }
 /* La foto ocupa todo el espacio disponible y se ajusta sin recortarse. */
 .lb-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 0 var(--gutter); }
 .lb-btn {
-  border: 0; background: rgba(255, 255, 255, .1); color: #fff; cursor: pointer;
+  border: 0; background: rgba(0, 0, 0, .05); color: #000; cursor: pointer;
   width: 44px; height: 44px; border-radius: 50%; font-size: 1.4rem; line-height: 1; display: grid; place-items: center;
 }
-.lb-btn:hover { background: rgba(255, 255, 255, .22); }
-.lb-btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.lb-btn:hover { background: rgba(0, 0, 0, .12); }
+.lb-btn:focus-visible { outline: 2px solid #000; outline-offset: 2px; }
 .lb-cerrar { font-size: 1rem; }
 .lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; }
 .lb-prev { left: 12px; }
 .lb-next { right: 12px; }
-.lb-pie { margin: 0; padding: 10px var(--gutter) 0; text-align: center; color: #bbb; }
+.lb-pie { margin: 0; padding: 10px var(--gutter) 0; text-align: center; color: #555; }
 .lb-tira { display: flex; gap: 6px; overflow-x: auto; padding: 12px var(--gutter) 16px; justify-content: safe center; }
 .lb-mini { flex: none; padding: 0; border: 2px solid transparent; background: none; cursor: pointer; opacity: .5; }
 .lb-mini img { height: 56px; width: auto; }
-.lb-mini.activa { border-color: #fff; opacity: 1; }
+.lb-mini.activa { border-color: #000; opacity: 1; }
 .lb-mini:hover { opacity: .85; }
 @media (max-width: 600px) {
   .lb-prev, .lb-next { display: none; }
