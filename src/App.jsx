@@ -7,7 +7,7 @@
 //   #/sobre-mi, #/contacto
 // El menú se abre con la hamburguesa (en computadora y en celular).
 // IMPORTANTE: los diseños NO se presentan como trabajos universitarios (pedido de Joaquín).
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import BeforeAfter from './BeforeAfter.jsx'
 import Lightbox from './Lightbox.jsx'
 import { propios, obras, disenos } from './proyectos.js'
@@ -111,11 +111,25 @@ function Header({ ruta }) {
 // la imagen desaparece y se ve el texto (en celular el texto va debajo).
 // fotos = grilla de las fotos de un proyecto: 2 columnas, más grandes; al pasar el mouse la foto
 // se acerca (zoom dentro de su borde) y aparece un "+" que lleva a la ficha con toda la info.
+// En pantallas táctiles (sin mouse), el primer toque oculta la foto y muestra el nombre, como el
+// "hover" de la computadora; el segundo toque abre el proyecto.
+const esTactil = () => window.matchMedia('(hover: none)').matches
 function Mosaico({ items, fotos }) {
+  const [tocado, setTocado] = useState(null)
   return (
     <div className={fotos ? 'mosaico mosaico-fotos' : 'mosaico'}>
       {items.map((m, i) => (
-        <a key={m.href} href={m.href} className="mos-item" aria-label={fotos ? `${m.alt}: ver ficha` : undefined}>
+        <a
+          key={m.href}
+          href={m.href}
+          className={tocado === m.href ? 'mos-item tocado' : 'mos-item'}
+          aria-label={fotos ? `${m.alt}: ver ficha` : undefined}
+          onClick={(e) => {
+            if (fotos || !esTactil() || tocado === m.href) return
+            e.preventDefault()
+            setTocado(m.href)
+          }}
+        >
           <span className="mos-img">
             <span className="mos-marco">
               <img src={m.src} srcSet={m.srcSet} sizes={fotos ? '(max-width: 700px) 45vw, 45vw' : '(max-width: 700px) 45vw, 28vw'} alt={m.alt} loading={i < 6 ? 'eager' : 'lazy'} />
@@ -174,15 +188,40 @@ function ficha(p) {
   return [g1, g2].filter((g) => g.length)
 }
 
+// Galería de la ficha: las fotos van en una pista horizontal con "scroll-snap", así en el celular
+// se deslizan siguiendo el dedo y encajan en su lugar (como la galería del iPhone).
 function Galeria({ p, inicio = 0 }) {
   const [i, setI] = useState(inicio)
+  const iRef = useRef(inicio)
+  iRef.current = i
+  const pista = useRef(null)
+  const n = p.fotos.length
   // Mantiene la dirección al día con la foto que se ve (sin recargar ni saltar).
   useEffect(() => {
     history.replaceState(null, '', `#/p/${slugDe(p)}/${i + 1}`)
   }, [i, p])
   const [visor, setVisor] = useState(false)
-  const n = p.fotos.length
-  const ir = (d) => setI((v) => (v + d + n) % n)
+  // Abre en la foto pedida, sin animación; y si cambia el ancho de la ventana, vuelve a encajarla.
+  useLayoutEffect(() => {
+    const el = pista.current
+    el.scrollLeft = inicio * el.clientWidth
+    const onResize = () => { el.scrollLeft = iRef.current * el.clientWidth }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  const irA = (k) => {
+    const el = pista.current
+    const destino = (k + n) % n
+    el.scrollTo({ left: destino * el.clientWidth, behavior: 'smooth' })
+    setI(destino)
+  }
+  const ir = (d) => irA(iRef.current + d)
+  const alDeslizar = () => {
+    const el = pista.current
+    const k = Math.round(el.scrollLeft / el.clientWidth)
+    if (k !== iRef.current && k >= 0 && k < n) setI(k)
+  }
   useEffect(() => {
     if (visor) return
     const onKey = (e) => {
@@ -194,26 +233,17 @@ function Galeria({ p, inicio = 0 }) {
     return () => window.removeEventListener('keydown', onKey)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visor, n])
-  useEffect(() => {
-    ;[i + 1, i - 1].forEach((k) => { new Image().src = p.fotos[(k + n) % n].src })
-  }, [i, p, n])
-  const toque = { x: null }
   const foto = p.fotos[i]
   return (
     <div className="gal">
-      <div
-        className="gal-escena"
-        onTouchStart={(e) => { toque.x = e.touches[0].clientX }}
-        onTouchEnd={(e) => {
-          if (toque.x == null) return
-          const dx = e.changedTouches[0].clientX - toque.x
-          if (Math.abs(dx) > 40) ir(dx < 0 ? 1 : -1)
-          toque.x = null
-        }}
-      >
-        <button className="gal-zoom" onClick={() => setVisor(true)} aria-label="Ver a pantalla completa">
-          <img key={foto.src} src={foto.src} alt={foto.alt} />
-        </button>
+      <div className="gal-escena">
+        <div className="gal-pista" ref={pista} onScroll={alDeslizar}>
+          {p.fotos.map((f, k) => (
+            <button key={f.src} className="gal-slide" onClick={() => setVisor(true)} aria-label="Ver a pantalla completa" tabIndex={k === i ? 0 : -1}>
+              <img src={f.src} alt={f.alt} loading={Math.abs(k - i) <= 1 ? 'eager' : 'lazy'} draggable="false" />
+            </button>
+          ))}
+        </div>
         {n > 1 && (
           <>
             <button className="gal-flecha gal-prev" onClick={() => ir(-1)} aria-label="Imagen anterior">‹</button>
@@ -223,7 +253,7 @@ function Galeria({ p, inicio = 0 }) {
       </div>
       <div className="gal-tira">
         {p.fotos.map((f, k) => (
-          <button key={f.src} className={k === i ? 'activa' : ''} onClick={() => setI(k)} aria-label={`Ver imagen ${k + 1}`} aria-current={k === i}>
+          <button key={f.src} className={k === i ? 'activa' : ''} onClick={() => irA(k)} aria-label={`Ver imagen ${k + 1}`} aria-current={k === i}>
             <img src={f.thumb} alt="" loading="lazy" />
           </button>
         ))}

@@ -97,6 +97,9 @@ ul { list-style: none; margin: 0; padding: 0; }
   .mos-item:hover .mos-txt, .mos-item:focus-visible .mos-txt { opacity: 1; }
 }
 .mos-item:focus-visible { outline: 1px solid #000; outline-offset: 6px; }
+.mos-item.tocado .mos-img { opacity: 0; }
+.mos-item.tocado .mos-txt { opacity: 1; }
+.mosaico-fotos .mos-item.tocado .mos-img { opacity: 1; }
 
 /* Título de Proyectos, Diseños y de la grilla de fotos, alineado con la cuadrícula */
 .tit-cat { padding: 4px 16px 6px clamp(44px, 6.25vw, 90px); font-size: 22px; text-transform: uppercase; letter-spacing: .06em; }
@@ -123,8 +126,15 @@ ul { list-style: none; margin: 0; padding: 0; }
 .proy-nav a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .gal-escena { position: relative; aspect-ratio: 1.69; background: var(--bg); }
-.gal-zoom { position: absolute; inset: 0; padding: 0; border: 0; background: none; cursor: zoom-in; }
-.gal-zoom img { width: 100%; height: 100%; object-fit: contain; animation: aparece .4s ease; }
+/* Pista horizontal con scroll-snap: en el celular se desliza con el dedo, foto por foto */
+.gal-pista {
+  position: absolute; inset: 0; display: flex; overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.gal-pista::-webkit-scrollbar { display: none; }
+.gal-slide { position: relative; flex: 0 0 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; scroll-snap-align: start; scroll-snap-stop: always; }
+.gal-slide img { width: 100%; height: 100%; object-fit: contain; user-select: none; -webkit-user-drag: none; }
 @keyframes aparece { from { opacity: 0; } }
 .gal-flecha {
   position: absolute; top: 50%; transform: translateY(-50%);
@@ -174,7 +184,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 main:has(> .mosaico) + .pie { padding-left: clamp(44px, 6.25vw, 90px); }
 
 @media (prefers-reduced-motion: reduce) {
-  .gal-zoom img, .menu { animation: none; }
+  .menu { animation: none; }
+  .mos-img, .mos-txt { transition: none; }
   .mosaico-fotos .mos-img img { transition: none; transform: none !important; }
 }
 
@@ -192,11 +203,10 @@ main:has(> .mosaico) + .pie { padding-left: clamp(44px, 6.25vw, 90px); }
   .menu-tit { font-size: 20px; }
   .menu-col ul { gap: 12px; }
 
-  /* Inicio en celular: 2 columnas; sin mouse, el nombre va debajo de cada imagen */
-  .mosaico { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; row-gap: 28px; padding: 14px var(--gutter) 24px; }
-  .mos-item { aspect-ratio: auto; }
-  .mos-img { position: relative; aspect-ratio: 1; }
-  .mos-txt { position: static; opacity: 1; display: block; padding: 8px 0 0; font-size: 12px; letter-spacing: .03em; color: #555; }
+  /* Inicio en celular: 2 columnas; al tocar una foto desaparece y se ve el nombre (2.º toque abre) */
+  .mosaico { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; row-gap: 24px; padding: 14px var(--gutter) 24px; }
+  .mos-txt { font-size: 14px; padding: 0 6px; }
+  .mos-item { -webkit-tap-highlight-color: transparent; }
 
   .tit-cat { padding: 4px var(--gutter) 14px; }
   .mosaico-fotos { column-gap: 12px; row-gap: 12px; }
