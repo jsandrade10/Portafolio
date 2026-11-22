@@ -67,8 +67,26 @@ ul { list-style: none; margin: 0; padding: 0; }
   padding: 30px clamp(44px, 6.25vw, 90px) 40px;
 }
 .mos-item { position: relative; display: block; aspect-ratio: 1; }
-.mos-img { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transition: opacity .25s; }
-.mos-img img { max-width: 100%; max-height: 100%; width: auto; height: auto; }
+.mos-img { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transition: opacity .25s; container-type: size; }
+/* El marco se ajusta a la foto (para que el zoom no se salga de su borde) */
+.mos-marco { position: relative; display: block; overflow: hidden; }
+.mos-img img { max-width: 100cqw; max-height: 100cqh; width: auto; height: auto; }
+
+/* Fotos de un proyecto: 2 columnas grandes; zoom y "+" al pasar el mouse (no se oculta la foto) */
+.mosaico-fotos { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(24px, 4vw, 56px); row-gap: clamp(24px, 4vw, 56px); }
+.mosaico-fotos .mos-img img { transition: transform .9s cubic-bezier(.2, .7, .2, 1); }
+.mos-mas {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background: rgba(0, 0, 0, .12); opacity: 0; transition: opacity .35s ease;
+}
+.mos-mas::before, .mos-mas::after { content: ""; grid-area: 1 / 1; background: #fff; box-shadow: 0 0 12px rgba(0, 0, 0, .25); }
+.mos-mas::before { width: 56px; height: 2px; }
+.mos-mas::after { width: 2px; height: 56px; }
+@media (hover: hover) {
+  .mosaico-fotos .mos-item:hover .mos-img, .mosaico-fotos .mos-item:focus-visible .mos-img { opacity: 1; }
+  .mosaico-fotos .mos-item:hover img, .mosaico-fotos .mos-item:focus-visible img { transform: scale(1.06); }
+  .mosaico-fotos .mos-item:hover .mos-mas, .mosaico-fotos .mos-item:focus-visible .mos-mas { opacity: 1; }
+}
 .mos-txt {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 0 12px;
   text-align: center; font-size: 17px; font-weight: 400; letter-spacing: .02em; color: #000;
@@ -157,6 +175,7 @@ main:has(> .mosaico) + .pie { padding-left: clamp(44px, 6.25vw, 90px); }
 
 @media (prefers-reduced-motion: reduce) {
   .gal-zoom img, .menu { animation: none; }
+  .mosaico-fotos .mos-img img { transition: none; transform: none !important; }
 }
 
 @media (max-width: 1100px) {
@@ -180,8 +199,7 @@ main:has(> .mosaico) + .pie { padding-left: clamp(44px, 6.25vw, 90px); }
   .mos-txt { position: static; opacity: 1; display: block; padding: 8px 0 0; font-size: 12px; letter-spacing: .03em; color: #555; }
 
   .tit-cat { padding: 4px var(--gutter) 14px; }
-  /* Fotos de un proyecto: sin texto debajo (los pies son largos) */
-  .mosaico-fotos .mos-txt { display: none; }
+  .mosaico-fotos { column-gap: 12px; row-gap: 12px; }
 
   .proy { display: block; padding: 0 0 60px; }
   .proy-ficha { padding: 22px var(--gutter) 0; }

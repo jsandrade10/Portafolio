@@ -108,16 +108,21 @@ function Header({ ruta }) {
 }
 
 // Cuadrícula de celdas cuadradas con cada imagen entera y centrada; al pasar el mouse
-// la imagen desaparece y se ve el texto (en celular el texto va debajo, salvo sinTexto).
-function Mosaico({ items, sinTexto }) {
+// la imagen desaparece y se ve el texto (en celular el texto va debajo).
+// fotos = grilla de las fotos de un proyecto: 2 columnas, más grandes; al pasar el mouse la foto
+// se acerca (zoom dentro de su borde) y aparece un "+" que lleva a la ficha con toda la info.
+function Mosaico({ items, fotos }) {
   return (
-    <div className={sinTexto ? 'mosaico mosaico-fotos' : 'mosaico'}>
+    <div className={fotos ? 'mosaico mosaico-fotos' : 'mosaico'}>
       {items.map((m, i) => (
-        <a key={m.href} href={m.href} className="mos-item">
+        <a key={m.href} href={m.href} className="mos-item" aria-label={fotos ? `${m.alt}: ver ficha` : undefined}>
           <span className="mos-img">
-            <img src={m.src} srcSet={m.srcSet} sizes="(max-width: 700px) 45vw, 28vw" alt={m.alt} loading={i < 6 ? 'eager' : 'lazy'} />
+            <span className="mos-marco">
+              <img src={m.src} srcSet={m.srcSet} sizes={fotos ? '(max-width: 700px) 45vw, 45vw' : '(max-width: 700px) 45vw, 28vw'} alt={m.alt} loading={i < 6 ? 'eager' : 'lazy'} />
+              {fotos && <span className="mos-mas" aria-hidden="true" />}
+            </span>
           </span>
-          <span className="mos-txt">{m.txt}</span>
+          {!fotos && <span className="mos-txt">{m.txt}</span>}
         </a>
       ))}
     </div>
@@ -236,7 +241,7 @@ function Fotos({ p }) {
     <main>
       <h1 className="tit-cat">{p.nombre}</h1>
       <Mosaico
-        sinTexto
+        fotos
         items={p.fotos.map((f, k) => ({ href: `#/p/${slug}/${k + 1}`, src: f.src, srcSet: `${f.thumb} 400w, ${f.src} 1600w`, alt: f.alt, txt: f.alt }))}
       />
     </main>
